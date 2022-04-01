@@ -26,6 +26,7 @@ jobs:
         with:
           targetPlatform: WebGL
           versioning: Semantic
+          customImage: 'unityci/editor:2020.3.32f1-webgl-1'
       - name: Push artifact
         id: push
         uses: actions/upload-artifact@v2
