@@ -25,7 +25,6 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          unityVersion: 2020.3.32f1
           versioning: Semantic
       - name: Push artifact
         id: push
