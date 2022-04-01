@@ -1,0 +1,33 @@
+name: Build game
+on:
+  push
+jobs:
+  build:
+    name: Build and push 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-BWJamEight-WebGL
+          restore-keys: |
+            Library-BWJamEight-
+            Library-
+      - name: Build
+        id: build
+        uses: game-ci/unity-builder@v2
+          env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+          with:
+            targetPlatform: WebGL
+            unityVersion: 2020.3.32f1
+            versioning: Semantic
+      - name: Push artifact
+        id: push
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build
+          path: build
