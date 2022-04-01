@@ -54,7 +54,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: StandaloneWindows64
-          customImage: 'unityci/editor:windows-2020.3.32f1-universal-windows-platform-1.0.0'
+          customImage: 'unityci/editor:ubuntu-2020.3.32f1-windows-mono-1.0.0'
       - name: Push artifact
         id: push
         uses: actions/upload-artifact@v2
