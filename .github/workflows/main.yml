@@ -61,8 +61,6 @@ jobs:
         with:
           name: Build-Windows
           path: build
-    name: Build Windows
-    runs-on: ubuntu-latest
   mac:
     name: Build Mac
     runs-on: ubuntu-latest
