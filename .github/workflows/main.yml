@@ -7,8 +7,8 @@ on:
     branches:
       - master
 jobs:
-  build:
-    name: Build and push 
+  webgl:
+    name: Build WebGL
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,9 +18,6 @@ jobs:
         with:
           path: Library
           key: Library-BWJamEight-WebGL
-          restore-keys: |
-            Library-BWJamEight-
-            Library-
       - name: Build
         id: build
         uses: game-ci/unity-builder@v2
@@ -30,11 +27,66 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: WebGL
-          versioning: Semantic
           customImage: 'unityci/editor:2020.3.32f1-webgl-1'
       - name: Push artifact
         id: push
         uses: actions/upload-artifact@v2
         with:
-          name: Build
+          name: Build-WebGL
+          path: build
+  windows:
+    name: Build Windows
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-BWJamEight-Windows
+      - name: Build
+        id: build
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneWindows64
+          customImage: 'unityci/editor:windows-2020.3.32f1-universal-windows-platform-1.0.0'
+      - name: Push artifact
+        id: push
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build-Windows
+          path: build
+    name: Build Windows
+    runs-on: ubuntu-latest
+  mac:
+    name: Build Mac
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.0.0
+      - name: Cache
+        uses: actions/cache@v2
+        with:
+          path: Library
+          key: Library-BWJamEight-Mac
+      - name: Build
+        id: build
+        uses: game-ci/unity-builder@v2
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: StandaloneOSX
+          customImage: 'unityci/editor:2020.3.32f1-mac-mono-1'
+      - name: Push artifact
+        id: push
+        uses: actions/upload-artifact@v2
+        with:
+          name: Build-Mac
           path: build
