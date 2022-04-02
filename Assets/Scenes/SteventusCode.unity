@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 649988876}
   - component: {fileID: 649988875}
   - component: {fileID: 649988874}
-  - component: {fileID: 649988873}
   - component: {fileID: 649988872}
+  - component: {fileID: 649988873}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -157,11 +157,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookSpeed: 0
   lookXLimit: 0
-  moveSpeed: 5
-  sprintSpeed: 0
+  walkingSpeed: 5
+  runningSpeed: 0
   jumpForce: 0
---- !u!136 &649988873
-CapsuleCollider:
+  canMove: 1
+--- !u!143 &649988873
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -170,9 +171,13 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  serializedVersion: 2
   m_Height: 2
-  m_Direction: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &649988874
 MeshRenderer:
@@ -231,7 +236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649988871}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.56, y: 369.594, z: -145.77}
+  m_LocalPosition: {x: 0, y: 2.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1388177813}
@@ -328,7 +333,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 699369363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 257.3241, y: 368.42563, z: -145.57222}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
