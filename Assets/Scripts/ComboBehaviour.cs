@@ -10,7 +10,7 @@ public class ComboBehaviour : MonoBehaviour
 
     [HideInInspector] public float currentCombo = 0;
     [SerializeField] float comboDecayRate;
-    private Coroutine coro_ComboDecay;
+    private Coroutine coroComboDecay;
     private bool isDecaying = false;
     
 
@@ -22,10 +22,10 @@ public class ComboBehaviour : MonoBehaviour
     void Start()
     {
         isDecaying = true;
-        coro_ComboDecay = StartCoroutine(ComboDecay());
+        coroComboDecay = StartCoroutine(ComboDecay());
     }   
 
-    public void Trigger_AddCombo(float _delta)
+    public void TriggerAddCombo(float _delta)
     {
         StartCoroutine(DelayAddCombo(_delta));
     }
@@ -40,14 +40,14 @@ public class ComboBehaviour : MonoBehaviour
         if (currentCombo >= maxCombo)
         {
             //STOP DECAY ON MAX COMBO
-            Trigger_StopDecay();
+            TriggerStopDecay();
 
             //GUARANTEE NEXT SHOT INSTANT KILL HERE
             canInstantKill = true;
         }
     }
 
-    public void Trigger_RestartDecay()
+    public void TriggerRestartDecay()
     {
         //RESET COMBO
         currentCombo = 0;
@@ -56,16 +56,16 @@ public class ComboBehaviour : MonoBehaviour
         canInstantKill = false;
 
         //RESET COROUTINE
-        if (coro_ComboDecay != null)
-            StopCoroutine(coro_ComboDecay);
+        if (coroComboDecay != null)
+            StopCoroutine(coroComboDecay);
         isDecaying = true;
-        coro_ComboDecay = StartCoroutine(ComboDecay());
+        coroComboDecay = StartCoroutine(ComboDecay());
     }
 
-    void Trigger_StopDecay()
+    void TriggerStopDecay()
     {
         isDecaying = false;
-        StopCoroutine(coro_ComboDecay);
+        StopCoroutine(coroComboDecay);
     }
     IEnumerator ComboDecay()
     {
