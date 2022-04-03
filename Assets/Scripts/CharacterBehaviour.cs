@@ -16,18 +16,36 @@ public class CharacterBehaviour : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     public float gravity = 20f;
 
+    public float maxStamina, staminaRegenRate, runningStaminaCostRate;
+    [HideInInspector] public float currentStamina;
+    bool staminaCoroActivated = false;
+    bool isRunning = false;
+
+
+    //CROUCHING
+    public float normalHeight = 2,crouchingHeight, crouchingYCenter;
+    [HideInInspector] public bool isCrouching;
+
     //PRIVATE ESSENTIALS
     Camera playerCamera;
-    
-    
-    void Start()
+
+    private void Awake()
     {
+        //MOVEMENT
         Cursor.lockState = CursorLockMode.Locked;
 
         characterController = GetComponent<CharacterController>();
         playerCamera = FindObjectOfType<Camera>().GetComponent<Camera>();
-
         canMove = true;
+        isRunning = false;
+
+        //STAMINA
+        staminaCoroActivated = true;
+        currentStamina = maxStamina;
+    }
+    void Start()
+    {      
+        StartCoroutine(coroStaminaUpdateRate());
     }
 
     void Update()
@@ -35,8 +53,35 @@ public class CharacterBehaviour : MonoBehaviour
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
-        // Press Left Shift to run
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
+
+        // Press Left Shift to run - stop running when out of stamina
+        if (Input.GetKeyDown(KeyCode.LeftShift) && currentStamina > 0)
+            isRunning = true;
+
+        else if (Input.GetKeyUp(KeyCode.LeftShift) || currentStamina <= 0)
+            isRunning = false;
+
+        //Press Left Control to crouch 
+        isCrouching = Input.GetKey(KeyCode.LeftControl);
+        switch (isCrouching)
+        {
+            case true:
+                //interrupts any attempt to run
+                isRunning = false;
+
+                characterController.height = crouchingHeight;
+                characterController.center = new Vector3(0, crouchingYCenter, 0);
+                break;
+
+            case false:
+                characterController.height = normalHeight;
+                characterController.center = new Vector3(0, 0, 0);
+                break;
+        }
+
+
+           
+
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
@@ -69,6 +114,33 @@ public class CharacterBehaviour : MonoBehaviour
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+        }        
+    }
+
+    IEnumerator coroStaminaUpdateRate()
+    {
+        while (staminaCoroActivated)
+        {
+            float _delta;
+            switch (isRunning)
+            {
+                case true:
+                    //If pressed Shift key (sprint key) but not moving, do not consume stamina - instead, regenerate stamina as if standing still
+                    if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
+                        _delta = -runningStaminaCostRate;
+
+                    else _delta = staminaRegenRate;
+                    break;
+
+                case false:
+                    _delta = staminaRegenRate;
+                    break;
+            }
+
+            currentStamina += _delta * Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); 
+
+            yield return new WaitForEndOfFrame();
         }
     }
 }

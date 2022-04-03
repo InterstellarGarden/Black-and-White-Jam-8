@@ -109,8 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 311bf14d03a04a64aad2bb401fc5b525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletType: 1
-  selfDestructTime: 1
+  thisBullet: 2
+  selfDestructTimeInSeconds: 1
 --- !u!54 &-5684607290652738690
 Rigidbody:
   m_ObjectHideFlags: 0
