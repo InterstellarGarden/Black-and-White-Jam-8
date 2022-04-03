@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class EntityBehaviour : MonoBehaviour
 {
-    public bulletWeakness thisWeakness;
-    public enum bulletWeakness
-    {
-        bullet1 = 1,
-        bullet2 = 2
-    }
+    [SerializeField] private int enemyType;
+
     [SerializeField] private int health;
     
 
-    public void TriggerTakeDamage(int _bulletType)
+    public void Trigger_TakeDamage(int _bulletType)
     {
         //TAKE DAMAGE
-        if (_bulletType == (int)thisWeakness)
-            TriggerInstantKill();
+        if (_bulletType == enemyType)
+            Trigger_InstantKill();
 
         else health--;
 
@@ -29,9 +25,10 @@ public class EntityBehaviour : MonoBehaviour
         {
             //TAKING HIT ANIMATION AND SOUND CAN BE INSERTED HERE
         }
+
     }
 
-    public void TriggerInstantKill()
+    public void Trigger_InstantKill()
     {
         Death();
     }
@@ -39,7 +36,8 @@ public class EntityBehaviour : MonoBehaviour
     void Death()
     {
         //ADD COMBO
-        FindObjectOfType<ComboBehaviour>().TriggerAddCombo(1);
+        FindObjectOfType<ComboBehaviour>().Trigger_AddCombo(1);
+
 
         //DEATH ANIMATION AND SOUND CAN BE INSERTED HERE
 

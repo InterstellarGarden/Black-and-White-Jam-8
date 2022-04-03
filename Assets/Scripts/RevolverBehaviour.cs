@@ -32,7 +32,7 @@ public class RevolverBehaviour : MonoBehaviour
         {
             #region Firing and Combo
             //PREPARE DATA FROM BULLET ABOUT TO BE FIRED
-            int _currentType = (int)desiredBullet.GetComponent<BulletBehaviour>().thisBullet;
+            int _currentType = desiredBullet.GetComponent<BulletBehaviour>().bulletType;
 
             //RAYCAST FROM CENTER OF SCREEN ONWARDS
             Vector3 _screenCenter = Camera.main.ViewportToWorldPoint(new Vector3(0.5f,0.5f,0));
@@ -44,32 +44,32 @@ public class RevolverBehaviour : MonoBehaviour
                 {
                     //CHECK FOR INSTANT KILL
                     if (thisCombo.canInstantKill)
-                        _enemy.TriggerInstantKill();
+                        _enemy.Trigger_InstantKill();
                     else
-                        _enemy.TriggerTakeDamage(_currentType);
+                        _enemy.Trigger_TakeDamage(_currentType);
                 }
 
 
             //RESET COMBO REGARDLESS OF HITTING OR MISSING
             if (thisCombo.canInstantKill)
-                thisCombo.TriggerRestartDecay();
+                thisCombo.Trigger_RestartDecay();
             #endregion
 
             //SPAWN BULLET - VISUAL ONLY
-            TriggerSpawnBullet();
+            Trigger_SpawnBullet();
 
             //NEXT BULLET ON CHAMBER
-            TriggerNextBullet();
+            Trigger_NextBullet();
         }
     }
 
-    void TriggerSpawnBullet()
+    void Trigger_SpawnBullet()
     {
         GameObject _bulletClone = Instantiate(desiredBullet, bulletspawn.position, Quaternion.identity, null);
         _bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
     }
 
-    void TriggerNextBullet()
+    void Trigger_NextBullet()
     {        
         bullets.Add(desiredBullet);
         bullets.RemoveAt(0);        
