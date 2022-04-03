@@ -51,6 +51,14 @@ jobs:
         with:
           targetPlatform: StandaloneWindows64
           customImage: 'unityci/editor:ubuntu-2020.3.32f1-windows-mono-1.0.0'
+          versioning: Semantic
+      - name: Save version
+        run: echo '${{ steps.build.outputs.buildVersion }}' > version.txt
+      - name: Push version
+        uses: actions/upload-artifact@v2
+        with:
+          name: version.txt
+          path: ./version.txt
       - name: Push artifact
         id: push
         uses: actions/upload-artifact@v2
@@ -84,3 +92,25 @@ jobs:
         with:
           name: Build-Mac
           path: build
+  makerelease:
+    name: Make Release if on Master
+    runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+    needs:
+      - webgl
+      - windows
+      - mac
+    steps:
+      - name: Download version
+        uses: actions/download-artifact@v3
+        with:
+          name: version.txt
+      - name: Save version as variable
+        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
+      - name: Make release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION }}
+          name: Build ${{ env.VERSION }}
+          body: |
+            Builds downloadable here: https://github.com/InterstellarGarden/Black-and-White-Jam-8/actions/runs/${{ github.run_id }}
