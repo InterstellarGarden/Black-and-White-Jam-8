@@ -93,16 +93,16 @@ jobs:
       - windows
       - mac
     steps:
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.run_number }}
-          release_name: Build ${{ github.run_number }}
-          draft: false
-          prerelease: false
+#       - name: Create Release
+#         id: create_release
+#         uses: actions/create-release@v1
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         with:
+#           tag_name: ${{ github.run_number }}
+#           release_name: Build ${{ github.run_number }}
+#           draft: false
+#           prerelease: false
       - name: Download WebGL build
         uses: actions/download-artifact@v3
         with:
@@ -115,6 +115,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Build-Mac
+      - run: ls -lashrt
+      - run: pwd
       - name: Upload WebGL Release Asset
         id: upload-release-asset-webgl
         uses: actions/upload-release-asset@v1
