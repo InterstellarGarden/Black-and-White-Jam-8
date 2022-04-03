@@ -119,18 +119,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: Build-Mac
-      - name: Zip WebGL
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r webgl.zip WebGL
-      - name: Zip Windows
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r windows.zip StandaloneWindows64
-      - name: Zip Mac
-        uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r mac.zip StandaloneOSX
+      - name: Tar WebGL
+        run: tar -cf webgl.tar WebGL
+      - name: Tar Windows
+        run: tar -cf windows.tar StandaloneWindows64
       - name: Remove version file
         run: rm -f ./version.txt
       - name: Make release
@@ -139,7 +131,6 @@ jobs:
           tag_name: ${{ env.VERSION }}
           name: Build ${{ env.VERSION }}
           files: |
-            webgl.zip
-            windows.zip
-            mac.zip
-
+            webgl.tar
+            windows.tar
+            StandaloneOSX/*
