@@ -119,7 +119,7 @@ jobs:
           name: Build-Mac
           path: artifacts/mac
       - name: Upload WebGL Release Asset
-        id: upload-release-asset
+        id: upload-release-asset-webgl
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -129,7 +129,7 @@ jobs:
           asset_name: webgl.zip
           asset_content_type: application/zip
       - name: Upload Windows Release Asset
-        id: upload-release-asset
+        id: upload-release-asset-windows
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -139,7 +139,7 @@ jobs:
           asset_name: windows.zip
           asset_content_type: application/zip
       - name: Upload Mac Release Asset
-        id: upload-release-asset
+        id: upload-release-asset-mac
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
