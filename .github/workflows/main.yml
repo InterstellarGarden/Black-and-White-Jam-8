@@ -124,7 +124,4 @@ jobs:
         with:
           tag_name: ${{ env.VERSION }}
           name: Build ${{ env.VERSION }}
-          files: |
-            WebGL
-            StandaloneWindows64
-            StandaloneOSX
+          files: ./*
