@@ -267,9 +267,10 @@ GameObject:
   m_Component:
   - component: {fileID: 115638324}
   - component: {fileID: 115638323}
+  - component: {fileID: 115638325}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,6 +301,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &115638325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 115638322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36a4ed78eb2437745b732583aac6908d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carriagePrefabs:
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
+  - {fileID: 8206530127152989350, guid: e0101378a09cf9f40ac4e664f75623b9, type: 3}
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
+  - {fileID: 8206530127152989350, guid: e0101378a09cf9f40ac4e664f75623b9, type: 3}
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
+  spawnedCarriages: []
+  currentCarriage: {fileID: 0}
+  oldCarriage: {fileID: 0}
+  firstSpawn: {fileID: 1172120838}
+  nextSpawnPos: {fileID: 0}
+  prevSpawnPos: {fileID: 0}
+  isAtFrontEnd: 0
+  isAtBackEnd: 0
 --- !u!1 &289484902
 GameObject:
   m_ObjectHideFlags: 0
@@ -794,7 +822,7 @@ GameObject:
   - component: {fileID: 649988878}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -936,6 +964,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fcaffdd9824e234ca6873313e459c2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxCombo: 0
+  canInstantKill: 0
+  currentCombo: 0
+  comboDecayRate: 0
 --- !u!1 &699369363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1525,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1172120837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1172120838}
+  m_Layer: 0
+  m_Name: FIrstSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1172120838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172120837}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 95.5, y: 0, z: -2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294920265
 GameObject:
