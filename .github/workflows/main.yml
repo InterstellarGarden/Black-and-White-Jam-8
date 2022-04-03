@@ -107,30 +107,10 @@ jobs:
           name: version.txt
       - name: Save version as variable
         run: echo "VERSION=$(cat version.txt)" >> $GITHUB_ENV
-      - name: Download WebGL build
-        uses: actions/download-artifact@v3
-        with:
-          name: Build-WebGL
-      - name: Download Windows build
-        uses: actions/download-artifact@v3
-        with:
-          name: Build-Windows
-      - name: Download Mac build
-        uses: actions/download-artifact@v3
-        with:
-          name: Build-Mac
-      - name: Tar WebGL
-        run: tar -cf webgl.tar WebGL
-      - name: Tar Windows
-        run: tar -cf windows.tar StandaloneWindows64
-      - name: Remove version file
-        run: rm -f ./version.txt
       - name: Make release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ env.VERSION }}
           name: Build ${{ env.VERSION }}
-          files: |
-            webgl.tar
-            windows.tar
-            StandaloneOSX/*
+          body: |
+            Builds downloadable here: https://github.com/InterstellarGarden/Black-and-White-Jam-8/actions/runs/${{ github.run_id }}
