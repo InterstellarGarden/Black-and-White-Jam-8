@@ -14,6 +14,7 @@ public class CharacterBehaviour : MonoBehaviour
     public float runningSpeed, jumpForce;
     public bool canMove = true;
     Vector3 moveDirection = Vector3.zero;
+    public float gravity = 20f;
 
     //PRIVATE ESSENTIALS
     Camera playerCamera;
@@ -55,7 +56,7 @@ public class CharacterBehaviour : MonoBehaviour
         // as an acceleration (ms^-2)
         if (!characterController.isGrounded)
         {
-            moveDirection.y -= 20 * Time.deltaTime;
+            moveDirection.y -= gravity * Time.deltaTime;
         }
 
         // Move the controller
@@ -70,6 +71,4 @@ public class CharacterBehaviour : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }
     }
-
-
 }

@@ -15,15 +15,9 @@ public class UIManager : MonoBehaviour
         //ASSIGN POINTERS
         thisCombo = FindObjectOfType<ComboBehaviour>();
 
-
         //POINTER PROPERTIES
         ui_combo.maxValue = thisCombo.maxCombo;
         ui_combo.value = 0;
-    }
-
-    void Start()
-    {
-        
     }
 
     void Update()

@@ -23,7 +23,7 @@ public class CarriageData : MonoBehaviour
         carriageId = _id;
     }
 
-    public void Update_CarriageState(bool _isInCombat)
+    public void UpdateCarriageState(bool _isInCombat)
     {
         entryDoor.SetActive(_isInCombat);
         exitDoor.SetActive(_isInCombat);
@@ -36,7 +36,7 @@ public class CarriageData : MonoBehaviour
             //Debug.Log("Detected Player");
 
             //EFFECTS ON ENTERING NEW CARRIAGE
-            thisManager.Update_currentCarriage(this);
+            thisManager.UpdateCurrentCarriage(this);
         }
     }
 }

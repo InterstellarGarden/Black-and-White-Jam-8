@@ -315,9 +315,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carriagePrefabs:
   - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
-  - {fileID: 8206530127152989350, guid: e0101378a09cf9f40ac4e664f75623b9, type: 3}
   - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
-  - {fileID: 8206530127152989350, guid: e0101378a09cf9f40ac4e664f75623b9, type: 3}
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
+  - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
   - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
   - {fileID: 1028787341475897547, guid: 21903cb7e708fea45be16ffcdb980068, type: 3}
   spawnedCarriages: []
@@ -326,8 +326,6 @@ MonoBehaviour:
   firstSpawn: {fileID: 1172120838}
   nextSpawnPos: {fileID: 0}
   prevSpawnPos: {fileID: 0}
-  isAtFrontEnd: 0
-  isAtBackEnd: 0
 --- !u!1 &289484902
 GameObject:
   m_ObjectHideFlags: 0

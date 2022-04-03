@@ -62,7 +62,7 @@ public class CarriageManager : MonoBehaviour
         prevSpawnPos = spawnedCarriages[0].gameObject.transform;
 
     }
-    public void Update_currentCarriage(CarriageData _current)
+    public void UpdateCurrentCarriage(CarriageData _current)
     {
         currentCarriage = _current;
         Debug.Log("current: " + currentCarriage.carriageId + ". old: " + oldCarriage.carriageId);
@@ -88,7 +88,7 @@ public class CarriageManager : MonoBehaviour
 
 
             
-            Debug.Log("attempt move");
+            //Debug.Log("attempt move");
         }
 
 
@@ -119,7 +119,7 @@ public class CarriageManager : MonoBehaviour
 
             
 
-            Debug.Log("attempt move back");
+            //Debug.Log("attempt move back");
         }
 
         

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class BulletBehaviour : MonoBehaviour
 {
-    public int bulletType;
+    public bulletType thisBullet;
+    public enum bulletType
+    {
+        bullet1 = 1,
+        bullet2 = 2
+    }
 
-    [SerializeField] private float selfDestructTime = 1;
+
+    [SerializeField] private float selfDestructTimeInSeconds = 1;
 
     private void Start()
     {
@@ -14,7 +20,7 @@ public class BulletBehaviour : MonoBehaviour
     }
     IEnumerator SelfDestruct()
     {
-        yield return new WaitForSeconds(selfDestructTime);
+        yield return new WaitForSeconds(selfDestructTimeInSeconds);
         Destroy(gameObject);
     }
 
