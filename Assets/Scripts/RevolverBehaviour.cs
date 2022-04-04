@@ -8,11 +8,13 @@ public class RevolverBehaviour : MonoBehaviour
     private ComboBehaviour thisCombo;
 
 
-    public List<GameObject> bullets;
+     public List<GameObject> bullets;
+    public List<GameObject> bulletPrefabs;
     public Transform bulletspawn;
     GameObject desiredBullet;
-    
 
+    public bool hasTemporaryBullet;
+        
     //VISUAL
     public float bulletSpeed = 60;
 
@@ -22,6 +24,8 @@ public class RevolverBehaviour : MonoBehaviour
     void Awake()
     {
         thisCombo = GetComponent<ComboBehaviour>();
+
+        hasTemporaryBullet = false;
     }
 
     void Update()
@@ -49,6 +53,17 @@ public class RevolverBehaviour : MonoBehaviour
                         _enemy.TriggerTakeDamage(_currentType);
                 }
 
+            else if (_hitInfo.collider.TryGetComponent(out DestructibleBehaviour _destructible))
+                {
+                    //CHECK FOR INSTANT KILL
+                    if (thisCombo.canInstantKill)
+                        _destructible.TriggerInstantKill();
+                    else
+                        _destructible.TriggerTakeDamage(_currentType);
+                }
+
+                else Debug.Log("Error targetting entity");
+
 
             //RESET COMBO REGARDLESS OF HITTING OR MISSING
             if (thisCombo.canInstantKill)
@@ -71,8 +86,34 @@ public class RevolverBehaviour : MonoBehaviour
 
     void TriggerNextBullet()
     {        
-        bullets.Add(desiredBullet);
-        bullets.RemoveAt(0);        
+        if (hasTemporaryBullet)
+        {            
+            hasTemporaryBullet = false;
+            FindObjectOfType<dump_BulletUI>().removeTempBullet();
+        }
+
+        bullets.RemoveAt(0);
+        if (bullets.Count <= 0)
+            TriggerReloadChamber();
     }
 
+    void TriggerReloadChamber()
+    {
+        for (int n = 0; n < 6; n++)
+        {
+            bullets.Add(bulletPrefabs[Random.Range(0, bulletPrefabs.Count)]);
+        }
+    }
+    public void TriggerPickUpBullet(int _bulletType)
+    {
+        GameObject _pickedUpBullet = bulletPrefabs[_bulletType];
+
+        if (hasTemporaryBullet)
+            bullets[0] = _pickedUpBullet; //Replace top, temporary bullet with new temporary bullet
+
+        else
+            bullets.Insert(0, _pickedUpBullet); //Add a temporary bullet on top of list of permanent bullets
+
+        hasTemporaryBullet = true;
+    }
 }

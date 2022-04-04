@@ -11,11 +11,17 @@ public class CarriageData : MonoBehaviour
 
     private BoxCollider playerDetect;
     private CarriageManager thisManager;
+    [HideInInspector] public List<Transform> enemySpawners;
 
     private void Awake()
     {
         playerDetect = GetComponent<BoxCollider>();
         thisManager = FindObjectOfType<CarriageManager>();
+
+        enemySpawners = new List<Transform>();
+        foreach (Transform _child in transform)
+            if (_child.TryGetComponent(out EnemySpawner _spawner))
+                enemySpawners.Add(_spawner.transform);
     }
 
     public void InitialiseId(int _id)
@@ -33,8 +39,6 @@ public class CarriageData : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Detected Player");
-
             //EFFECTS ON ENTERING NEW CARRIAGE
             thisManager.UpdateCurrentCarriage(this);
         }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EntityBehaviour : MonoBehaviour
 {
     public bulletWeakness thisWeakness;
+
     public enum bulletWeakness
     {
         bullet1 = 1,
@@ -36,10 +37,17 @@ public class EntityBehaviour : MonoBehaviour
         Death();
     }
 
-    void Death()
+    public virtual void Death()
     {
         //ADD COMBO
         FindObjectOfType<ComboBehaviour>().TriggerAddCombo(1);
+
+        //CHECK FOR END OF COMBAT
+        FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject);
+
+        //CHANCE TO DROP BULLET
+        GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
+        Instantiate(_prefab, transform.position, Quaternion.identity);
 
         //DEATH ANIMATION AND SOUND CAN BE INSERTED HERE
 
