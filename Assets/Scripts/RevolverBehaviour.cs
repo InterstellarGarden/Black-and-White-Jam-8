@@ -6,11 +6,11 @@ public class RevolverBehaviour : MonoBehaviour
 {
     //ESSENTIALS
     private ComboBehaviour thisCombo;
-
+    CharacterBehaviour thisPlayer;
 
      public List<GameObject> bullets;
     public List<GameObject> bulletPrefabs;
-    public Transform bulletspawn;
+    public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
 
     public bool hasTemporaryBullet;
@@ -24,6 +24,7 @@ public class RevolverBehaviour : MonoBehaviour
     void Awake()
     {
         thisCombo = GetComponent<ComboBehaviour>();
+        thisPlayer = GetComponent<CharacterBehaviour>();
 
         hasTemporaryBullet = false;
     }
@@ -80,7 +81,18 @@ public class RevolverBehaviour : MonoBehaviour
 
     void TriggerSpawnBullet()
     {
-        GameObject _bulletClone = Instantiate(desiredBullet, bulletspawn.position, Quaternion.identity, null);
+        Vector3 _desiredPosition;
+        switch (thisPlayer.isCrouching)
+        {
+            case true:
+                _desiredPosition = crouchingBulletSpawn.transform.position;
+                break;
+            case false:
+                _desiredPosition = bulletspawn.transform.position;
+                break;
+        }
+
+        GameObject _bulletClone = Instantiate(desiredBullet, _desiredPosition, Quaternion.identity, null);
         _bulletClone.GetComponent<Rigidbody>().velocity = Camera.main.transform.forward * bulletSpeed;
     }
 
