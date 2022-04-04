@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarriageManager : MonoBehaviour
 {
+    public bool debugRunManager;
+
     public List<GameObject> carriagePrefabs;
 
     private List<GameObject> carriagesToSpawn;
@@ -20,7 +22,7 @@ public class CarriageManager : MonoBehaviour
     }
     private void Start()
     {
-        InitialiseCarriages();
+            InitialiseCarriages();
     }
 
     private void InitialiseCarriages()
