@@ -57,6 +57,10 @@ public class CharacterBehaviour : MonoBehaviour
 
     void Update()
     {
+        //Debug code - to be removed at end
+        if (Input.GetKeyDown(KeyCode.O))
+            TriggerTakeDamage(1);
+
         if (GameManager.playerIsDead)
             return;
 
@@ -134,7 +138,7 @@ public class CharacterBehaviour : MonoBehaviour
     }
     public void GameOver()
     {
-
+        StopAllCoroutines();
     }
     IEnumerator coroStaminaUpdateRate()
     {

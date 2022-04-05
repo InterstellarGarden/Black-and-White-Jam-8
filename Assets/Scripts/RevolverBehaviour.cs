@@ -31,6 +31,9 @@ public class RevolverBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.playerIsDead)
+            return;
+
         desiredBullet = bullets[0];
 
         if (Input.GetKeyDown(KeyCode.Mouse0))

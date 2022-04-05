@@ -225,6 +225,7 @@ MonoBehaviour:
   crouchingHeight: 1.5
   crouchingYCenter: -0.25
   isCrouching: 0
+  maxHealth: 5
 --- !u!114 &3282293406018627972
 MonoBehaviour:
   m_ObjectHideFlags: 0
