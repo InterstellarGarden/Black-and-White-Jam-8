@@ -58,7 +58,11 @@ public class CombatManager : MonoBehaviour
         {
             activeEnemies.Remove(_enemyToRemove);
             if (activeEnemies.Count <= 0)
+            {
+                //Algorithm can be added here to roll for additional enemy reinforcements
+
                 EndCombat();
+            }
         }
 
         else
@@ -73,6 +77,12 @@ public class CombatManager : MonoBehaviour
         currentCarriage.UpdateCarriageState(false);
         spawnPositions.Clear();
         chosenSpawnPositions.Clear();
+
+        //Roll for chance to spawn powerups or pickups
     }
 
+    void TriggerSpawnPickUp()
+    {
+
+    }
 }

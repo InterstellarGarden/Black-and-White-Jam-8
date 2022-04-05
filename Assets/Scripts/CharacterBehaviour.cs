@@ -26,6 +26,9 @@ public class CharacterBehaviour : MonoBehaviour
     public float normalHeight = 2,crouchingHeight, crouchingYCenter;
     [HideInInspector] public bool isCrouching;
 
+    //POWERUPS
+    bool powerUpSpeedUp, powerUpFastFire = false;
+
     //DEATH
     public int maxHealth;
     private int health;
@@ -135,6 +138,20 @@ public class CharacterBehaviour : MonoBehaviour
         health -= _damage;
         if (health <= 0)
             GameManager.instance.GameOver();
+    }
+    public void TriggerPowerUp(int _choice)
+    {
+        switch (_choice)
+        {
+            case (int)TemporaryPickUp.types.tnt:
+                break;
+
+            case (int)TemporaryPickUp.types.speedUp:
+                break;
+
+            case (int)TemporaryPickUp.types.fastFire:
+                break;
+        }
     }
     public void GameOver()
     {

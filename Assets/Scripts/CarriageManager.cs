@@ -18,12 +18,17 @@ public class CarriageManager : MonoBehaviour
     //COMBAT
     CombatManager thisCombatManager;
 
+    //TNT
+    public static bool playerHasTnt = false;
+
     //LOOP
     public static int loopsCompleted;
 
     private void Awake()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
+        playerHasTnt = false;
+        loopsCompleted = 0;
     }
     private void Start()
     {
