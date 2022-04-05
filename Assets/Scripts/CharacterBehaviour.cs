@@ -26,6 +26,10 @@ public class CharacterBehaviour : MonoBehaviour
     public float normalHeight = 2,crouchingHeight, crouchingYCenter;
     [HideInInspector] public bool isCrouching;
 
+    //DEATH
+    public int maxHealth;
+    private int health;
+
     //PRIVATE ESSENTIALS
     Camera playerCamera;
 
@@ -42,6 +46,9 @@ public class CharacterBehaviour : MonoBehaviour
         //STAMINA
         staminaCoroActivated = true;
         currentStamina = maxStamina;
+
+        //HEALTH
+        health = maxHealth;
     }
     void Start()
     {      
@@ -50,6 +57,9 @@ public class CharacterBehaviour : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.playerIsDead)
+            return;
+
         // We are grounded, so recalculate move direction based on axes
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
@@ -116,7 +126,16 @@ public class CharacterBehaviour : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
         }        
     }
+    public void TriggerTakeDamage(int _damage)
+    {
+        health -= _damage;
+        if (health <= 0)
+            GameManager.instance.GameOver();
+    }
+    public void GameOver()
+    {
 
+    }
     IEnumerator coroStaminaUpdateRate()
     {
         while (staminaCoroActivated)

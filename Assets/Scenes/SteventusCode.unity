@@ -406,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 2
+  maxHealth: 0
   health: 3
 --- !u!65 &989588224
 BoxCollider:
@@ -516,6 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 1
+  maxHealth: 0
   health: 3
 --- !u!65 &1033786535
 BoxCollider:
@@ -722,6 +724,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 1
+  maxHealth: 0
   health: 3
 --- !u!65 &1335455154
 BoxCollider:
@@ -832,6 +835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 2
+  maxHealth: 0
   health: 3
 --- !u!65 &1695057531
 BoxCollider:
@@ -942,6 +946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 1
+  maxHealth: 0
   health: 3
 --- !u!65 &1729827811
 BoxCollider:
@@ -1037,6 +1042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 1
+  maxHealth: 0
   health: 2
 --- !u!1001 &1953996463058177560
 PrefabInstance:

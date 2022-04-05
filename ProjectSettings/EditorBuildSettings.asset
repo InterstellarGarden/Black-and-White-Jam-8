@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SteventusCode.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: d138cfe3b69452c4e8c97fda07d341a4
+  - enabled: 1
     path: Assets/Scenes/GreyBox.unity
     guid: 2545a547659508545bc581c266e9b215
   m_configObjects: {}
