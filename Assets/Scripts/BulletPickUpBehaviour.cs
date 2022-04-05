@@ -19,10 +19,10 @@ public class BulletPickUpBehaviour : PickUP
         switch (_selected)
         {
             case 1:
-                _bulletType = (int)BulletBehaviour.bulletType.bullet1;
+                _bulletType = (int)BulletBehaviour.bulletType.normal;
                 break;
             case 2:
-                _bulletType = (int)BulletBehaviour.bulletType.bullet2;
+                _bulletType = (int)BulletBehaviour.bulletType.fire;
                 break;
         }
         //Convert human-friendly bulletType names into programming-friendly index (For Lists and correct pointers)

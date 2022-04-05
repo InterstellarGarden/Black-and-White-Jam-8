@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class EntityBehaviour : MonoBehaviour
 {
-    public bulletWeakness thisWeakness;
-
-    public enum bulletWeakness
-    {
-        bullet1 = 1,
-        bullet2 = 2
-    }
-    [SerializeField] private int health;
-    
+    public BulletBehaviour.bulletType thisWeakness;
+    [SerializeField] private int health;   
 
     public void TriggerTakeDamage(int _bulletType)
     {

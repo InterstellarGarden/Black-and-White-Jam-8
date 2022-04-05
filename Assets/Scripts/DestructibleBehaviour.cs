@@ -12,9 +12,14 @@ public class DestructibleBehaviour : EntityBehaviour
     }
     public override void Death()
     {
+        //Baby legs will have Fixedjoint. If this is attached onto baby legs as child, run these lines
         if (transform.GetComponentInParent<FixedJoint>() != null)
         {
+            //Seperate crate from babylegs to prevent babylegs from clipping through ground.
             Destroy(transform.GetComponentInParent<FixedJoint>());
+
+            //To Mike: Trigger Babylegs startled from here(?)
+
         }
 
         thisBreak.Break();
