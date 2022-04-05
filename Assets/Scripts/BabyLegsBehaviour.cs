@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BabyLegsBehaviour : EntityBehaviour
+public class BabyLegsBehaviour : EnemyBehaviour
 {
     [SerializeField]
     private GameObject crate;

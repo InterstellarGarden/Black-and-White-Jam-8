@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 395755183875757422}
   - component: {fileID: 395755183875757421}
-  - component: {fileID: 395755183875757409}
   - component: {fileID: 395755183875757416}
   - component: {fileID: 395755183875757417}
   - component: {fileID: 395755183875757415}
   - component: {fileID: 5084771786511074471}
+  - component: {fileID: 6611206770340190012}
   m_Layer: 0
   m_Name: Reggie
   m_TagString: Untagged
@@ -49,20 +49,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2812853, y: 2.9229429, z: 1}
   m_Center: {x: 0.21571875, y: -0.2825196, z: 0}
---- !u!114 &395755183875757409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395755183875757418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a1d40d4b6c6a4247afc5402c95e37a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisWeakness: 1
-  health: 3
 --- !u!212 &395755183875757416
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -161,3 +147,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &6611206770340190012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395755183875757418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482d41fa4dd78bb4d8a7f953df246510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeakness: 1
+  maxHealth: 3
+  health: 0

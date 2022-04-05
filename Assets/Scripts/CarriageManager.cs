@@ -8,16 +8,19 @@ public class CarriageManager : MonoBehaviour
 
     public List<GameObject> carriagePrefabs;
 
+    //SPAWNING
     private List<GameObject> carriagesToSpawn;
     [SerializeField] private List<GameObject> spawnedCarriages;
     [SerializeField] private CarriageData currentCarriage, oldCarriage;
-
-    //SPAWNING
     [SerializeField] private Transform firstSpawn;
     [SerializeField] private Transform nextSpawnPos,prevSpawnPos;
 
     //COMBAT
     CombatManager thisCombatManager;
+
+    //LOOP
+    public static int loopsCompleted;
+
     private void Awake()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
@@ -136,7 +139,10 @@ public class CarriageManager : MonoBehaviour
         //SET TO OLD CARRIAGE FOR COMPARISON WHEN ENTERING NEW CARRIAGE
         oldCarriage = currentCarriage;
     }
-
+    public void UpdateIncreaseLoop()
+    {
+        loopsCompleted++;
+    }
     private void OnDrawGizmos()
     {
         if (nextSpawnPos != null)

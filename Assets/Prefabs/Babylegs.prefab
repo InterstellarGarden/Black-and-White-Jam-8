@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 2
-  health: 2
+  maxHealth: 2
   crate: {fileID: 5916491545515599491}
 --- !u!1001 &7004292104785895496
 PrefabInstance:

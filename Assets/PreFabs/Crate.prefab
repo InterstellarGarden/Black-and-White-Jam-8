@@ -7116,4 +7116,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 2
-  health: 2
+  maxHealth: 2

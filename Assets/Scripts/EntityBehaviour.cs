@@ -5,8 +5,12 @@ using UnityEngine;
 public class EntityBehaviour : MonoBehaviour
 {
     public BulletBehaviour.bulletType thisWeakness;
-    [SerializeField] private int health;   
-
+    [SerializeField] protected int maxHealth;
+    [SerializeField] private int health;
+    protected virtual void Awake()
+    {
+        health = maxHealth;
+    }
     public void TriggerTakeDamage(int _bulletType)
     {
         //TAKE DAMAGE
