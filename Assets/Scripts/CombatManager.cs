@@ -52,7 +52,7 @@ public class CombatManager : MonoBehaviour
             activeEnemies.Add(_spawnedEnemy);
         }
     }
-    public void CheckForEndCombat(GameObject _enemyToRemove)
+    public bool CheckForEndCombat(GameObject _enemyToRemove)
     {
         if (activeEnemies.Contains(_enemyToRemove))
         {
@@ -62,13 +62,16 @@ public class CombatManager : MonoBehaviour
                 //Algorithm can be added here to roll for additional enemy reinforcements
 
                 EndCombat();
+                return true;
             }
-        }
 
+            else return false;
+        }
         else
         {
-            Debug.Log("Error, enemy is not considered as part of active enemy.");
-            return;
+
+            Debug.Log("Error, enemy is not considered as part of active enemy.");            
+            return false;
         }
     }
     void EndCombat()
@@ -81,8 +84,9 @@ public class CombatManager : MonoBehaviour
         //Roll for chance to spawn powerups or pickups
     }
 
-    void TriggerSpawnPickUp()
+    public void TriggerSpawnPickUp(Vector3 _position)
     {
-
+        GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
+        Instantiate(_prefab, transform.position, Quaternion.identity);
     }
 }

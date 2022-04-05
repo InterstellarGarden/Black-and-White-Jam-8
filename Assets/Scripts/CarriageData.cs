@@ -15,6 +15,7 @@ public class CarriageData : MonoBehaviour
 
     public enum SpecialCarriageExceptions
     {
+        No = 0,
         Furnace = 1,
         Vault = 2
     }

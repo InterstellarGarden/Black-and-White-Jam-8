@@ -39,12 +39,19 @@ public class EntityBehaviour : MonoBehaviour
         //ADD COMBO
         FindObjectOfType<ComboBehaviour>().TriggerAddCombo(1);
 
-        //CHECK FOR END OF COMBAT
-        FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject);
+        //CHECK FOR END OF COMBAT - Spawn pick ups at end of carriage
+        if (FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject))
+        {
+            GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
+            Instantiate(_prefab, transform.position, Quaternion.identity);
+        }
 
         //CHANCE TO DROP BULLET
-        GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
-        Instantiate(_prefab, transform.position, Quaternion.identity);
+        else
+        {
+            GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
+            Instantiate(_prefab, transform.position, Quaternion.identity);
+        }
 
         //DEATH ANIMATION AND SOUND CAN BE INSERTED HERE
 

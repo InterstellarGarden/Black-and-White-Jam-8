@@ -144,12 +144,22 @@ public class CharacterBehaviour : MonoBehaviour
         switch (_choice)
         {
             case (int)TemporaryPickUp.types.tnt:
+                Debug.Log("obtained tnt");
+
                 break;
 
             case (int)TemporaryPickUp.types.speedUp:
+                Debug.Log("obtained speedup");
+
                 break;
 
             case (int)TemporaryPickUp.types.fastFire:
+                Debug.Log("obtained fastfire");
+
+                break;
+
+            case (int)TemporaryPickUp.types.health:
+                Debug.Log("obtained health");
                 break;
         }
     }
