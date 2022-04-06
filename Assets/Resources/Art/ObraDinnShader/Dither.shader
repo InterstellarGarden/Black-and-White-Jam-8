@@ -128,7 +128,7 @@ Shader "Effects/Dither"
 
 			float ditherLum = (col.a < 0.5) ? cubeProject(_Noise, _Noise_TexelSize.xy, dir) : cubeProject(_Dither, _Dither_TexelSize.xy, dir);
 
-			float2 edgeData = edge(i.uv.xy, _MainTex_TexelSize.xy * 2.0f); //hazel
+			float2 edgeData = edge(i.uv.xy, _MainTex_TexelSize.xy * 1.0f); // Set outline width
             lum = (edgeData.y < _Threshold) ? lum : ((edgeData.x < 0.1f) ? 1.0f : 0.0f);
 
 			float ramp = (lum <= clamp(ditherLum, 0.1f, 0.9f)) ? 0.1f : 0.9f;
