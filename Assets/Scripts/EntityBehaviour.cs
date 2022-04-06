@@ -43,6 +43,12 @@ public class EntityBehaviour : MonoBehaviour
         if (FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject))
         {
             GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
+
+            if (FindObjectOfType<CombatManager>().currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Furnace)
+                _prefab.GetComponent<TemporaryPickUp>().isTnt = true;
+
+            else _prefab.GetComponent<TemporaryPickUp>().isTnt = false;
+
             Instantiate(_prefab, transform.position, Quaternion.identity);
         }
 

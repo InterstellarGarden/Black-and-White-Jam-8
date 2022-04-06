@@ -6,8 +6,9 @@ public class DestructibleBehaviour : EntityBehaviour
 {
     private Breakable thisBreak;
     private EntityBehaviour BabyLegs;
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         thisBreak = GetComponentInParent<Breakable>();
     }
     public override void Death()
