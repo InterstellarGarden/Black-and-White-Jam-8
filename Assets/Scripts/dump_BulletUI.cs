@@ -15,9 +15,19 @@ public class dump_BulletUI : MonoBehaviour
 
     void Update()
     {
+        for (int i = 0; i <= 6 - 1; i++)
+        {
+            texts[i].text = "";
+        }
+
         for (int i = 0; i <= playerRevolver.bullets.Count - 1; i++)
         {
             texts[i].text = playerRevolver.bullets[i].name;
         }
+    }
+
+    public void removeTempBullet()
+    {
+        texts[6].text = "";
     }
 }

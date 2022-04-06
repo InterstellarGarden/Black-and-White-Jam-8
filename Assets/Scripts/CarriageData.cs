@@ -11,11 +11,25 @@ public class CarriageData : MonoBehaviour
 
     private BoxCollider playerDetect;
     private CarriageManager thisManager;
+    [HideInInspector] public List<Transform> enemySpawners;
+
+    public enum SpecialCarriageExceptions
+    {
+        No = 0,
+        Furnace = 1,
+        Vault = 2
+    }
+    [SerializeField] private SpecialCarriageExceptions _isSpecialCarriage;
 
     private void Awake()
     {
         playerDetect = GetComponent<BoxCollider>();
         thisManager = FindObjectOfType<CarriageManager>();
+
+        enemySpawners = new List<Transform>();
+        foreach (Transform _child in transform)
+            if (_child.TryGetComponent(out EnemySpawner _spawner))
+                enemySpawners.Add(_spawner.transform);
     }
 
     public void InitialiseId(int _id)
@@ -25,16 +39,19 @@ public class CarriageData : MonoBehaviour
 
     public void UpdateCarriageState(bool _isInCombat)
     {
+        //Cannot open Vault doors normally without TNT
+        if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && !CarriageManager.playerHasTnt)
+            return;
+
         entryDoor.SetActive(_isInCombat);
         exitDoor.SetActive(_isInCombat);
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Detected Player");
-
             //EFFECTS ON ENTERING NEW CARRIAGE
             thisManager.UpdateCurrentCarriage(this);
         }

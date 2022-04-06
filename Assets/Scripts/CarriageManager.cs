@@ -4,23 +4,36 @@ using UnityEngine;
 
 public class CarriageManager : MonoBehaviour
 {
+    public bool debugInitialiseCarriages;
+
     public List<GameObject> carriagePrefabs;
 
+    //SPAWNING
     private List<GameObject> carriagesToSpawn;
     [SerializeField] private List<GameObject> spawnedCarriages;
     [SerializeField] private CarriageData currentCarriage, oldCarriage;
-
-    //SPAWNING
     [SerializeField] private Transform firstSpawn;
     [SerializeField] private Transform nextSpawnPos,prevSpawnPos;
 
-    //MOVING
+    //COMBAT
+    CombatManager thisCombatManager;
+
+    //TNT
+    public static bool playerHasTnt = false;
+
+    //LOOP
+    public static int loopsCompleted;
+
     private void Awake()
     {
+        thisCombatManager = FindObjectOfType<CombatManager>();
+        playerHasTnt = false;
+        loopsCompleted = 0;
     }
     private void Start()
     {
-        InitialiseCarriages();
+        if (debugInitialiseCarriages)
+            InitialiseCarriages();
     }
 
     private void InitialiseCarriages()
@@ -43,6 +56,7 @@ public class CarriageManager : MonoBehaviour
         {
             
             GameObject _spawned = Instantiate(_carriage, nextSpawnPos.position, nextSpawnPos.rotation);
+            _spawned.GetComponent<CarriageData>().UpdateCarriageState(false);
 
             //NAMING
             _count++;
@@ -66,8 +80,8 @@ public class CarriageManager : MonoBehaviour
     {
         currentCarriage = _current;
         Debug.Log("current: " + currentCarriage.carriageId + ". old: " + oldCarriage.carriageId);
-        
-        
+
+        #region Moving Carriages
         //MOVE CARRIAGE FROM BACK TO FRONT
         //Whether new carriage is infront of old carriage, or new carriage is the highest value of the carriageID list possible.
         if ((currentCarriage.carriageId > oldCarriage.carriageId) && currentCarriage.carriageId != oldCarriage.carriageId)
@@ -121,13 +135,19 @@ public class CarriageManager : MonoBehaviour
 
             //Debug.Log("attempt move back");
         }
+        #endregion
 
-        
+        //INITIATING COMBAT
+        thisCombatManager.InitialiseCombat(_current);
+        _current.UpdateCarriageState(true);
 
         //SET TO OLD CARRIAGE FOR COMPARISON WHEN ENTERING NEW CARRIAGE
         oldCarriage = currentCarriage;
     }
-
+    public void UpdateIncreaseLoop()
+    {
+        loopsCompleted++;
+    }
     private void OnDrawGizmos()
     {
         if (nextSpawnPos != null)

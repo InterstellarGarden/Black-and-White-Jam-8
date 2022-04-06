@@ -8,6 +8,7 @@ public class CameraBehaviour : MonoBehaviour
     [SerializeField]
     private Transform oriPos,camCrouchPos;
 
+    Vector3 bulletSpawnOri;
     private CharacterBehaviour thisPlayer;
 
     private void Awake()

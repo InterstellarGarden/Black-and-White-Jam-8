@@ -7,8 +7,8 @@ public class BulletBehaviour : MonoBehaviour
     public bulletType thisBullet;
     public enum bulletType
     {
-        bullet1 = 1,
-        bullet2 = 2
+        normal = 1,
+        fire = 2
     }
 
 
