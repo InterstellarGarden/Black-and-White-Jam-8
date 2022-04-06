@@ -5,7 +5,7 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     bool inCombat = false;
-    public int enemiesToSpawn;
+    private int enemiesToSpawn;
     
     [SerializeField]
     private List<GameObject> enemyPrefabs,activeEnemies;
@@ -49,6 +49,8 @@ public class CombatManager : MonoBehaviour
 
         chosenSpawnPositions = new List<Vector3>();
         //Algorithm to select spawners to spawn on
+
+        enemiesToSpawn = currentCarriage.numberOfEnemiesToSpawn;
         for (int n = 1; n <= enemiesToSpawn; n++)
         {
             int _selected = Random.Range(0, spawnPositions.Count);

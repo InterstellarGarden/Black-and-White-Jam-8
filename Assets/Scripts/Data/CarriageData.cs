@@ -13,6 +13,7 @@ public class CarriageData : MonoBehaviour
     private CarriageManager thisManager;
     [HideInInspector] public List<Transform> enemySpawners;
 
+    public int numberOfEnemiesToSpawn;
     public enum SpecialCarriageExceptions
     {
         No = 0,
