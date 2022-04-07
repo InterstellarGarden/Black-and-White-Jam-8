@@ -162,3 +162,5 @@ MonoBehaviour:
   thisWeakness: 1
   maxHealth: 3
   health: 0
+  maxHealthIncreasePerLoop: 2
+  movementSpeed: 1
