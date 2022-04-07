@@ -24,7 +24,6 @@ public class TemporaryPickUp : PickUP
     void InitialisePowerUp()
     {
         int _selected = Random.Range(2, 5);
-
         //Algorithm
         //Health is guaranteed to drop at 2 health. Otherwise, its always random
 

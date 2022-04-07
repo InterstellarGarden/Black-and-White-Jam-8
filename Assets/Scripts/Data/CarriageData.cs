@@ -13,13 +13,15 @@ public class CarriageData : MonoBehaviour
     private CarriageManager thisManager;
     [HideInInspector] public List<Transform> enemySpawners;
 
+    public int numberOfEnemiesToSpawn;
     public enum SpecialCarriageExceptions
     {
         No = 0,
         Furnace = 1,
-        Vault = 2
+        Vault = 2,
+        Conductor = 3
     }
-    [SerializeField] private SpecialCarriageExceptions _isSpecialCarriage;
+    [SerializeField] public SpecialCarriageExceptions _isSpecialCarriage;
 
     private void Awake()
     {
@@ -39,14 +41,16 @@ public class CarriageData : MonoBehaviour
 
     public void UpdateCarriageState(bool _isInCombat)
     {
-        //Cannot open Vault doors normally without TNT
-        if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && !CarriageManager.playerHasTnt)
-            return;
-
+        //Cannot open Vault doors normally without TNT        
         entryDoor.SetActive(_isInCombat);
         exitDoor.SetActive(_isInCombat);
     }
     
+    public void ForceUpdateCarriageState(bool _isInCombat)
+    {
+        entryDoor.SetActive(_isInCombat);
+        exitDoor.SetActive(_isInCombat);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -55,5 +59,11 @@ public class CarriageData : MonoBehaviour
             //EFFECTS ON ENTERING NEW CARRIAGE
             thisManager.UpdateCurrentCarriage(this);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (_isSpecialCarriage == SpecialCarriageExceptions.Vault)
+            ForceUpdateCarriageState(true);
     }
 }
