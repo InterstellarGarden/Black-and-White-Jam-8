@@ -30,7 +30,7 @@ public class CarriageManager : MonoBehaviour
     private void Awake()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
-        playerHasTnt = false;
+        UpdateTnt(false);
         loopsCompleted = 0;
 
         thisPlayer = FindObjectOfType<CharacterBehaviour>();
@@ -179,5 +179,10 @@ public class CarriageManager : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(prevSpawnPos.position, 4);
         }
+    }
+    public void UpdateTnt(bool _hasTnt)
+    {
+        playerHasTnt = _hasTnt;
+        FindObjectOfType<UIManager>().UpdateTntUi(_hasTnt);
     }
 }

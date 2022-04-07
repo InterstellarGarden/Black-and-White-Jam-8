@@ -99,7 +99,6 @@ public class EntityBehaviour : MonoBehaviour
                 //ALGORITHM TO SELECT BULLET
                 enemyType _enemyChosen = thisCombatManager.CountHighestEnemy();
                 int _idealBullet = (int)_enemyChosen;
-                Debug.Log("Highest enemy chosen was: " + _enemyChosen);
 
                 //APPLY RESULT AND INSTANTIATE BULLET
                 _prefab.GetComponent<BulletPickUpBehaviour>().bulletType = _idealBullet;

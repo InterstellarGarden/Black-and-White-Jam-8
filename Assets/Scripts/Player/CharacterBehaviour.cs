@@ -152,7 +152,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             case (int)TemporaryPickUp.types.tnt:
                 Debug.Log("obtained tnt");
-                CarriageManager.playerHasTnt = true;
+                FindObjectOfType<CarriageManager>().UpdateTnt(true);
                 break;
             
             case (int)TemporaryPickUp.types.health:

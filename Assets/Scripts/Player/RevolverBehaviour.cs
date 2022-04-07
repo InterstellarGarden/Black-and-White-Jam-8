@@ -8,7 +8,7 @@ public class RevolverBehaviour : MonoBehaviour
     private ComboBehaviour thisCombo;
     CharacterBehaviour thisPlayer;
 
-     public List<GameObject> bullets;
+    public List<GameObject> bullets;
     public List<GameObject> bulletPrefabs;
     public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
@@ -21,14 +21,26 @@ public class RevolverBehaviour : MonoBehaviour
     //TARGETABLE REFERS TO: WHAT WILL THE PLAYER'S BULLET COLLIDE WITH - WALLS, ENTITIES ETC.
     public LayerMask excludeTarget;
 
+    //UI ELEMENTS
+    private uiRubiBehaviour thisRubiBehaviour;
+
     void Awake()
     {
         thisCombo = GetComponent<ComboBehaviour>();
         thisPlayer = GetComponent<CharacterBehaviour>();
 
         hasTemporaryBullet = 0;
-    }
 
+        thisRubiBehaviour = FindObjectOfType<uiRubiBehaviour>();
+    }
+    private void Start()
+    {
+        //INITIALISE BULLETS INTO RUBI
+        for (int i=0; i <6; i++)
+        {
+            thisRubiBehaviour.SetBullet(i, (int)bullets[i].GetComponent<BulletBehaviour>().thisBullet);
+        }
+    }
     void Update()
     {
         if (GameManager.playerIsDead)
@@ -74,11 +86,16 @@ public class RevolverBehaviour : MonoBehaviour
                 thisCombo.TriggerRestartDecay();
             #endregion
 
+            //UI
+            thisRubiBehaviour.FiredBullet();
+
             //SPAWN BULLET - VISUAL ONLY
             TriggerSpawnBullet();
 
             //NEXT BULLET ON CHAMBER
             TriggerNextBullet();
+
+            
         }
     }
 
@@ -107,16 +124,19 @@ public class RevolverBehaviour : MonoBehaviour
         }
 
         bullets.RemoveAt(0);
-        if (bullets.Count <= 0)
-            TriggerReloadChamber();
+        if (bullets.Count < 3)
+            TriggerReloadNextBullet();
+
+
+        thisRubiBehaviour.RotateForward();
     }
 
-    void TriggerReloadChamber()
+    void TriggerReloadNextBullet()
     {
-        for (int n = 0; n < 6; n++)
-        {
-            bullets.Add(bulletPrefabs[Random.Range(0, bulletPrefabs.Count)]);
-        }
+        int _chosenBullet = Random.Range(0, bulletPrefabs.Count);
+        bullets.Add(bulletPrefabs[_chosenBullet]);
+
+        thisRubiBehaviour.SetBullet(2, (int)bulletPrefabs[_chosenBullet].GetComponent<BulletBehaviour>().thisBullet);
     }
     public void TriggerPickUpBullet(int _bulletType)
     {
@@ -153,5 +173,11 @@ public class RevolverBehaviour : MonoBehaviour
         #endregion
 
         hasTemporaryBullet = 2;
-    }
+
+        thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
+        thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
+
+        thisRubiBehaviour.RotateBackward();
+        thisRubiBehaviour.RotateBackward();
+    }    
 }

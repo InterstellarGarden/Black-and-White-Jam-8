@@ -155,7 +155,7 @@ public class CombatManager : MonoBehaviour
             if (numberOfEachActiveEnemyType[n] == _highest)
             {
                 _enemyChoice = n;
-                Debug.Log("enemyChoice: " + n);
+                //Debug.Log("enemyChoice: " + n);
                 break;
             }
         }

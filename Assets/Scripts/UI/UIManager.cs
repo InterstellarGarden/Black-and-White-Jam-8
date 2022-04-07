@@ -5,8 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Slider ui_combo;
-    [SerializeField] private TMP_Text hasTnt;
+    [SerializeField] private Slider uiCombo, uiHealth;
+    [SerializeField] private TMP_Text hasTnt, uiLoop;
+    [SerializeField] private Image uiTnt;
+
+    bool oldHasTnt;
 
     //POINTERS
     ComboBehaviour thisCombo;
@@ -19,13 +22,31 @@ public class UIManager : MonoBehaviour
         thisPlayer = FindObjectOfType<CharacterBehaviour>();
 
         //POINTER PROPERTIES
-        ui_combo.maxValue = thisCombo.maxCombo;
-        ui_combo.value = 0;
+        uiCombo.maxValue = thisCombo.maxCombo;
+        uiCombo.value = 0;
     }
 
     void Update()
     {
-        ui_combo.value = thisCombo.currentCombo;
+        uiCombo.value = thisCombo.currentCombo;
         hasTnt.text = "hasTnt: " + CarriageManager.playerHasTnt;
+
+    }
+    public void UpdateTntUi(bool _hasTnt)
+    {
+        switch (_hasTnt)
+        {
+            case true:
+                Color _color = uiTnt.color;
+                _color.a = 1;
+                uiTnt.color = _color;
+                break;
+
+            case false:
+                Color _color2 = uiTnt.color;
+                _color2.a = 0;
+                uiTnt.color = _color2;
+                break;
+        }
     }
 }
