@@ -8,9 +8,7 @@ public class TemporaryPickUp : PickUP
     public enum types
     {
         tnt = 1,
-        speedUp = 2,
-        fastFire = 3,
-        health = 4
+        health = 2
     }
     public int _currentPickUp;
     public bool isTnt = false;
@@ -23,22 +21,10 @@ public class TemporaryPickUp : PickUP
     }
     void InitialisePowerUp()
     {
-        int _selected = Random.Range(2, 5);
         //Algorithm
         //Health is guaranteed to drop at 2 health. Otherwise, its always random
 
-        switch (_selected)
-        {
-            case 2:
-                _currentPickUp = (int)types.speedUp;
-                break;
-            case 3:
-                _currentPickUp = (int)types.fastFire;
-                break;
-            case 4:
-                _currentPickUp = (int)types.health;
-                break;
-        }
+        _currentPickUp = (int)types.health;
 
         //Visual
         GameObject _pickUp = Instantiate(powerUpPrefabs[_currentPickUp - 1], transform);

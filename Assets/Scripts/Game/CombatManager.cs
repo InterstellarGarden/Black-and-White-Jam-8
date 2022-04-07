@@ -6,14 +6,16 @@ public class CombatManager : MonoBehaviour
 {
     bool inCombat = false;
     private int enemiesToSpawn;
-    [SerializeField]
-    private List<GameObject> enemyPrefabs,activeEnemies;
+    [SerializeField] private List<GameObject> enemyPrefabs;
+    public List<GameObject> activeEnemies;
     private List<Vector3> spawnPositions, chosenSpawnPositions;
 
     //Repeatable Enemy Spawners
     public int maxEnemiesAtATime;
     [HideInInspector] public bool isBossAlive = false;
 
+    //Counting Enemies
+    public List<int> numberOfEachActiveEnemyType;
 
     //Data
     [HideInInspector] public CarriageData currentCarriage;
@@ -24,6 +26,7 @@ public class CombatManager : MonoBehaviour
     {
         inCombat = false;
         thisCarriageManager = FindObjectOfType<CarriageManager>();
+
     }
     
     public void InitialiseCombat(CarriageData _currentCarriage)
@@ -130,5 +133,46 @@ public class CombatManager : MonoBehaviour
     public void UpdateBossState(bool _state)
     {
         isBossAlive = _state;
+    }
+    public void UpdateCountOfEachEnemyType(int _delta, int _enemyType)
+    {
+        numberOfEachActiveEnemyType[_enemyType] += _delta;
+    }
+    public EntityBehaviour.enemyType CountHighestEnemy()
+    {
+        int _highest = 0;
+        int _enemyChoice = 0;
+        for (int i =0; i < 6; i++)
+        {
+            _highest = Mathf.Max(_highest, numberOfEachActiveEnemyType[i]);
+            //Debug.Log("i: " + i);
+            //Debug.Log("currenthighest: " + _highest);
+        }
+        //Debug.Log("final highest: " + _highest);
+
+        for (int n = 0; n <6; n++)
+        {
+            if (numberOfEachActiveEnemyType[n] == _highest)
+            {
+                _enemyChoice = n;
+                Debug.Log("enemyChoice: " + n);
+                break;
+            }
+        }
+        switch (_enemyChoice)
+        {
+            default:
+                return EntityBehaviour.enemyType.reggie;
+            case (int)EntityBehaviour.enemyType.babylegs:
+                return EntityBehaviour.enemyType.babylegs;
+            case (int)EntityBehaviour.enemyType.bigGuy:
+                return EntityBehaviour.enemyType.bigGuy;
+            case (int)EntityBehaviour.enemyType.filthy:
+                return EntityBehaviour.enemyType.filthy;
+            case (int)EntityBehaviour.enemyType.drunk:
+                return EntityBehaviour.enemyType.drunk;
+            case (int)EntityBehaviour.enemyType.gambler:
+                return EntityBehaviour.enemyType.gambler;
+        }
     }
 }

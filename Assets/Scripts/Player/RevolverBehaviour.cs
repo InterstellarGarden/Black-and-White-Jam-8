@@ -13,7 +13,7 @@ public class RevolverBehaviour : MonoBehaviour
     public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
 
-    public bool hasTemporaryBullet;
+    public int hasTemporaryBullet;
         
     //VISUAL
     public float bulletSpeed = 60;
@@ -26,7 +26,7 @@ public class RevolverBehaviour : MonoBehaviour
         thisCombo = GetComponent<ComboBehaviour>();
         thisPlayer = GetComponent<CharacterBehaviour>();
 
-        hasTemporaryBullet = false;
+        hasTemporaryBullet = 0;
     }
 
     void Update()
@@ -101,10 +101,9 @@ public class RevolverBehaviour : MonoBehaviour
 
     void TriggerNextBullet()
     {        
-        if (hasTemporaryBullet)
-        {            
-            hasTemporaryBullet = false;
-            FindObjectOfType<dump_BulletUI>().removeTempBullet();
+        if (hasTemporaryBullet > 0 )
+        {
+            hasTemporaryBullet--;
         }
 
         bullets.RemoveAt(0);
@@ -123,12 +122,36 @@ public class RevolverBehaviour : MonoBehaviour
     {
         GameObject _pickedUpBullet = bulletPrefabs[_bulletType];
 
-        if (hasTemporaryBullet)
-            bullets[0] = _pickedUpBullet; //Replace top, temporary bullet with new temporary bullet
+        #region AddBullet
+        if (hasTemporaryBullet > 0)
+        {
+            float _delta = 2 - hasTemporaryBullet;
+
+            //Replace top, temporary bullet with new temporary bullet
+            bullets[0] = _pickedUpBullet; 
+            //Add one more bullet on top.
+            for (int n = 0; n < _delta; n++)
+            {
+                bullets.Insert(0, _pickedUpBullet);
+            }
+        }
 
         else
-            bullets.Insert(0, _pickedUpBullet); //Add a temporary bullet on top of list of permanent bullets
+        {
+            //Add 2 temporary bullet on top of list of permanent bullets
+            bullets.Insert(0, _pickedUpBullet); 
+            bullets.Insert(0, _pickedUpBullet);
+        }
+        #endregion
 
-        hasTemporaryBullet = true;
+        #region Remove Excess Bullets
+        while (bullets.Count > 6)
+        {
+            //Remove bullets at tail end
+            bullets.RemoveAt(6);
+        }
+        #endregion
+
+        hasTemporaryBullet = 2;
     }
 }

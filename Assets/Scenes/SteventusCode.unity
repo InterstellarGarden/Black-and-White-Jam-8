@@ -721,7 +721,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1036146385}
-  m_RootOrder: 13
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -977,6 +977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Babylegs
       objectReference: {fileID: 0}
+    - target: {fileID: 7004292105579056138, guid: 8a283fded4f3dc84e871d3c212cb898d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a283fded4f3dc84e871d3c212cb898d, type: 3}
 --- !u!1001 &8365354633946466267
@@ -1111,6 +1115,10 @@ PrefabInstance:
     - target: {fileID: 395755183875757418, guid: cd50feb7d0cc0fd42b579cf50358fa58, type: 3}
       propertyPath: m_Name
       value: Reggie
+      objectReference: {fileID: 0}
+    - target: {fileID: 395755183875757418, guid: cd50feb7d0cc0fd42b579cf50358fa58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 395755183875757422, guid: cd50feb7d0cc0fd42b579cf50358fa58, type: 3}
       propertyPath: m_RootOrder

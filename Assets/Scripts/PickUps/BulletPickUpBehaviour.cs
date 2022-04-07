@@ -5,34 +5,30 @@ using UnityEngine;
 public class BulletPickUpBehaviour : PickUP
 {
     public List<GameObject> bulletPrefabs;
-    private int _bulletType;
+    public int bulletType;
     private void Start()
     {
         InitialiseBullet();
     }
     void InitialiseBullet()
     {
-        //ALGORITHM TO SELECT BULLET - Basic random bullet drops for now
-        //Choose between 0 and 1
-        int _selected = Random.Range(1,3); 
+        int _selected = bulletType;
 
         switch (_selected)
         {
-            case 1:
-                _bulletType = (int)BulletBehaviour.bulletType.normal;
+            default: //reggie
+                bulletType = (int)BulletBehaviour.bulletType.normal;
                 break;
-            case 2:
-                _bulletType = (int)BulletBehaviour.bulletType.fire;
+            case 1: //babylegs
+                bulletType = (int)BulletBehaviour.bulletType.fire;
                 break;
         }
-        //Convert human-friendly bulletType names into programming-friendly index (For Lists and correct pointers)
-        _bulletType -= 1;
 
-        GameObject _pickUp = Instantiate(bulletPrefabs[_bulletType], transform);        
+        GameObject _pickUp = Instantiate(bulletPrefabs[bulletType], transform);        
     }
     protected override void OnPickUp()
     {
-        FindObjectOfType<RevolverBehaviour>().TriggerPickUpBullet(_bulletType);
+        FindObjectOfType<RevolverBehaviour>().TriggerPickUpBullet(bulletType);
         base.OnPickUp();
     }
 }

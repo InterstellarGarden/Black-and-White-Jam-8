@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private Slider ui_combo,ui_stamina;
+    [SerializeField] private Slider ui_combo;
     [SerializeField] private TMP_Text hasTnt;
 
     //POINTERS
@@ -21,15 +21,11 @@ public class UIManager : MonoBehaviour
         //POINTER PROPERTIES
         ui_combo.maxValue = thisCombo.maxCombo;
         ui_combo.value = 0;
-
-        ui_stamina.maxValue = thisPlayer.maxStamina;
-        ui_stamina.value = ui_stamina.maxValue;
     }
 
     void Update()
     {
         ui_combo.value = thisCombo.currentCombo;
-        ui_stamina.value = thisPlayer.currentStamina;
         hasTnt.text = "hasTnt: " + CarriageManager.playerHasTnt;
     }
 }

@@ -53,6 +53,7 @@ MonoBehaviour:
   firstSpawn: {fileID: 0}
   nextSpawnPos: {fileID: 0}
   prevSpawnPos: {fileID: 0}
+  carriageToSpawnIn: 1
 --- !u!114 &8365354634044803053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,11 +66,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1688b4fe76773ff47b55b6f0886f4b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesToSpawn: 3
   enemyPrefabs:
   - {fileID: 395755183875757418, guid: cd50feb7d0cc0fd42b579cf50358fa58, type: 3}
   - {fileID: 7004292105579056138, guid: 8a283fded4f3dc84e871d3c212cb898d, type: 3}
   activeEnemies: []
+  maxEnemiesAtATime: 0
+  isBossAlive: 0
+  numberOfEachActiveEnemyType: 00000000000000000000000000000000000000000000000000000000
+  currentCarriage: {fileID: 0}
 --- !u!1 &8365354634322695219
 GameObject:
   m_ObjectHideFlags: 0

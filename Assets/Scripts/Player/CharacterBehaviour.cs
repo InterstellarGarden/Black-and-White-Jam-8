@@ -16,7 +16,7 @@ public class CharacterBehaviour : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     public float gravity = 20f;
 
-    public float maxStamina, staminaRegenRate, runningStaminaCostRate;
+    public float maxStamina;
     [HideInInspector] public float currentStamina;
     bool staminaCoroActivated = false;
     bool isRunning = false;
@@ -32,6 +32,8 @@ public class CharacterBehaviour : MonoBehaviour
     //DEATH
     public int maxHealth;
     private int health;
+    [SerializeField] private int lowHealthThreshold = 2;
+    public bool isLowHealth = false;
 
     //PRIVATE ESSENTIALS
     Camera playerCamera;
@@ -48,14 +50,13 @@ public class CharacterBehaviour : MonoBehaviour
 
         //STAMINA
         staminaCoroActivated = true;
-        currentStamina = maxStamina;
 
         //HEALTH
         health = maxHealth;
+        isLowHealth = false;
     }
     void Start()
     {      
-        StartCoroutine(coroStaminaUpdateRate());
     }
 
     void Update()
@@ -72,11 +73,7 @@ public class CharacterBehaviour : MonoBehaviour
         Vector3 right = transform.TransformDirection(Vector3.right);
 
         // Press Left Shift to run - stop running when out of stamina
-        if (Input.GetKeyDown(KeyCode.LeftShift) && currentStamina > 0)
-            isRunning = true;
-
-        else if (Input.GetKeyUp(KeyCode.LeftShift) || currentStamina <= 0)
-            isRunning = false;
+        isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //Press Left Control to crouch 
         isCrouching = Input.GetKey(KeyCode.LeftControl);
@@ -95,9 +92,6 @@ public class CharacterBehaviour : MonoBehaviour
                 characterController.center = new Vector3(0, 0, 0);
                 break;
         }
-
-
-           
 
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
@@ -138,6 +132,19 @@ public class CharacterBehaviour : MonoBehaviour
         health -= _damage;
         if (health <= 0)
             GameManager.instance.GameOver();
+
+        else if (health <= lowHealthThreshold)
+            isLowHealth = true;
+    }
+    void TriggerRecoverDamage(int _delta)
+    {
+        health += _delta;
+
+        if (health > lowHealthThreshold)
+            isLowHealth = false;
+
+        if (health > maxHealth)
+            health = maxHealth;
     }
     public void TriggerPowerUp(int _choice)
     {
@@ -147,50 +154,15 @@ public class CharacterBehaviour : MonoBehaviour
                 Debug.Log("obtained tnt");
                 CarriageManager.playerHasTnt = true;
                 break;
-
-            case (int)TemporaryPickUp.types.speedUp:
-                Debug.Log("obtained speedup");
-
-                break;
-
-            case (int)TemporaryPickUp.types.fastFire:
-                Debug.Log("obtained fastfire");
-
-                break;
-
+            
             case (int)TemporaryPickUp.types.health:
                 Debug.Log("obtained health");
+                TriggerRecoverDamage(2); 
                 break;
         }
     }
     public void GameOver()
     {
         StopAllCoroutines();
-    }
-    IEnumerator coroStaminaUpdateRate()
-    {
-        while (staminaCoroActivated)
-        {
-            float _delta;
-            switch (isRunning)
-            {
-                case true:
-                    //If pressed Shift key (sprint key) but not moving, do not consume stamina - instead, regenerate stamina as if standing still
-                    if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
-                        _delta = -runningStaminaCostRate;
-
-                    else _delta = staminaRegenRate;
-                    break;
-
-                case false:
-                    _delta = staminaRegenRate;
-                    break;
-            }
-
-            currentStamina += _delta * Time.deltaTime;
-            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina); 
-
-            yield return new WaitForEndOfFrame();
-        }
-    }
+    }    
 }

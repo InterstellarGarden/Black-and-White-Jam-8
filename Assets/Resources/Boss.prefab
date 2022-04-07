@@ -163,3 +163,4 @@ MonoBehaviour:
   maxHealth: 10
   health: 0
   maxHealthIncreasePerLoop: 5
+  thisEnemyType: 6
