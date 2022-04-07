@@ -2854,7 +2854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[0]
@@ -2875,11 +2875,11 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 7437259176569710787, guid: 867c7859630e5d74dbb487aa9965a3a2, type: 3}
+      objectReference: {fileID: 4420814813850678828, guid: b586249aa1a81e04d862700af5262496, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 1446201657634112408, guid: 7bae076881f2af040a1ca4a9a33789dd, type: 3}
+      objectReference: {fileID: 3305936880225172215, guid: 404fe55c9358b2845b98a8111530e802, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[6]
       value: 
