@@ -6,7 +6,6 @@ public class CombatManager : MonoBehaviour
 {
     bool inCombat = false;
     private int enemiesToSpawn;
-    
     [SerializeField]
     private List<GameObject> enemyPrefabs,activeEnemies;
     private List<Vector3> spawnPositions, chosenSpawnPositions;
@@ -31,10 +30,8 @@ public class CombatManager : MonoBehaviour
     {
         if (inCombat)
             return;
-        
         inCombat = true;
         currentCarriage = _currentCarriage;
-
         SpawnEnemies();
     }
 
@@ -80,8 +77,6 @@ public class CombatManager : MonoBehaviour
             GameObject _boss = Resources.Load<GameObject>("Boss");
             Instantiate(_boss, _bossSpawnPosition, Quaternion.identity);
         }
-
-
         #endregion
     }
     public bool CheckForEndCombat(GameObject _enemyToRemove)
@@ -94,15 +89,18 @@ public class CombatManager : MonoBehaviour
                 //Algorithm can be added here to roll for additional enemy reinforcements
 
                 //Exception for Vault Room
+                //If currently in vault room; all filler enemies are dead; boss will spawn additional enemies (ie. combat is not over hence false)
                 if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && isBossAlive)
                 {
                     SpawnEnemies();
                     return false;
                 }
 
+                //If no more enemies to spawn, combat is over.
                 EndCombat();
                 return true;
             }
+            //This is basically just to satisfy the code's requirement to give all paths a way to return a value.
             else return false;
         }
         else
