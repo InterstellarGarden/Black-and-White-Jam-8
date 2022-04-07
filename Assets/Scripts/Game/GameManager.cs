@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public static bool playerIsDead;
+
+    bool killfloorCheck = true;
     private void Awake()
     {
         if (instance == null)
@@ -15,6 +17,24 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
 
         playerIsDead = false;
+        killfloorCheck = true;
+    }
+    private void Start()
+    {
+        StartCoroutine(CoroKillfloor());
+    }
+    IEnumerator CoroKillfloor()
+    {
+        while (killfloorCheck)
+        {
+            foreach (EntityBehaviour _entity in FindObjectsOfType<EntityBehaviour>())
+            {
+                Vector3 _pos = _entity.transform.position;
+                if (_pos.y <= FindObjectOfType<CarriageManager>().firstSpawn.transform.position.y)
+                    _entity.Death();
+            }
+            yield return new WaitForSeconds(1f);
+        }
     }
     public void StartGame()
     {

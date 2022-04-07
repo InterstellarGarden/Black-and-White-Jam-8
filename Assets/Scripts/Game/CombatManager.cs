@@ -5,27 +5,39 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     bool inCombat = false;
-    public int enemiesToSpawn;
-
+    private int enemiesToSpawn;
     [SerializeField]
     private List<GameObject> enemyPrefabs,activeEnemies;
     private List<Vector3> spawnPositions, chosenSpawnPositions;
 
-    private CarriageData currentCarriage;
+    //Repeatable Enemy Spawners
+    public int maxEnemiesAtATime;
+    [HideInInspector] public bool isBossAlive = false;
+
+
+    //Data
+    [HideInInspector] public CarriageData currentCarriage;
+    private CarriageData oldCarriage;
+    private CarriageManager thisCarriageManager;
 
     private void Awake()
     {
         inCombat = false;
+        thisCarriageManager = FindObjectOfType<CarriageManager>();
     }
     
     public void InitialiseCombat(CarriageData _currentCarriage)
     {
         if (inCombat)
             return;
-
         inCombat = true;
         currentCarriage = _currentCarriage;
+        SpawnEnemies();
+    }
 
+    private void SpawnEnemies()
+    {
+        #region SpawnNormalEnemies
         //CHOOSE SPAWNERS
         //Initialise Spawners
         spawnPositions = new List<Vector3>();
@@ -34,6 +46,8 @@ public class CombatManager : MonoBehaviour
 
         chosenSpawnPositions = new List<Vector3>();
         //Algorithm to select spawners to spawn on
+
+        enemiesToSpawn = currentCarriage.numberOfEnemiesToSpawn;
         for (int n = 1; n <= enemiesToSpawn; n++)
         {
             int _selected = Random.Range(0, spawnPositions.Count);
@@ -51,6 +65,19 @@ public class CombatManager : MonoBehaviour
             //ASSIGN TO ACTIVE ENEMIES
             activeEnemies.Add(_spawnedEnemy);
         }
+        #endregion
+
+        #region SpawnBoss
+        if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && !isBossAlive)
+        {
+            //CHOOSE SPAWNER
+            Vector3 _bossSpawnPosition = currentCarriage.transform.Find("BossSpawner").transform.position;
+
+            //SPAWN ENEMY
+            GameObject _boss = Resources.Load<GameObject>("Boss");
+            Instantiate(_boss, _bossSpawnPosition, Quaternion.identity);
+        }
+        #endregion
     }
     public bool CheckForEndCombat(GameObject _enemyToRemove)
     {
@@ -61,10 +88,19 @@ public class CombatManager : MonoBehaviour
             {
                 //Algorithm can be added here to roll for additional enemy reinforcements
 
+                //Exception for Vault Room
+                //If currently in vault room; all filler enemies are dead; boss will spawn additional enemies (ie. combat is not over hence false)
+                if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && isBossAlive)
+                {
+                    SpawnEnemies();
+                    return false;
+                }
+
+                //If no more enemies to spawn, combat is over.
                 EndCombat();
                 return true;
             }
-
+            //This is basically just to satisfy the code's requirement to give all paths a way to return a value.
             else return false;
         }
         else
@@ -77,16 +113,22 @@ public class CombatManager : MonoBehaviour
     void EndCombat()
     {
         inCombat = false;
-        currentCarriage.UpdateCarriageState(false);
+
+        if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault)
+            currentCarriage.ForceUpdateCarriageState(false);
+
+        else 
+            currentCarriage.UpdateCarriageState(false);
+
         spawnPositions.Clear();
         chosenSpawnPositions.Clear();
 
-        //Roll for chance to spawn powerups or pickups
+        oldCarriage = currentCarriage;
     }
 
-    public void TriggerSpawnPickUp(Vector3 _position)
+    //When boss spawns in, update this, when boss dies update this again
+    public void UpdateBossState(bool _state)
     {
-        GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
-        Instantiate(_prefab, transform.position, Quaternion.identity);
+        isBossAlive = _state;
     }
 }

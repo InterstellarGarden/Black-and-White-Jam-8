@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Slider ui_combo,ui_stamina;
-
+    [SerializeField] private TMP_Text hasTnt;
 
     //POINTERS
     ComboBehaviour thisCombo;
@@ -29,5 +30,6 @@ public class UIManager : MonoBehaviour
     {
         ui_combo.value = thisCombo.currentCombo;
         ui_stamina.value = thisPlayer.currentStamina;
+        hasTnt.text = "hasTnt: " + CarriageManager.playerHasTnt;
     }
 }

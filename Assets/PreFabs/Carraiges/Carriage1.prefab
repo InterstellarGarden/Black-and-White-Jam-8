@@ -282,6 +282,7 @@ MonoBehaviour:
   exitDoor: {fileID: 6020970662449444244}
   exitPos: {fileID: 1028787340434158652}
   enemySpawners: []
+  _isSpecialCarriage: 1
 --- !u!65 &7509300785001378651
 BoxCollider:
   m_ObjectHideFlags: 0

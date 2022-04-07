@@ -145,7 +145,7 @@ public class CharacterBehaviour : MonoBehaviour
         {
             case (int)TemporaryPickUp.types.tnt:
                 Debug.Log("obtained tnt");
-
+                CarriageManager.playerHasTnt = true;
                 break;
 
             case (int)TemporaryPickUp.types.speedUp:

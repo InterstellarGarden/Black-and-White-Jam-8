@@ -11,8 +11,8 @@ public class CarriageManager : MonoBehaviour
     //SPAWNING
     private List<GameObject> carriagesToSpawn;
     [SerializeField] private List<GameObject> spawnedCarriages;
-    [SerializeField] private CarriageData currentCarriage, oldCarriage;
-    [SerializeField] private Transform firstSpawn;
+    [SerializeField] public CarriageData currentCarriage, oldCarriage;
+    [SerializeField] public Transform firstSpawn;
     [SerializeField] private Transform nextSpawnPos,prevSpawnPos;
 
     //COMBAT
@@ -24,11 +24,16 @@ public class CarriageManager : MonoBehaviour
     //LOOP
     public static int loopsCompleted;
 
+    //GAME BEGIN
+    private CharacterBehaviour thisPlayer;
+    public int carriageToSpawnIn = 1;
     private void Awake()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
         playerHasTnt = false;
         loopsCompleted = 0;
+
+        thisPlayer = FindObjectOfType<CharacterBehaviour>();
     }
     private void Start()
     {
@@ -58,6 +63,9 @@ public class CarriageManager : MonoBehaviour
             GameObject _spawned = Instantiate(_carriage, nextSpawnPos.position, nextSpawnPos.rotation);
             _spawned.GetComponent<CarriageData>().UpdateCarriageState(false);
 
+            if (_spawned.GetComponent<CarriageData>()._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault)
+                _spawned.GetComponent<CarriageData>().UpdateCarriageState(true);
+
             //NAMING
             _count++;
             _spawned.name = "Carriage " + (_count);
@@ -75,11 +83,23 @@ public class CarriageManager : MonoBehaviour
         oldCarriage = currentCarriage;
         prevSpawnPos = spawnedCarriages[0].gameObject.transform;
 
+        //TELEPORT PLAYER TO STARTING CARRIAGE
+        for (int i = 0; i < spawnedCarriages.Count; i++)
+        {
+            if (spawnedCarriages[i].GetComponent<CarriageData>()._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Conductor)
+            {
+                thisPlayer.transform.position = spawnedCarriages[i].transform.Find("PlayerSpawn").transform.position;
+                break;
+            }
+        }
     }
     public void UpdateCurrentCarriage(CarriageData _current)
     {
         currentCarriage = _current;
         Debug.Log("current: " + currentCarriage.carriageId + ". old: " + oldCarriage.carriageId);
+
+        if (_current.carriageId == oldCarriage.carriageId)
+            return;
 
         #region Moving Carriages
         //MOVE CARRIAGE FROM BACK TO FRONT
