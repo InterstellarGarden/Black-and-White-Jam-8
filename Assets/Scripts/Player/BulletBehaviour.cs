@@ -10,7 +10,10 @@ public class BulletBehaviour : MonoBehaviour
         normal = 0,
         fire = 1,
         electricity = 2,
-        soap = 3
+        soap = 3,
+        ice = 4,
+        chip = 5,
+        enemy = 6        
     }
 
 
@@ -26,7 +29,7 @@ public class BulletBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
 

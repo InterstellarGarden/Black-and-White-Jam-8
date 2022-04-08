@@ -13,9 +13,9 @@ TagManager:
   - UI
   - NonPlayerTouchable
   - Ground
-  - 
-  - 
-  - 
+  - EnemyBulet
+  - Enemy
+  - PlayerBullet
   - 
   - 
   - 

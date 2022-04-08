@@ -10,17 +10,22 @@ public class ReggieBehaviour : EnemyBehaviour
     private int movementDirection = 0;
     [Range(1, 10)][SerializeField]
     private int movementMagnitude = 1;
-    private Transform transform;
     private Vector3 homePosition;
-    public void Awake(){
-        this.transform = GetComponent<Transform>();
-        this.homePosition = this.transform.position;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        this.homePosition = transform.position;
     }
 
     public void Update(){
         Vector3 displacement = Vector3.left * Mathf.Sin(Time.time * this.movementSpeed) * this.movementMagnitude;
         displacement = Quaternion.Euler(0, this.movementDirection, 0) * displacement;
 
-        this.transform.position = this.homePosition + displacement;
+        transform.position = this.homePosition + displacement;
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+        //Add gravity
+
     }
 }
