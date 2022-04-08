@@ -26,7 +26,6 @@ public class CombatManager : MonoBehaviour
     {
         inCombat = false;
         thisCarriageManager = FindObjectOfType<CarriageManager>();
-
     }
     
     public void InitialiseCombat(CarriageData _currentCarriage)
@@ -144,11 +143,8 @@ public class CombatManager : MonoBehaviour
         int _enemyChoice = 0;
         for (int i =0; i < 6; i++)
         {
-            _highest = Mathf.Max(_highest, numberOfEachActiveEnemyType[i]);
-            //Debug.Log("i: " + i);
-            //Debug.Log("currenthighest: " + _highest);
-        }
-        //Debug.Log("final highest: " + _highest);
+            _highest = Mathf.Max(_highest, numberOfEachActiveEnemyType[i]);            
+        }        
 
         for (int n = 0; n <6; n++)
         {

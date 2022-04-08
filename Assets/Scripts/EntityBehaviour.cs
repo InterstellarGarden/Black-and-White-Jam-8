@@ -51,8 +51,6 @@ public class EntityBehaviour : MonoBehaviour
         //ADD COMBO
         FindObjectOfType<ComboBehaviour>().TriggerAddCombo(1);
 
-        
-
         //CHECK FOR END OF COMBAT - Spawn pick ups at end of carriage
         if (FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject))
         {
@@ -88,11 +86,8 @@ public class EntityBehaviour : MonoBehaviour
         else
         {
             //Roll 1-100s
-            int _RNGesus = Random.Range(0, 101);
-            if (_RNGesus >= 75)
+            if (Random.value > 0.75)
             {
-                Debug.Log("RNG: " + _RNGesus + ". Report if under 75.");
-
                 //LOAD INITIAL PREFAB FROM RESOURCE
                 GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
 

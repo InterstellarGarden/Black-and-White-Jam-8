@@ -13,7 +13,7 @@ public class RevolverBehaviour : MonoBehaviour
     public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
 
-    public int hasTemporaryBullet;
+    public int numberOfTemporaryBullet;
         
     //VISUAL
     public float bulletSpeed = 60;
@@ -29,14 +29,14 @@ public class RevolverBehaviour : MonoBehaviour
         thisCombo = GetComponent<ComboBehaviour>();
         thisPlayer = GetComponent<CharacterBehaviour>();
 
-        hasTemporaryBullet = 0;
+        numberOfTemporaryBullet = 0;
 
         thisRubiBehaviour = FindObjectOfType<uiRubiBehaviour>();
     }
     private void Start()
     {
         //INITIALISE BULLETS INTO RUBI
-        for (int i=0; i <6; i++)
+        for (int i = 0; i < 6; i++)
         {
             thisRubiBehaviour.SetBullet(i, (int)bullets[i].GetComponent<BulletBehaviour>().thisBullet);
         }
@@ -94,8 +94,6 @@ public class RevolverBehaviour : MonoBehaviour
 
             //NEXT BULLET ON CHAMBER
             TriggerNextBullet();
-
-            
         }
     }
 
@@ -118,15 +116,14 @@ public class RevolverBehaviour : MonoBehaviour
 
     void TriggerNextBullet()
     {        
-        if (hasTemporaryBullet > 0 )
+        if (numberOfTemporaryBullet > 0 )
         {
-            hasTemporaryBullet--;
+            numberOfTemporaryBullet--;
         }
 
         bullets.RemoveAt(0);
         if (bullets.Count < 3)
             TriggerReloadNextBullet();
-
 
         thisRubiBehaviour.RotateForward();
     }
@@ -143,9 +140,9 @@ public class RevolverBehaviour : MonoBehaviour
         GameObject _pickedUpBullet = bulletPrefabs[_bulletType];
 
         #region AddBullet
-        if (hasTemporaryBullet > 0)
+        if (numberOfTemporaryBullet > 0)
         {
-            float _delta = 2 - hasTemporaryBullet;
+            float _delta = 2 - numberOfTemporaryBullet;
 
             //Replace top, temporary bullet with new temporary bullet
             bullets[0] = _pickedUpBullet; 
@@ -172,7 +169,7 @@ public class RevolverBehaviour : MonoBehaviour
         }
         #endregion
 
-        hasTemporaryBullet = 2;
+        numberOfTemporaryBullet = 2;
 
         thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
         thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
