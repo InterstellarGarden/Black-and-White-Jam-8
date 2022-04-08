@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 395755183875757415}
   - component: {fileID: 5084771786511074471}
   - component: {fileID: 6611206770340190012}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Reggie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482d41fa4dd78bb4d8a7f953df246510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 0
+  thisWeakness: 1
   maxHealth: 3
   health: 0
-  maxHealthIncreasePerLoop: 0
-  thisEnemyType: 0
+  maxHealthIncreasePerLoop: 2
+  movementSpeed: 1
