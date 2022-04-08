@@ -9,7 +9,7 @@ public class RevolverBehaviour : MonoBehaviour
     CharacterBehaviour thisPlayer;
 
     public List<GameObject> bullets;
-    public List<GameObject> bulletPrefabs;
+    public List<GameObject> bulletPrefabs, unlockableBulletPrefabs;
     public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
 
@@ -176,5 +176,10 @@ public class RevolverBehaviour : MonoBehaviour
 
         thisRubiBehaviour.RotateBackward();
         thisRubiBehaviour.RotateBackward();
-    }    
+    } 
+    public void TriggerUnlockArsenal()
+    {
+        bulletPrefabs.Add(unlockableBulletPrefabs[0]);
+        unlockableBulletPrefabs.RemoveAt(0);
+    }
 }

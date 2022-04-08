@@ -7,6 +7,14 @@ public class CombatManager : MonoBehaviour
     bool inCombat = false;
     private int enemiesToSpawn;
     [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<GameObject> unlockableEnemyPrefabs;
+    public enum UnlockableEnemies
+    {
+        electric = 0,
+        soap = 1,
+        ice = 2,
+        chip = 3
+    }
     public List<GameObject> activeEnemies;
     private List<Vector3> spawnPositions, chosenSpawnPositions;
 
@@ -170,5 +178,9 @@ public class CombatManager : MonoBehaviour
             case (int)EntityBehaviour.enemyType.gambler:
                 return EntityBehaviour.enemyType.gambler;
         }
+    }
+    public void TriggerNewEnemyType(int _choice)
+    {
+        enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
     }
 }

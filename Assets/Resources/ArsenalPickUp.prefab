@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7277163615154920533}
-  - component: {fileID: 7277163615154920532}
   - component: {fileID: 7277163615154920535}
   - component: {fileID: 134365911487188826}
+  - component: {fileID: 254415099852398611}
   m_Layer: 2
-  m_Name: BulletPickUp
+  m_Name: ArsenalPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,24 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7277163615154920532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7277163615154920534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec3029f44ff7a84db0a64c6519d90ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefabs:
-  - {fileID: 8563779283964280796, guid: 3c650fef1a27c794ebc2c5dab7e3167b, type: 3}
-  - {fileID: 3784005861480905426, guid: 1b31089029b7237498e7087d5feca2ac, type: 3}
-  - {fileID: 3784005861480905426, guid: d266f18fcc5b63b4c8560f5e6c270cc9, type: 3}
-  - {fileID: 3784005861480905426, guid: 364441c4c9d70bf4183c25a172eef672, type: 3}
-  bulletType: 0
 --- !u!65 &7277163615154920535
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,3 +65,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &254415099852398611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7277163615154920534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e668ddc512f70ce44a909faab1d8f95a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletToUnlock: 0
+  unlockableBulletPrefabs:
+  - {fileID: 6591710382188923012, guid: 48906204316ba6940880e9055bd73666, type: 3}
+  - {fileID: 6571814293869816298, guid: 333e2e0df3a39c944be1c9281432e680, type: 3}

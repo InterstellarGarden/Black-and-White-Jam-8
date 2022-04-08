@@ -248,13 +248,16 @@ MonoBehaviour:
   bulletPrefabs:
   - {fileID: 4154328999536989640, guid: 4399a4010dd35f445b4ced691197b203, type: 3}
   - {fileID: 4154328999536989640, guid: e29c50e918a702c438b68f2792c322d2, type: 3}
+  unlockableBulletPrefabs:
+  - {fileID: 4154328999536989640, guid: 27a238ae2e4b05849b68fbaff4fe7ea1, type: 3}
+  - {fileID: 4154328999536989640, guid: bee9615697192b74e90df7320be17fcc, type: 3}
   bulletspawn: {fileID: 3282293404743699228}
   crouchingBulletSpawn: {fileID: 2437816886309570824}
   numberOfTemporaryBullet: 0
   bulletSpeed: 100
   targettableMask:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 9
 --- !u!114 &3282293406018627975
 MonoBehaviour:
   m_ObjectHideFlags: 0

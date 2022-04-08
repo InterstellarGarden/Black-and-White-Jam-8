@@ -57,6 +57,14 @@ public class CarriageData : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //EFFECTS ON ENTERING NEW CARRIAGE
+            //UNLOCK NEW ENEMY
+            if (_isSpecialCarriage == SpecialCarriageExceptions.Furnace && CarriageManager.loopsCompleted < 2)
+                FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted);
+
+            else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 2)
+                FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted + 1);
+
+            //COMBAT
             thisManager.UpdateCurrentCarriage(this);
         }
     }
