@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 395755183875757415}
   - component: {fileID: 5084771786511074471}
   - component: {fileID: 6611206770340190012}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Reggie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

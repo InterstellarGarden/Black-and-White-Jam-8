@@ -224,6 +224,8 @@ MonoBehaviour:
   crouchingYCenter: -0.25
   isCrouching: 0
   maxHealth: 5
+  lowHealthThreshold: 2
+  isLowHealth: 0
 --- !u!114 &3282293406018627972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,11 +250,11 @@ MonoBehaviour:
   - {fileID: 4154328999536989640, guid: e29c50e918a702c438b68f2792c322d2, type: 3}
   bulletspawn: {fileID: 3282293404743699228}
   crouchingBulletSpawn: {fileID: 2437816886309570824}
-  hasTemporaryBullet: 0
+  numberOfTemporaryBullet: 0
   bulletSpeed: 100
-  excludeTarget:
+  targettableMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!114 &3282293406018627975
 MonoBehaviour:
   m_ObjectHideFlags: 0

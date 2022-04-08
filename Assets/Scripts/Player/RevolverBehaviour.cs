@@ -19,7 +19,7 @@ public class RevolverBehaviour : MonoBehaviour
     public float bulletSpeed = 60;
 
     //TARGETABLE REFERS TO: WHAT WILL THE PLAYER'S BULLET COLLIDE WITH - WALLS, ENTITIES ETC.
-    public LayerMask excludeTarget;
+    public LayerMask targettableMask;
 
     //UI ELEMENTS
     private uiRubiBehaviour thisRubiBehaviour;
@@ -59,7 +59,7 @@ public class RevolverBehaviour : MonoBehaviour
             Vector3 _screenForward = Camera.main.transform.forward;
 
             RaycastHit _hitInfo;
-            if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity))
+            if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity,targettableMask))
                 if (_hitInfo.collider.TryGetComponent(out EntityBehaviour _enemy))
                 {
                     //CHECK FOR INSTANT KILL
