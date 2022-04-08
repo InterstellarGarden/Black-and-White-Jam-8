@@ -61,8 +61,8 @@ public class CarriageData : MonoBehaviour
             if (_isSpecialCarriage == SpecialCarriageExceptions.Furnace && CarriageManager.loopsCompleted < 2)
                 FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted);
 
-            else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 2)
-                FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted + 1);
+            //else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 2)
+            //    FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted + 1);
 
             //COMBAT
             thisManager.UpdateCurrentCarriage(this);

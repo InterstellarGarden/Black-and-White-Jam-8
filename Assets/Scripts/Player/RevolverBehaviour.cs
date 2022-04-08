@@ -59,7 +59,9 @@ public class RevolverBehaviour : MonoBehaviour
             Vector3 _screenForward = Camera.main.transform.forward;
 
             RaycastHit _hitInfo;
-            if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity,targettableMask))
+            if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity, targettableMask))
+            {
+                Debug.DrawLine(_screenCenter, _hitInfo.transform.position, Color.white, 5);
                 if (_hitInfo.collider.TryGetComponent(out EntityBehaviour _enemy))
                 {
                     //CHECK FOR INSTANT KILL
@@ -69,7 +71,7 @@ public class RevolverBehaviour : MonoBehaviour
                         _enemy.TriggerTakeDamage(_currentType);
                 }
 
-            else if (_hitInfo.collider.TryGetComponent(out DestructibleBehaviour _destructible))
+                else if (_hitInfo.collider.TryGetComponent(out DestructibleBehaviour _destructible))
                 {
                     //CHECK FOR INSTANT KILL
                     if (thisCombo.canInstantKill)
@@ -79,6 +81,7 @@ public class RevolverBehaviour : MonoBehaviour
                 }
 
                 else Debug.Log("Error targetting entity");
+            }
 
 
             //RESET COMBO REGARDLESS OF HITTING OR MISSING
