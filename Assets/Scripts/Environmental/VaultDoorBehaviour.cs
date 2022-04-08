@@ -9,7 +9,7 @@ public class VaultDoorBehaviour : MonoBehaviour
         if (other.CompareTag("Player") && CarriageManager.playerHasTnt)
         {
             gameObject.GetComponentInParent<CarriageData>().UpdateCarriageState(false);
-            CarriageManager.playerHasTnt = false;
+            FindObjectOfType<CarriageManager>().UpdateTnt(false);
         }
     }
 }

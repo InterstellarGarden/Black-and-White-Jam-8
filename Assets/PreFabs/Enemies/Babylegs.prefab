@@ -207,8 +207,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1706efb394c28b54e91ebe7fcee88e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 2
+  thisWeakness: 1
   maxHealth: 2
+  health: 0
+  maxHealthIncreasePerLoop: 0
+  thisEnemyType: 1
   crate: {fileID: 5916491545515599491}
 --- !u!1001 &7004292104785895496
 PrefabInstance:

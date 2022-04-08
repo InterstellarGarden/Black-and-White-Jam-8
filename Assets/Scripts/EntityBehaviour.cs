@@ -7,9 +7,21 @@ public class EntityBehaviour : MonoBehaviour
     public BulletBehaviour.bulletType thisWeakness;
     [SerializeField] protected int maxHealth;
     [SerializeField] private int health;
+    public enum enemyType
+    {
+        reggie = 0,
+        babylegs = 1,
+        bigGuy = 2,
+        filthy = 3,
+        drunk = 4,
+        gambler = 5,
+        boss = 6
+    }
+    protected CombatManager thisCombatManager;
     protected virtual void Awake()
     {
         health = maxHealth;
+        thisCombatManager = FindObjectOfType<CombatManager>();
     }
     public void TriggerTakeDamage(int _bulletType)
     {
@@ -43,17 +55,50 @@ public class EntityBehaviour : MonoBehaviour
         if (FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject))
         {
             GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
+            //Spawn TNT pick up at 100% at Furnace room
             if (FindObjectOfType<CombatManager>().currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Furnace)
+            {
                 _prefab.GetComponent<TemporaryPickUp>().isTnt = true;
-            else _prefab.GetComponent<TemporaryPickUp>().isTnt = false;
-            Instantiate(_prefab, transform.position, Quaternion.identity);
+                Instantiate(_prefab, transform.position, Quaternion.identity);
+            }               
+
+            //Spawn HP pick up at 100% at end of each other room if player is low health
+            else if (FindObjectOfType<CharacterBehaviour>().isLowHealth)
+            {
+                _prefab.GetComponent<TemporaryPickUp>().isTnt = false;
+                Instantiate(_prefab, transform.position, Quaternion.identity);
+            }
+
+            //Spawn HP pick up at 40% at end of each other room
+            else
+            {
+                int _RNGesus = Random.Range(0, 101);
+                if (_RNGesus >= 60)
+                {
+                    Debug.Log("RNG: " + _RNGesus + ". Report if RNG is below 60.");
+                    _prefab.GetComponent<TemporaryPickUp>().isTnt = false;
+                    Instantiate(_prefab, transform.position, Quaternion.identity);
+                }               
+            }
         }
 
-        //CHANCE TO DROP BULLET
+        //CHANCE TO DROP BULLET - Only in the middle of combat
         else
         {
-            GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
-            Instantiate(_prefab, transform.position, Quaternion.identity);
+            //Roll 1-100s
+            if (Random.value > 0.75)
+            {
+                //LOAD INITIAL PREFAB FROM RESOURCE
+                GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
+
+                //ALGORITHM TO SELECT BULLET
+                enemyType _enemyChosen = thisCombatManager.CountHighestEnemy();
+                int _idealBullet = (int)_enemyChosen;
+
+                //APPLY RESULT AND INSTANTIATE BULLET
+                _prefab.GetComponent<BulletPickUpBehaviour>().bulletType = _idealBullet;
+                Instantiate(_prefab, transform.position, Quaternion.identity);
+            }
         }
 
         //DEATH ANIMATION AND SOUND CAN BE INSERTED HERE

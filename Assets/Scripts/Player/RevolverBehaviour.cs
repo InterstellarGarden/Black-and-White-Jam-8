@@ -8,12 +8,12 @@ public class RevolverBehaviour : MonoBehaviour
     private ComboBehaviour thisCombo;
     CharacterBehaviour thisPlayer;
 
-     public List<GameObject> bullets;
+    public List<GameObject> bullets;
     public List<GameObject> bulletPrefabs;
     public Transform bulletspawn,crouchingBulletSpawn;
     GameObject desiredBullet;
 
-    public bool hasTemporaryBullet;
+    public int numberOfTemporaryBullet;
         
     //VISUAL
     public float bulletSpeed = 60;
@@ -21,14 +21,26 @@ public class RevolverBehaviour : MonoBehaviour
     //TARGETABLE REFERS TO: WHAT WILL THE PLAYER'S BULLET COLLIDE WITH - WALLS, ENTITIES ETC.
     public LayerMask excludeTarget;
 
+    //UI ELEMENTS
+    private uiRubiBehaviour thisRubiBehaviour;
+
     void Awake()
     {
         thisCombo = GetComponent<ComboBehaviour>();
         thisPlayer = GetComponent<CharacterBehaviour>();
 
-        hasTemporaryBullet = false;
-    }
+        numberOfTemporaryBullet = 0;
 
+        thisRubiBehaviour = FindObjectOfType<uiRubiBehaviour>();
+    }
+    private void Start()
+    {
+        //INITIALISE BULLETS INTO RUBI
+        for (int i = 0; i < 6; i++)
+        {
+            thisRubiBehaviour.SetBullet(i, (int)bullets[i].GetComponent<BulletBehaviour>().thisBullet);
+        }
+    }
     void Update()
     {
         if (GameManager.playerIsDead)
@@ -74,6 +86,9 @@ public class RevolverBehaviour : MonoBehaviour
                 thisCombo.TriggerRestartDecay();
             #endregion
 
+            //UI
+            thisRubiBehaviour.FiredBullet();
+
             //SPAWN BULLET - VISUAL ONLY
             TriggerSpawnBullet();
 
@@ -101,34 +116,65 @@ public class RevolverBehaviour : MonoBehaviour
 
     void TriggerNextBullet()
     {        
-        if (hasTemporaryBullet)
-        {            
-            hasTemporaryBullet = false;
-            FindObjectOfType<dump_BulletUI>().removeTempBullet();
+        if (numberOfTemporaryBullet > 0 )
+        {
+            numberOfTemporaryBullet--;
         }
 
         bullets.RemoveAt(0);
-        if (bullets.Count <= 0)
-            TriggerReloadChamber();
+        if (bullets.Count < 3)
+            TriggerReloadNextBullet();
+
+        thisRubiBehaviour.RotateForward();
     }
 
-    void TriggerReloadChamber()
+    void TriggerReloadNextBullet()
     {
-        for (int n = 0; n < 6; n++)
-        {
-            bullets.Add(bulletPrefabs[Random.Range(0, bulletPrefabs.Count)]);
-        }
+        int _chosenBullet = Random.Range(0, bulletPrefabs.Count);
+        bullets.Add(bulletPrefabs[_chosenBullet]);
+
+        thisRubiBehaviour.SetBullet(2, (int)bulletPrefabs[_chosenBullet].GetComponent<BulletBehaviour>().thisBullet);
     }
     public void TriggerPickUpBullet(int _bulletType)
     {
         GameObject _pickedUpBullet = bulletPrefabs[_bulletType];
 
-        if (hasTemporaryBullet)
-            bullets[0] = _pickedUpBullet; //Replace top, temporary bullet with new temporary bullet
+        #region AddBullet
+        if (numberOfTemporaryBullet > 0)
+        {
+            float _delta = 2 - numberOfTemporaryBullet;
+
+            //Replace top, temporary bullet with new temporary bullet
+            bullets[0] = _pickedUpBullet; 
+            //Add one more bullet on top.
+            for (int n = 0; n < _delta; n++)
+            {
+                bullets.Insert(0, _pickedUpBullet);
+            }
+        }
 
         else
-            bullets.Insert(0, _pickedUpBullet); //Add a temporary bullet on top of list of permanent bullets
+        {
+            //Add 2 temporary bullet on top of list of permanent bullets
+            bullets.Insert(0, _pickedUpBullet); 
+            bullets.Insert(0, _pickedUpBullet);
+        }
+        #endregion
 
-        hasTemporaryBullet = true;
-    }
+        #region Remove Excess Bullets
+        while (bullets.Count > 6)
+        {
+            //Remove bullets at tail end
+            bullets.RemoveAt(6);
+        }
+        #endregion
+
+        numberOfTemporaryBullet = 2;
+
+        thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
+        thisRubiBehaviour.AddBullet((int)_pickedUpBullet.GetComponent<BulletBehaviour>().thisBullet);
+
+        thisRubiBehaviour.RotateBackward();
+        thisRubiBehaviour.RotateBackward();
+    }    
 }

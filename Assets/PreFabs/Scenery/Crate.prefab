@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05755813d0625142be9523dfcb2f2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 2
+  thisWeakness: 1
   maxHealth: 2
   health: 0
 --- !u!1001 &4249281336181472155
