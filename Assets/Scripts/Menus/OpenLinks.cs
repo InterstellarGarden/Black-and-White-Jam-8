@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class OpenLinks : MonoBehaviour
 {
+    // credits for the team 
+
     public void WestyCredit()
     { Application.OpenURL("https://westydesign.itch.io/"); }
 
@@ -21,16 +23,20 @@ public class OpenLinks : MonoBehaviour
     public void ShlofCredit()
     { Application.OpenURL("https://shlof.itch.io"); }
 
-    public void FontCredit()
-    { Application.OpenURL("https://fontsnetwork.com/playbill-font/"); }
-
     public void MikeCredit()
     { Application.OpenURL("https://www.youtube.com/c/mehmenmike/featured"); }  
 
-    // STILL NEED:
-    // Confirmation of Shadow's link
-    // Shlof credit
-    // Steven credit
-    // Farb credit
-    // Bonc credit
+    public void StevenCredit()
+    { Application.OpenURL("https://steventus.itch.io/"); }
+
+    public void FarbCredit()
+    { Application.OpenURL("https://mobile.twitter.com/farbtron"); }
+
+    public void BoncCredit()
+    { Application.OpenURL("https://www.instagram.com/bonc._/"); }
+
+    // credits for stuff we use
+
+    public void FontCredit()
+    { Application.OpenURL("https://fontsnetwork.com/playbill-font/"); }
 }
