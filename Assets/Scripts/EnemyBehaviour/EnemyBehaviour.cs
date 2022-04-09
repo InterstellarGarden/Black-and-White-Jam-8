@@ -6,7 +6,7 @@ public class EnemyBehaviour : EntityBehaviour
 {
     public int maxHealthIncreasePerLoop = 2;
     [SerializeField] private enemyType thisEnemyType;
-    Animator thisAnimator;
+    protected Animator thisAnimator;
     protected override void Awake()
     {
         thisAnimator = GetComponent<Animator>();

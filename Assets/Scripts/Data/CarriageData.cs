@@ -71,7 +71,7 @@ public class CarriageData : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (_isSpecialCarriage == SpecialCarriageExceptions.Vault)
+        if (other.CompareTag("Player") && _isSpecialCarriage == SpecialCarriageExceptions.Vault)
             ForceUpdateCarriageState(true);
     }
 }

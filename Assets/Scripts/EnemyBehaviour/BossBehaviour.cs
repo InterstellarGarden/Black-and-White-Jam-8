@@ -8,7 +8,8 @@ public class BossBehaviour : EnemyBehaviour
     public float distanceFromPlayerToSpawnArsenal = 5;
     protected override void Start()
     {
-        FindObjectOfType<CombatManager>().isBossAlive = true;
+        thisCombatManager = FindObjectOfType<CombatManager>();
+        thisCombatManager.isBossAlive = true;
         SpawnArsenal(CarriageManager.loopsCompleted);
         StartCoroutine(CallEnemies());
         base.Start();
@@ -16,11 +17,13 @@ public class BossBehaviour : EnemyBehaviour
 
     public override void Death()
     {
-        if (!FindObjectOfType<CombatManager>().isBossAlive)
+        if (!thisCombatManager.isBossAlive)
             return;
-        FindObjectOfType<CombatManager>().isBossAlive = false;
 
+        thisCombatManager.isBossAlive = false;
         StopAllCoroutines();
+
+        thisCombatManager.ClearEnemies();
         FindObjectOfType<CarriageManager>().UpdateIncreaseLoop();
         SpawnArsenal(CarriageManager.loopsCompleted);
         base.Death();   
@@ -34,10 +37,10 @@ public class BossBehaviour : EnemyBehaviour
     }
     IEnumerator CallEnemies()
     {
-        while (FindObjectOfType<CombatManager>().isBossAlive)
+        while (thisCombatManager.isBossAlive)
         {
             yield return new WaitForSeconds(intervalBetweenRespawnEnemies);
-            FindObjectOfType<CombatManager>().BossSpawnEnemies();
+            thisCombatManager.BossSpawnEnemies();
         }
     }
 }
