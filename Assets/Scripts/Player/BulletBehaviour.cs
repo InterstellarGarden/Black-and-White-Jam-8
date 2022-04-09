@@ -8,7 +8,13 @@ public class BulletBehaviour : MonoBehaviour
     public enum bulletType
     {
         normal = 0,
-        fire = 1
+        fire = 1,
+        electricity = 2,
+        soap = 3,
+        ice = 4,
+        chip = 5,
+        enemy = 6,
+        noWeakness = 7
     }
 
 
@@ -24,7 +30,7 @@ public class BulletBehaviour : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
 
