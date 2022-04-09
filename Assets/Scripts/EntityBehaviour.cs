@@ -28,22 +28,15 @@ public class EntityBehaviour : MonoBehaviour
         //TAKE DAMAGE
         if (_bulletType == (int)thisWeakness)
         {
-            health = 0;
-        }
-
-        else
-        {
-            Debug.Log("ow");
-            health--;
-        }
-
-        //CHECK FOR HEALTH/DEATH
-        if (health <= 0)
             Death();
+        }
 
         else
         {
-            //TAKING HIT ANIMATION AND SOUND CAN BE INSERTED HERE
+            health--;
+
+            if (health <= 0)
+                Death();
         }
     }
 
@@ -57,12 +50,14 @@ public class EntityBehaviour : MonoBehaviour
         //ADD COMBO
         FindObjectOfType<ComboBehaviour>().TriggerAddCombo(1);
 
+        StartCoroutine(DelayDeath());
+
         //CHECK FOR END OF COMBAT - Spawn pick ups at end of carriage
         if (FindObjectOfType<CombatManager>().CheckForEndCombat(gameObject))
         {
             GameObject _prefab = Resources.Load<GameObject>("TemporaryPickUp");
             //Spawn TNT pick up at 100% at Furnace room
-            if (FindObjectOfType<CombatManager>().currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Furnace)
+            if (FindObjectOfType<CombatManager>().currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Furnace && !VaultDoorBehaviour.isOpened)
             {
                 _prefab.GetComponent<TemporaryPickUp>().isTnt = true;
                 Instantiate(_prefab, transform.position, Quaternion.identity);
@@ -90,7 +85,8 @@ public class EntityBehaviour : MonoBehaviour
         else
         {
             //Roll 1-100s
-            if (Random.value > 0.75)
+            float _RNGesus = Random.value;
+            if (_RNGesus > 0.75f)
             {
                 //LOAD INITIAL PREFAB FROM RESOURCE
                 GameObject _prefab = Resources.Load<GameObject>("BulletPickUp");
@@ -103,15 +99,21 @@ public class EntityBehaviour : MonoBehaviour
                 _prefab.GetComponent<BulletPickUpBehaviour>().bulletType = _idealBullet;
 
                 //DON'T SPAWN NEW BULLET PICKUP IF NOT IN ARSENAL YET
-                if (!FindObjectOfType<RevolverBehaviour>().bulletPrefabs.Contains(_prefab))
+                if (_idealBullet > FindObjectOfType<RevolverBehaviour>().bulletPrefabs.Count-1)
+                {
+                    Debug.Log("Not in Arsenal");
                     return;
+                }
 
                 Instantiate(_prefab, transform.position, Quaternion.identity);
             }
         }
+    }
 
-        //DEATH ANIMATION AND SOUND CAN BE INSERTED HERE
-
+    IEnumerator DelayDeath()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.3f);
         Destroy(gameObject);
     }
 }

@@ -1538,6 +1538,7 @@ MonoBehaviour:
   exitPos: {fileID: 6361326534873162515}
   enemySpawners: []
   numberOfEnemiesToSpawn: 7
+  totalEnemiesPool: 0
   _isSpecialCarriage: 1
 --- !u!65 &5406389960150511660
 BoxCollider:

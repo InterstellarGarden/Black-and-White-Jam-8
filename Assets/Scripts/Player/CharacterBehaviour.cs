@@ -15,7 +15,9 @@ public class CharacterBehaviour : MonoBehaviour
     public float runningSpeed, jumpForce;
     public bool canMove = true;
     Vector3 moveDirection = Vector3.zero;
+    Vector3 storedMoveDirection;
     public float gravity = 20f;
+    public float airControlMultiplier = 0.2f;
 
     public float maxStamina;
     [HideInInspector] public float currentStamina;
@@ -63,10 +65,6 @@ public class CharacterBehaviour : MonoBehaviour
 
     void Update()
     {
-        //Debug code - to be removed at end
-        if (Input.GetKeyDown(KeyCode.O))
-            TriggerTakeDamage(1);
-
         if (GameManager.playerIsDead)
             return;
 
@@ -78,7 +76,7 @@ public class CharacterBehaviour : MonoBehaviour
         isRunning = Input.GetKey(KeyCode.LeftShift);
 
         //Press Left Control to crouch 
-        isCrouching = Input.GetKey(KeyCode.LeftControl);
+        isCrouching = Input.GetKey(KeyCode.C);
         switch (isCrouching)
         {
             case true:
@@ -95,6 +93,7 @@ public class CharacterBehaviour : MonoBehaviour
                 break;
         }
 
+
         float curSpeedX = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? (isRunning ? runningSpeed : walkingSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
@@ -109,6 +108,7 @@ public class CharacterBehaviour : MonoBehaviour
             moveDirection.y = movementDirectionY;
         }
 
+
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below
         // when the moveDirection is multiplied by deltaTime). This is because gravity should be applied
         // as an acceleration (ms^-2)
@@ -117,17 +117,15 @@ public class CharacterBehaviour : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
+        storedMoveDirection = moveDirection;
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
-
         // Player and Camera rotation
-        if (canMove)
-        {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        }        
+
+        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
     }
     public void TriggerTakeDamage(int _damage)
     {
