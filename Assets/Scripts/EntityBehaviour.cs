@@ -23,7 +23,7 @@ public class EntityBehaviour : MonoBehaviour
         health = maxHealth;
         thisCombatManager = FindObjectOfType<CombatManager>();
     }
-    public void TriggerTakeDamage(int _bulletType)
+    public virtual void TriggerTakeDamage(int _bulletType)
     {
         //TAKE DAMAGE
         if (_bulletType == (int)thisWeakness)
