@@ -23,6 +23,9 @@ public class ArsenalPickUp : PickUP
     protected override void OnPickUp()
     {
         FindObjectOfType<RevolverBehaviour>().TriggerUnlockArsenal();
+
+        if (!FindObjectOfType<CombatManager>().isBossAlive)
+            FindObjectOfType<CombatManager>().ForceEndCombat();
         base.OnPickUp();    
     }
 }

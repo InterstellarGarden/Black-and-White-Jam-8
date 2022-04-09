@@ -15,6 +15,10 @@ public class CarriageManager : MonoBehaviour
     [SerializeField] public Transform firstSpawn;
     [SerializeField] private Transform nextSpawnPos,prevSpawnPos;
 
+    //VAULT
+    public List<GameObject> vaultBarriers;
+    public CarriageData vaultCarriage;
+
     //COMBAT
     CombatManager thisCombatManager;
 
@@ -64,7 +68,15 @@ public class CarriageManager : MonoBehaviour
             _spawned.GetComponent<CarriageData>().UpdateCarriageState(false);
 
             if (_spawned.GetComponent<CarriageData>()._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault)
+            {
                 _spawned.GetComponent<CarriageData>().UpdateCarriageState(true);
+                vaultCarriage = _spawned.GetComponent<CarriageData>();
+                foreach (VaultDoorBehaviour _barrier in vaultCarriage.transform.GetComponentsInChildren<VaultDoorBehaviour>())
+                {
+                    vaultBarriers.Add(_barrier.gameObject);
+                }
+                UpdateVaultOpened(false);
+            }
 
             //NAMING
             _count++;
@@ -184,5 +196,14 @@ public class CarriageManager : MonoBehaviour
     {
         playerHasTnt = _hasTnt;
         FindObjectOfType<UIManager>().UpdateTntUi(_hasTnt);
+    }
+
+    public void UpdateVaultOpened(bool _state)
+    {
+        VaultDoorBehaviour.isOpened = _state;
+        foreach (GameObject _barrier in vaultBarriers)
+        {
+            _barrier.SetActive(!_state);
+        }
     }
 }

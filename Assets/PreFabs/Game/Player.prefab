@@ -255,6 +255,7 @@ MonoBehaviour:
   bulletspawn: {fileID: 3282293404743699228}
   crouchingBulletSpawn: {fileID: 2437816886309570824}
   numberOfTemporaryBullet: 0
+  fireRate: 6.6666665
   bulletSpeed: 100
   targettableMask:
     serializedVersion: 2

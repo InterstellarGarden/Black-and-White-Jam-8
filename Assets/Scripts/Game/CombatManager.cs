@@ -104,9 +104,9 @@ public class CombatManager : MonoBehaviour
 
                 //Exception for Vault Room
                 //If currently in vault room; all filler enemies are dead; boss will spawn additional enemies (ie. combat is not over hence false)
-                if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && isBossAlive)
+                if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault)
                 {
-                    //Custom spawning algorithm handled by BossBehaviour
+                    //'End Combat' ie. open doors after picking up arsenal
                     return false;
                 }
 
@@ -119,8 +119,7 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
-
-            Debug.Log("Error, enemy is not considered as part of active enemy.");            
+            Debug.Log("Error, enemy is not considered as part of active enemy.");
             return false;
         }
     }
@@ -139,7 +138,11 @@ public class CombatManager : MonoBehaviour
 
         oldCarriage = currentCarriage;
     }
-
+    public void ForceEndCombat()
+    {
+        if (!isBossAlive)
+            EndCombat();
+    }
     //When boss spawns in, update this, when boss dies update this again
     public void UpdateBossState(bool _state)
     {
@@ -149,6 +152,20 @@ public class CombatManager : MonoBehaviour
     {
         numberOfEachActiveEnemyType[_enemyType] += _delta;
     }
+
+    public void ClearEnemies()
+    {
+        for (int i = 0; i < numberOfEachActiveEnemyType.Count-1; i++)
+        {
+            numberOfEachActiveEnemyType[i] = 0;
+        }
+
+        foreach (GameObject _enemy in activeEnemies)
+            Destroy(_enemy);
+
+        activeEnemies.Clear();
+    }
+
     public EntityBehaviour.enemyType CountHighestEnemy()
     {
         int _highest = 0;
@@ -185,9 +202,13 @@ public class CombatManager : MonoBehaviour
     }
     public void TriggerNewEnemyType(int _choice)
     {
-        if (unlockableEnemyPrefabs[_choice] != null)
-            enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
+        if (_choice > unlockableEnemyPrefabs.Count)
+        {
+            Debug.Log("No more enemies to unlock");
+            return;
+        }
 
-        else Debug.Log("No more enemies to unlock");
+        else if (unlockableEnemyPrefabs[_choice] != null)
+            enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
     }
 }

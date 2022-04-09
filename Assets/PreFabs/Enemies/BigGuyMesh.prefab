@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 395755183875757415}
   - component: {fileID: 5084771786511074471}
   - component: {fileID: 6611206770340190012}
-  - component: {fileID: -520220378861462614}
+  - component: {fileID: 7316732380521314019}
   m_Layer: 9
-  m_Name: Reggie
+  m_Name: BigGuyMesh
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,9 +32,9 @@ Transform:
   m_GameObject: {fileID: 395755183875757418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.29, y: 1.581, z: -8.68}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 8548234619395754474}
+  - {fileID: 8231166128648091096}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,8 +49,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.9716797, y: 3.3459907, z: 1.5396061}
-  m_Center: {x: 0.18208694, y: -0.07099581, z: -0.029833794}
+  m_Size: {x: 1.7520599, y: 1.8724872, z: 1}
+  m_Center: {x: -0.01966858, y: 0.12185079, z: 0}
 --- !u!212 &395755183875757416
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 2225382387621397499, guid: 146b7edbc4f14744fb774c7e8a4dc655, type: 3}
+  m_Sprite: {fileID: 2381616168188640047, guid: 6c6c0c045f582d14fabbb9040475ea75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -112,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 395755183875757418}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d9c46f4623714f43b79b894267b86b4, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -161,15 +161,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482d41fa4dd78bb4d8a7f953df246510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 0
-  maxHealth: 3
+  thisWeakness: 2
+  maxHealth: 5
   health: 0
   maxHealthIncreasePerLoop: 0
-  thisEnemyType: 0
+  thisEnemyType: 2
   movementSpeed: 1
-  movementDirection: 0
+  movementDirection: 90
   movementMagnitude: 1
---- !u!114 &-520220378861462614
+--- !u!114 &7316732380521314019
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -184,11 +184,10 @@ MonoBehaviour:
   durationBetweenFireInSec: 1
   bulletSpeed: 4
   delayBetweenEachRapidFireInSec: 0
-  angleBetweenEachBulletInCycle: 0
   numberOfTimesToFirePerCycle: 1
-  bulletSpawn: {fileID: 8548234619395754474}
+  bulletSpawn: {fileID: 8231166128648091096}
   bulletPrefab: {fileID: 1674483448979927400, guid: cefbd30b872fc5940b71200f4942e6cf, type: 3}
---- !u!1 &5042694802217518837
+--- !u!1 &3207042420285577510
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,23 +195,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8548234619395754474}
+  - component: {fileID: 8231166128648091096}
   m_Layer: 9
-  m_Name: bulletspawn
+  m_Name: bulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8548234619395754474
+--- !u!4 &8231166128648091096
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042694802217518837}
+  m_GameObject: {fileID: 3207042420285577510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.418}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 395755183875757422}

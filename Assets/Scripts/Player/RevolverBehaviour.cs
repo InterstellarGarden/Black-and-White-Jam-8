@@ -14,7 +14,11 @@ public class RevolverBehaviour : MonoBehaviour
     GameObject desiredBullet;
 
     public int numberOfTemporaryBullet;
-        
+
+    //FIRE RATE
+    public float fireRate;
+    float timeLastFired;
+
     //VISUAL
     public float bulletSpeed = 60;
 
@@ -48,8 +52,10 @@ public class RevolverBehaviour : MonoBehaviour
 
         desiredBullet = bullets[0];
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > timeLastFired + 1/fireRate)
         {
+            timeLastFired = Time.time;
+
             #region Firing and Combo
             //PREPARE DATA FROM BULLET ABOUT TO BE FIRED
             int _currentType = (int)desiredBullet.GetComponent<BulletBehaviour>().thisBullet;
