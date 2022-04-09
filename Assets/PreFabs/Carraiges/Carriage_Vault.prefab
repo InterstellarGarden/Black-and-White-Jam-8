@@ -549,7 +549,8 @@ MonoBehaviour:
   exitDoor: {fileID: 1002238380438907124}
   exitPos: {fileID: 1002238381062319792}
   enemySpawners: []
-  numberOfEnemiesToSpawn: 4
+  numberOfEnemiesToSpawn: 1
+  totalEnemiesPool: 0
   _isSpecialCarriage: 2
 --- !u!65 &1002238379833600941
 BoxCollider:

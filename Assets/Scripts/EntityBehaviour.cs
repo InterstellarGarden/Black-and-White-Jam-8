@@ -23,13 +23,19 @@ public class EntityBehaviour : MonoBehaviour
         health = maxHealth;
         thisCombatManager = FindObjectOfType<CombatManager>();
     }
-    public void TriggerTakeDamage(int _bulletType)
+    public virtual void TriggerTakeDamage(int _bulletType)
     {
         //TAKE DAMAGE
         if (_bulletType == (int)thisWeakness)
-            TriggerInstantKill();
+        {
+            health = 0;
+        }
 
-        else health--;
+        else
+        {
+            Debug.Log("ow");
+            health--;
+        }
 
         //CHECK FOR HEALTH/DEATH
         if (health <= 0)
@@ -72,10 +78,8 @@ public class EntityBehaviour : MonoBehaviour
             //Spawn HP pick up at 40% at end of each other room
             else
             {
-                int _RNGesus = Random.Range(0, 101);
-                if (_RNGesus >= 60)
+                if (Random.value > 0.6f)
                 {
-                    Debug.Log("RNG: " + _RNGesus + ". Report if RNG is below 60.");
                     _prefab.GetComponent<TemporaryPickUp>().isTnt = false;
                     Instantiate(_prefab, transform.position, Quaternion.identity);
                 }               
@@ -97,6 +101,11 @@ public class EntityBehaviour : MonoBehaviour
 
                 //APPLY RESULT AND INSTANTIATE BULLET
                 _prefab.GetComponent<BulletPickUpBehaviour>().bulletType = _idealBullet;
+
+                //DON'T SPAWN NEW BULLET PICKUP IF NOT IN ARSENAL YET
+                if (!FindObjectOfType<RevolverBehaviour>().bulletPrefabs.Contains(_prefab))
+                    return;
+
                 Instantiate(_prefab, transform.position, Quaternion.identity);
             }
         }

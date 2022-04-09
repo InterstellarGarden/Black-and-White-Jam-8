@@ -10,6 +10,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     //MOVEMENT PROPERTIES
     CharacterController characterController;
+    CapsuleCollider triggerCollider;
     public float walkingSpeed = 5;
     public float runningSpeed, jumpForce;
     public bool canMove = true;
@@ -44,6 +45,7 @@ public class CharacterBehaviour : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         characterController = GetComponent<CharacterController>();
+        triggerCollider = GetComponent<CapsuleCollider>();
         playerCamera = FindObjectOfType<Camera>().GetComponent<Camera>();
         canMove = true;
         isRunning = false;
@@ -83,13 +85,13 @@ public class CharacterBehaviour : MonoBehaviour
                 //interrupts any attempt to run
                 isRunning = false;
 
-                characterController.height = crouchingHeight;
-                characterController.center = new Vector3(0, crouchingYCenter, 0);
+                triggerCollider.height = characterController.height = crouchingHeight;
+                triggerCollider.center = characterController.center = new Vector3(0, crouchingYCenter, 0);
                 break;
 
             case false:
-                characterController.height = normalHeight;
-                characterController.center = new Vector3(0, 0, 0);
+                triggerCollider.height = characterController.height = normalHeight;
+                triggerCollider.center = characterController.center = new Vector3(0, 0, 0);
                 break;
         }
 
@@ -164,5 +166,7 @@ public class CharacterBehaviour : MonoBehaviour
     public void GameOver()
     {
         StopAllCoroutines();
-    }    
+    }
+
+    
 }

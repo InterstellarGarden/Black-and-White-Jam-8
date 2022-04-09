@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4387187306841395367}
   - component: {fileID: 4387187306841395385}
   - component: {fileID: 4387187306841395384}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TemporaryPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -7,6 +7,14 @@ public class CombatManager : MonoBehaviour
     bool inCombat = false;
     private int enemiesToSpawn;
     [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private List<GameObject> unlockableEnemyPrefabs;
+    public enum UnlockableEnemies
+    {
+        electric = 0,
+        soap = 1,
+        ice = 2,
+        chip = 3
+    }
     public List<GameObject> activeEnemies;
     private List<Vector3> spawnPositions, chosenSpawnPositions;
 
@@ -49,7 +57,7 @@ public class CombatManager : MonoBehaviour
         chosenSpawnPositions = new List<Vector3>();
         //Algorithm to select spawners to spawn on
 
-        enemiesToSpawn = currentCarriage.numberOfEnemiesToSpawn;
+        enemiesToSpawn = (currentCarriage.numberOfEnemiesToSpawn - activeEnemies.Count);
         for (int n = 1; n <= enemiesToSpawn; n++)
         {
             int _selected = Random.Range(0, spawnPositions.Count);
@@ -81,6 +89,10 @@ public class CombatManager : MonoBehaviour
         }
         #endregion
     }
+    public void BossSpawnEnemies()
+    {
+        SpawnEnemies();
+    }
     public bool CheckForEndCombat(GameObject _enemyToRemove)
     {
         if (activeEnemies.Contains(_enemyToRemove))
@@ -94,7 +106,7 @@ public class CombatManager : MonoBehaviour
                 //If currently in vault room; all filler enemies are dead; boss will spawn additional enemies (ie. combat is not over hence false)
                 if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && isBossAlive)
                 {
-                    SpawnEnemies();
+                    //Custom spawning algorithm handled by BossBehaviour
                     return false;
                 }
 
@@ -170,5 +182,12 @@ public class CombatManager : MonoBehaviour
             case (int)EntityBehaviour.enemyType.gambler:
                 return EntityBehaviour.enemyType.gambler;
         }
+    }
+    public void TriggerNewEnemyType(int _choice)
+    {
+        if (unlockableEnemyPrefabs[_choice] != null)
+            enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
+
+        else Debug.Log("No more enemies to unlock");
     }
 }
