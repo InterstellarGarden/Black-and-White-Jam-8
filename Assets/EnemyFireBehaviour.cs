@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class EnemyFireBehaviour : MonoBehaviour
 {
-    public float durationBetweenFireInSec = 1, bulletSpeed = 1, delayBetweenEachRapidFireInSec = 0;
+    public float durationBetweenFireInSec = 1, bulletSpeed = 1, delayBetweenEachRapidFireInSec = 0, angleBetweenEachBulletInCycle = 0;
     public int numberOfTimesToFirePerCycle = 1;
     private int fireIndex, secondaryFireIndex;
+    private float currentAngle;
     bool firing;
 
     public Transform bulletSpawn;
@@ -33,23 +34,28 @@ public class EnemyFireBehaviour : MonoBehaviour
         }
         fireIndex++;
     }
-    public void Fire()
+    public void Fire(float _rotation)
     {
         Vector3 _playerPos = player.transform.position;
         GameObject _bullet = Instantiate(bulletPrefab, bulletSpawn.transform.position, Quaternion.identity);
         _bullet.transform.LookAt(_playerPos);
-        _bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.transform.forward * bulletSpeed;
+        _bullet.transform.Rotate(0, _rotation, 0);
+
+        _bullet.GetComponent<Rigidbody>().velocity = _bullet.transform.forward * bulletSpeed;
     }
 
     IEnumerator FireCycle(int _numberOfRapidFire)
     {
+        currentAngle = -(angleBetweenEachBulletInCycle * (float)Mathf.Floor(numberOfTimesToFirePerCycle/2));
         while (firing)
         {
-            Fire();            
+            Fire(currentAngle);
+
+            currentAngle += angleBetweenEachBulletInCycle;
             secondaryFireIndex++;
 
             if (secondaryFireIndex >= numberOfTimesToFirePerCycle)
-            { 
+            {
                 fireIndex = 0;
                 secondaryFireIndex = 0;
                 firing = false;

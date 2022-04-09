@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7316732380521314019}
   m_Layer: 9
   m_Name: BigGuy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,7 +148,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!114 &6611206770340190012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   maxHealthIncreasePerLoop: 0
   thisEnemyType: 2
   movementSpeed: 1
-  movementDirection: 0
+  movementDirection: 90
   movementMagnitude: 1
 --- !u!114 &7316732380521314019
 MonoBehaviour:
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8231166128648091096}
-  m_Layer: 3
+  m_Layer: 9
   m_Name: bulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

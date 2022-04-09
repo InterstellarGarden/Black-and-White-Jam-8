@@ -28,8 +28,7 @@ public class EntityBehaviour : MonoBehaviour
         //TAKE DAMAGE
         if (_bulletType == (int)thisWeakness)
         {
-            Debug.Log("InstantKill");
-            TriggerInstantKill();
+            health = 0;
         }
 
         else

@@ -13,7 +13,8 @@ public class BulletBehaviour : MonoBehaviour
         soap = 3,
         ice = 4,
         chip = 5,
-        enemy = 6        
+        enemy = 6,
+        noWeakness = 7
     }
 
 

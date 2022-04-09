@@ -11,13 +11,12 @@ GameObject:
   - component: {fileID: 395755183875757422}
   - component: {fileID: 395755183875757421}
   - component: {fileID: 395755183875757416}
-  - component: {fileID: 395755183875757417}
   - component: {fileID: 395755183875757415}
   - component: {fileID: 5084771786511074471}
   - component: {fileID: 6611206770340190012}
   - component: {fileID: -520220378861462614}
   m_Layer: 9
-  m_Name: Reggie
+  m_Name: Filthy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -92,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 2225382387621397499, guid: 146b7edbc4f14744fb774c7e8a4dc655, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19737887, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,25 +101,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &395755183875757417
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395755183875757418}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6d9c46f4623714f43b79b894267b86b4, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &395755183875757415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,11 +142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 0
-  maxHealth: 3
+  maxHealth: 2
   health: 0
   maxHealthIncreasePerLoop: 0
-  thisEnemyType: 0
-  movementSpeed: 1
+  thisEnemyType: 3
+  movementSpeed: 3
   movementDirection: 0
   movementMagnitude: 1
 --- !u!114 &-520220378861462614
@@ -182,9 +162,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   durationBetweenFireInSec: 1
-  bulletSpeed: 4
-  delayBetweenEachRapidFireInSec: 0
-  numberOfTimesToFirePerCycle: 1
+  bulletSpeed: 12
+  delayBetweenEachRapidFireInSec: 0.5
+  angleBetweenEachBulletInCycle: 0
+  numberOfTimesToFirePerCycle: 2
   bulletSpawn: {fileID: 8548234619395754474}
   bulletPrefab: {fileID: 1674483448979927400, guid: cefbd30b872fc5940b71200f4942e6cf, type: 3}
 --- !u!1 &5042694802217518837

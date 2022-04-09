@@ -71,6 +71,7 @@ MonoBehaviour:
   - {fileID: 7004292105579056138, guid: 8a283fded4f3dc84e871d3c212cb898d, type: 3}
   unlockableEnemyPrefabs:
   - {fileID: 395755183875757418, guid: 7d7324806e6f4984eaf620ee45557548, type: 3}
+  - {fileID: 395755183875757418, guid: 967d1717ccc3fad43a69db2e8a189ecc, type: 3}
   activeEnemies: []
   maxEnemiesAtATime: 0
   isBossAlive: 0

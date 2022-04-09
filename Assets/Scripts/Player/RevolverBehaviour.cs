@@ -59,9 +59,10 @@ public class RevolverBehaviour : MonoBehaviour
             Vector3 _screenForward = Camera.main.transform.forward;
 
             RaycastHit _hitInfo;
+            Debug.DrawRay(_screenCenter, _screenForward * 20, Color.red, 5);
             if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity, targettableMask))
             {
-                Debug.DrawLine(_screenCenter, _hitInfo.transform.position, Color.white, 5);
+                Debug.DrawLine(_screenCenter, _hitInfo.transform.position, Color.blue, 5);
                 if (_hitInfo.collider.TryGetComponent(out EntityBehaviour _enemy))
                 {
                     //CHECK FOR INSTANT KILL
