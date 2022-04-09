@@ -8,11 +8,6 @@ public class Breakable : MonoBehaviour
     //Object to be disabled when broken
     [SerializeField]
     private GameObject not_broken;
-
-	//Particle effect to play upon break
-	[SerializeField]
-	private ParticleSystem poof;
-
     //The force at which pieces are flung when the object is broken
     [SerializeField]
     float explosionForce = 200f;
@@ -48,14 +43,8 @@ public class Breakable : MonoBehaviour
                 rb.AddExplosionForce(explosionForce, thisRb.position + randomVector, Mathf.Infinity,explosionUpwardsModifier, ForceMode.Force);
             }
 
-			//Play particle anim
-			if (poof != null)
-			{
-				poof.Play();
-			}
-
-			//Get rid of the unbroken object
-			Destroy(not_broken.gameObject);
+            //Get rid of the unbroken object
+            Destroy(not_broken.gameObject);
         }
     }
 }
