@@ -6,6 +6,7 @@ public class BossBehaviour : EnemyBehaviour
 {
     [SerializeField] private float intervalBetweenRespawnEnemies = 10;
     public float distanceFromPlayerToSpawnArsenal = 5;
+    private static int numArsenalUnlocked = 0;
     protected override void Start()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
@@ -24,12 +25,25 @@ public class BossBehaviour : EnemyBehaviour
         StopAllCoroutines();
 
         thisCombatManager.ClearEnemies();
+
+        //FOR OPENING VAULT BEYOND ARSENAL UNLOCKS
+        if (FindObjectOfType<RevolverBehaviour>().unlockableBulletPrefabs.Count <= 0)
+            thisCombatManager.ForceEndCombat();
+
         FindObjectOfType<CarriageManager>().UpdateIncreaseLoop();
+
         SpawnArsenal(CarriageManager.loopsCompleted);
+
+        FindObjectOfType<CarriageManager>().UpdateVaultOpened(false);
         base.Death();   
     }
     public void SpawnArsenal(int _choice)
     {
+        //VERY RUDIMENTARY FIX
+        //Basically, since there are only 2 new weapons, if it goes beyond 2, then no more weapons to unlock 
+        if (FindObjectOfType<RevolverBehaviour>().unlockableBulletPrefabs.Count <= 0)
+            return;
+
         GameObject _arsenal = Resources.Load<GameObject>("ArsenalPickUp");
         GameObject _player = FindObjectOfType<CharacterBehaviour>().gameObject;
         _arsenal.GetComponent<ArsenalPickUp>().bulletToUnlock = _choice;

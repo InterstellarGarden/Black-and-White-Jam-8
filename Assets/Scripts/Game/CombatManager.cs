@@ -119,8 +119,7 @@ public class CombatManager : MonoBehaviour
         }
         else
         {
-
-            Debug.Log("Error, enemy is not considered as part of active enemy.");            
+            Debug.Log("Error, enemy is not considered as part of active enemy.");
             return false;
         }
     }
@@ -203,9 +202,13 @@ public class CombatManager : MonoBehaviour
     }
     public void TriggerNewEnemyType(int _choice)
     {
-        if (unlockableEnemyPrefabs[_choice] != null)
-            enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
+        if (_choice > unlockableEnemyPrefabs.Count)
+        {
+            Debug.Log("No more enemies to unlock");
+            return;
+        }
 
-        else Debug.Log("No more enemies to unlock");
+        else if (unlockableEnemyPrefabs[_choice] != null)
+            enemyPrefabs.Add(unlockableEnemyPrefabs[_choice]);
     }
 }

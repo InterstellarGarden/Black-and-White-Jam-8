@@ -58,10 +58,10 @@ public class CarriageData : MonoBehaviour
         {
             //EFFECTS ON ENTERING NEW CARRIAGE
             //UNLOCK NEW ENEMY
-            if (_isSpecialCarriage == SpecialCarriageExceptions.Furnace && CarriageManager.loopsCompleted < 2)
+            if (_isSpecialCarriage == SpecialCarriageExceptions.Furnace && CarriageManager.loopsCompleted < 1)
                 FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted);
 
-            else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 2)
+            else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 1)
                 FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted + 1);
 
             //COMBAT
@@ -71,7 +71,7 @@ public class CarriageData : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && _isSpecialCarriage == SpecialCarriageExceptions.Vault)
-            ForceUpdateCarriageState(true);
+        //if (other.CompareTag("Player") && _isSpecialCarriage == SpecialCarriageExceptions.Vault)
+        //    ForceUpdateCarriageState(true);
     }
 }
