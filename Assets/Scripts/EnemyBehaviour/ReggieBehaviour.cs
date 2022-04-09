@@ -16,8 +16,13 @@ public class ReggieBehaviour : EnemyBehaviour
     {
         base.Awake();
         this.homePosition = transform.position;
-    }
 
+    }
+    public override void TriggerTakeDamage(int _bulletType)
+    {
+        base.TriggerTakeDamage(_bulletType);
+    }
+    
     public void Update(){
         Vector3 displacement = Vector3.left * Mathf.Sin(Time.time * this.movementSpeed) * this.movementMagnitude;
         displacement = Quaternion.Euler(0, this.movementDirection, 0) * displacement;

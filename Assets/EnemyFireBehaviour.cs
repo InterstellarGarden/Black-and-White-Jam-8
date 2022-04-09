@@ -29,6 +29,7 @@ public class EnemyFireBehaviour : MonoBehaviour
             if (!firing)
             {
                 firing = true;
+                GetComponent<EnemyBehaviour>().TriggerShootingAnim();
                 StartCoroutine(FireCycle(numberOfTimesToFirePerCycle));
             }
         }
