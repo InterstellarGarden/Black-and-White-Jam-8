@@ -16596,6 +16596,7 @@ MonoBehaviour:
   exitDoor: {fileID: 3916707267503558988}
   exitPos: {fileID: 8753290973821576171}
   enemySpawners: []
+  numberOfEnemiesToSpawn: 0
   _isSpecialCarriage: 3
 --- !u!65 &4460135146872295114
 BoxCollider:
@@ -19983,6 +19984,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662507869190}
   not_broken: {fileID: 3170321205277243658}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793853551555226
@@ -20032,6 +20034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662639058734}
   not_broken: {fileID: 3170321205408494114}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793853778488474
@@ -20081,6 +20084,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662412181806}
   not_broken: {fileID: 3170321205182082082}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854033020256
@@ -20130,6 +20134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662663122323668}
   not_broken: {fileID: 3170321205891696088}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854054503512
@@ -20179,6 +20184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662663209900524}
   not_broken: {fileID: 3170321205979272416}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854295458502
@@ -20226,6 +20232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662868078450}
   not_broken: {fileID: 3170321205637644926}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854580034330
@@ -20275,6 +20282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661610489518}
   not_broken: {fileID: 3170321204380519330}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854599317009
@@ -20324,6 +20332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661624761253}
   not_broken: {fileID: 3170321204394788521}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854663524318
@@ -20373,6 +20382,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661694730858}
   not_broken: {fileID: 3170321204464303974}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793854714322605
@@ -20420,6 +20430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661207905049}
   not_broken: {fileID: 3170321203977805333}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793855187809043
@@ -20469,6 +20480,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662202244775}
   not_broken: {fileID: 3170321204971811755}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793855215794829
@@ -20518,6 +20530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662662174390073}
   not_broken: {fileID: 3170321204943829557}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793855254510095
@@ -20567,6 +20580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661741279163}
   not_broken: {fileID: 3170321204510849719}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &2827793855285412394
@@ -20616,6 +20630,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4345662661710548894}
   not_broken: {fileID: 3170321204479918738}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &3073602049445556876
