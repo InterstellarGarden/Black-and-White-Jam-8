@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7277163615154920532}
   - component: {fileID: 7277163615154920535}
   - component: {fileID: 134365911487188826}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BulletPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,6 +48,9 @@ MonoBehaviour:
   bulletPrefabs:
   - {fileID: 8563779283964280796, guid: 3c650fef1a27c794ebc2c5dab7e3167b, type: 3}
   - {fileID: 3784005861480905426, guid: 1b31089029b7237498e7087d5feca2ac, type: 3}
+  - {fileID: 3784005861480905426, guid: d266f18fcc5b63b4c8560f5e6c270cc9, type: 3}
+  - {fileID: 3784005861480905426, guid: 364441c4c9d70bf4183c25a172eef672, type: 3}
+  bulletType: 0
 --- !u!65 &7277163615154920535
 BoxCollider:
   m_ObjectHideFlags: 0

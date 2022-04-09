@@ -3,19 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Entity
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
+  - NonPlayerTouchable
+  - Ground
+  - EnemyBulet
+  - Enemy
+  - PlayerBullet
   - 
   - 
   - 

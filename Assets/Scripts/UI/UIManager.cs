@@ -6,7 +6,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private Slider uiCombo, uiHealth;
-    [SerializeField] private TMP_Text hasTnt, uiLoop;
+    [SerializeField] private TMP_Text uiLoop;
     [SerializeField] private Image uiTnt;
 
     bool oldHasTnt;
@@ -29,8 +29,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         uiCombo.value = thisCombo.currentCombo;
-        hasTnt.text = "hasTnt: " + CarriageManager.playerHasTnt;
-
+        uiLoop.text = "Loop: " + CarriageManager.loopsCompleted;
     }
     public void UpdateTntUi(bool _hasTnt)
     {

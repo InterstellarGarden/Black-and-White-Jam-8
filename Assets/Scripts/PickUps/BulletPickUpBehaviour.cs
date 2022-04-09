@@ -22,6 +22,13 @@ public class BulletPickUpBehaviour : PickUP
             case 1: //babylegs
                 bulletType = (int)BulletBehaviour.bulletType.fire;
                 break;
+            case 2:
+                bulletType = (int)BulletBehaviour.bulletType.electricity;
+                break;
+            case 3:
+                bulletType = (int)BulletBehaviour.bulletType.soap;
+                break;
+
         }
 
         GameObject _pickUp = Instantiate(bulletPrefabs[bulletType], transform);        
