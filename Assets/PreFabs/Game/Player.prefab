@@ -218,6 +218,7 @@ MonoBehaviour:
   jumpForce: 8
   canMove: 1
   gravity: 20
+  airControlMultiplier: 0.2
   maxStamina: 100
   currentStamina: 0
   normalHeight: 2
@@ -257,6 +258,7 @@ MonoBehaviour:
   numberOfTemporaryBullet: 0
   fireRate: 6.6666665
   bulletSpeed: 100
+  poof: {fileID: 6824762047793663137, guid: 1b4ca468b9066c34e97f7fd4a0537f62, type: 3}
   targettableMask:
     serializedVersion: 2
     m_Bits: 521

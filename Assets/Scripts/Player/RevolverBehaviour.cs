@@ -22,6 +22,8 @@ public class RevolverBehaviour : MonoBehaviour
     //VISUAL
     public float bulletSpeed = 60;
 
+    public GameObject poof;
+
     //TARGETABLE REFERS TO: WHAT WILL THE PLAYER'S BULLET COLLIDE WITH - WALLS, ENTITIES ETC.
     public LayerMask targettableMask;
 
@@ -68,6 +70,8 @@ public class RevolverBehaviour : MonoBehaviour
             Debug.DrawRay(_screenCenter, _screenForward * 20, Color.red, 5);
             if (Physics.Raycast(_screenCenter, _screenForward, out _hitInfo, Mathf.Infinity, targettableMask))
             {
+                Instantiate(poof, _hitInfo.point, Quaternion.identity);
+
                 Debug.DrawLine(_screenCenter, _hitInfo.transform.position, Color.blue, 5);
                 if (_hitInfo.collider.TryGetComponent(out EntityBehaviour _enemy))
                 {

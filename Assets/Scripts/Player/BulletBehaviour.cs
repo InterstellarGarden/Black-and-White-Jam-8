@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletBehaviour : MonoBehaviour
 {
     public bulletType thisBullet;
+    public GameObject poof;
     public enum bulletType
     {
         normal = 0,
@@ -33,6 +34,5 @@ public class BulletBehaviour : MonoBehaviour
     protected virtual void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
-
     }
 }
