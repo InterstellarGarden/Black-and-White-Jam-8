@@ -67,8 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 395755183875757418, guid: cd50feb7d0cc0fd42b579cf50358fa58, type: 3}
-  - {fileID: 7004292105579056138, guid: 8a283fded4f3dc84e871d3c212cb898d, type: 3}
+  - {fileID: 395755183875757418, guid: 8339062b3eda15d489fb338724e15a61, type: 3}
+  - {fileID: 7004292105579056138, guid: a6dbb6520656b9840a9bc74bcbdd3b1b, type: 3}
   unlockableEnemyPrefabs:
   - {fileID: 395755183875757418, guid: 7d7324806e6f4984eaf620ee45557548, type: 3}
   - {fileID: 395755183875757418, guid: 967d1717ccc3fad43a69db2e8a189ecc, type: 3}

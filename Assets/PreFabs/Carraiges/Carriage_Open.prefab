@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920860109754679}
   not_broken: {fileID: 6860920858559250088}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858322104802
@@ -664,6 +665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859404748954}
   not_broken: {fileID: 6860920858775389952}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858367228454
@@ -2761,6 +2763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858382238778}
   not_broken: {fileID: 6860920860094426242}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858448743154
@@ -2955,6 +2958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859979604507}
   not_broken: {fileID: 6860920859971661501}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858461670867
@@ -12311,6 +12315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859840258091}
   not_broken: {fileID: 6860920860375067720}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858778872736
@@ -13164,6 +13169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858651058319}
   not_broken: {fileID: 6860920858964728998}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858822880894
@@ -14660,6 +14666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859949805182}
   not_broken: {fileID: 6860920858548773026}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920858914645331
@@ -22830,6 +22837,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859079531987}
   not_broken: {fileID: 6860920858815498412}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859213900824
@@ -23517,6 +23525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859639913325}
   not_broken: {fileID: 6860920859139473663}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859292374685
@@ -23679,6 +23688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859583540223}
   not_broken: {fileID: 6860920859477793235}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859305595959
@@ -24760,6 +24770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920860188255483}
   not_broken: {fileID: 6860920858433736591}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859397617817
@@ -80860,6 +80871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859569229706}
   not_broken: {fileID: 6860920859466638288}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859707491963
@@ -82843,6 +82855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920859402182607}
   not_broken: {fileID: 6860920859027635078}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859830795025
@@ -83055,6 +83068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858732510374}
   not_broken: {fileID: 6860920859204808901}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859846962071
@@ -83507,6 +83521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858613496794}
   not_broken: {fileID: 6860920859442566748}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859862468907
@@ -84303,13 +84318,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6860920859925804070}
-  m_LocalRotation: {x: -0.7071068, y: -0.0000019744036, z: -0.0000019744036, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.8297439, z: 0}
+  m_LocalRotation: {x: -0.000000014901161, y: -0.7071068, z: -0.7071068, w: 0.000000014901161}
+  m_LocalPosition: {x: -0.000076293945, y: 1.8297439, z: -35.999992}
   m_LocalScale: {x: 0.29997498, y: 1, z: 0.37500003}
   m_Children: []
   m_Father: {fileID: 6860920860099094460}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: -180}
 --- !u!33 &6860920859925804091
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -84565,6 +84580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920860245392411}
   not_broken: {fileID: 6860920858428814069}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920859939876437
@@ -85319,13 +85335,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6860920859977684883}
-  m_LocalRotation: {x: -0.0000040084124, y: 0.7071068, z: 0.7071068, w: 0.0000040084124}
-  m_LocalPosition: {x: 0, y: 1.8297439, z: -36}
+  m_LocalRotation: {x: -0.7071068, y: -0.0000019818544, z: -0.0000019818544, w: 0.7071068}
+  m_LocalPosition: {x: 0.000076293945, y: 1.8297439, z: 0.0000019073486}
   m_LocalScale: {x: 0.29997498, y: 1, z: 0.37500003}
   m_Children: []
   m_Father: {fileID: 6860920860099094460}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 179.999}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!33 &6860920859977684880
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -87727,6 +87743,7 @@ MonoBehaviour:
   exitPos: {fileID: 6860920858353686055}
   enemySpawners: []
   numberOfEnemiesToSpawn: 10
+  totalEnemiesPool: 0
   _isSpecialCarriage: 0
 --- !u!65 &6860920860099094462
 BoxCollider:
@@ -93339,6 +93356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858626240710}
   not_broken: {fileID: 6860920859713351459}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920860249427911
@@ -93936,6 +93954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920860125247512}
   not_broken: {fileID: 6860920858812768895}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920860284487487
@@ -94759,6 +94778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 6860920858822880894}
   not_broken: {fileID: 6860920858576358865}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6860920860353910053

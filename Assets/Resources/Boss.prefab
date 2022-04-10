@@ -142,11 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 7
-  maxHealth: 10
+  maxHealth: 50
   health: 0
   maxHealthIncreasePerLoop: 5
   thisEnemyType: 6
   intervalBetweenRespawnEnemies: 10
+  distanceFromPlayerToSpawnArsenal: 5
 --- !u!114 &6750845573743135235
 MonoBehaviour:
   m_ObjectHideFlags: 0

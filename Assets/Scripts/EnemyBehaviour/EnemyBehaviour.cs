@@ -6,12 +6,9 @@ public class EnemyBehaviour : EntityBehaviour
 {
     public int maxHealthIncreasePerLoop = 2;
     [SerializeField] private enemyType thisEnemyType;
-
-    //Animator
-    private Animator thisAnimator;
+    protected Animator thisAnimator;
     protected override void Awake()
     {
-
         thisAnimator = GetComponent<Animator>();
 
         //Increase maxhealth by 2 per loop
@@ -20,12 +17,14 @@ public class EnemyBehaviour : EntityBehaviour
     }
     public override void TriggerTakeDamage(int _bulletType)
     {
-        thisAnimator.Play("shot");
+        if (thisAnimator != null)
+            thisAnimator.Play("shot");
         base.TriggerTakeDamage(_bulletType);
     }
     public virtual void TriggerShootingAnim()
     {
-        thisAnimator.Play("shooting");
+        if (thisAnimator != null)
+            thisAnimator.Play("shooting");
     }
     protected virtual void Start()
     {

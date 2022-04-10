@@ -20,7 +20,7 @@ public class DestructibleBehaviour : EntityBehaviour
             Destroy(transform.GetComponentInParent<FixedJoint>());
 
             //To Mike: Trigger Babylegs startled from here(?)
-
+            transform.GetComponentInParent<BabyLegsBehaviour>().Exposed();
         }
 
         thisBreak.Break();

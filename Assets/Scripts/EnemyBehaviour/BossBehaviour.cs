@@ -6,9 +6,11 @@ public class BossBehaviour : EnemyBehaviour
 {
     [SerializeField] private float intervalBetweenRespawnEnemies = 10;
     public float distanceFromPlayerToSpawnArsenal = 5;
+    private static int numArsenalUnlocked = 0;
     protected override void Start()
     {
-        FindObjectOfType<CombatManager>().isBossAlive = true;
+        thisCombatManager = FindObjectOfType<CombatManager>();
+        thisCombatManager.isBossAlive = true;
         SpawnArsenal(CarriageManager.loopsCompleted);
         StartCoroutine(CallEnemies());
         base.Start();
@@ -16,17 +18,32 @@ public class BossBehaviour : EnemyBehaviour
 
     public override void Death()
     {
-        if (!FindObjectOfType<CombatManager>().isBossAlive)
+        if (!thisCombatManager.isBossAlive)
             return;
-        FindObjectOfType<CombatManager>().isBossAlive = false;
 
+        thisCombatManager.isBossAlive = false;
         StopAllCoroutines();
+
+        thisCombatManager.ClearEnemies();
+
+        //FOR OPENING VAULT BEYOND ARSENAL UNLOCKS
+        if (FindObjectOfType<RevolverBehaviour>().unlockableBulletPrefabs.Count <= 0)
+            thisCombatManager.ForceEndCombat();
+
         FindObjectOfType<CarriageManager>().UpdateIncreaseLoop();
+
         SpawnArsenal(CarriageManager.loopsCompleted);
+
+        FindObjectOfType<CarriageManager>().UpdateVaultOpened(false);
         base.Death();   
     }
     public void SpawnArsenal(int _choice)
     {
+        //VERY RUDIMENTARY FIX
+        //Basically, since there are only 2 new weapons, if it goes beyond 2, then no more weapons to unlock 
+        if (FindObjectOfType<RevolverBehaviour>().unlockableBulletPrefabs.Count <= 0)
+            return;
+
         GameObject _arsenal = Resources.Load<GameObject>("ArsenalPickUp");
         GameObject _player = FindObjectOfType<CharacterBehaviour>().gameObject;
         _arsenal.GetComponent<ArsenalPickUp>().bulletToUnlock = _choice;
@@ -34,10 +51,10 @@ public class BossBehaviour : EnemyBehaviour
     }
     IEnumerator CallEnemies()
     {
-        while (FindObjectOfType<CombatManager>().isBossAlive)
+        while (thisCombatManager.isBossAlive)
         {
             yield return new WaitForSeconds(intervalBetweenRespawnEnemies);
-            FindObjectOfType<CombatManager>().BossSpawnEnemies();
+            thisCombatManager.BossSpawnEnemies();
         }
     }
 }

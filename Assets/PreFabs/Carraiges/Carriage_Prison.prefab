@@ -25418,6 +25418,7 @@ MonoBehaviour:
   exitPos: {fileID: 3191715973162270525}
   enemySpawners: []
   numberOfEnemiesToSpawn: 10
+  totalEnemiesPool: 0
   _isSpecialCarriage: 0
 --- !u!65 &4822948593198583225
 BoxCollider:
@@ -87576,7 +87577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5975310048099727692}
   m_LocalRotation: {x: 0, y: -0.70710677, z: 0.70710677, w: 0}
-  m_LocalPosition: {x: 0, y: -2.2500002, z: 0}
+  m_LocalPosition: {x: -0.5000001, y: -2.2500002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7930752070603235773}
