@@ -13,6 +13,9 @@ public class Breakable : MonoBehaviour
 	[SerializeField]
 	private ParticleSystem poof;
 
+	[SerializeField]
+	private AudioSource breakSfx;
+
     //The force at which pieces are flung when the object is broken
     [SerializeField]
     float explosionForce = 200f;
@@ -24,7 +27,12 @@ public class Breakable : MonoBehaviour
     {
         not_broken.SetActive(true);
         broken.SetActive(false);
-    }
+
+		if (breakSfx == null)
+		{
+			breakSfx = gameObject.GetComponent<AudioSource>();
+		}
+	}
 
     public void Break()
     {
@@ -52,6 +60,11 @@ public class Breakable : MonoBehaviour
 			if (poof != null)
 			{
 				poof.Play();
+			}
+
+			if (breakSfx != null)
+			{
+				breakSfx.Play();
 			}
 
 			//Get rid of the unbroken object
