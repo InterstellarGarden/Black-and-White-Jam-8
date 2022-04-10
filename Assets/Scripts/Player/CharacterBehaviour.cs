@@ -34,7 +34,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     //DEATH
     public int maxHealth;
-    private int health;
+    [HideInInspector] public int health;
     [SerializeField] private int lowHealthThreshold = 2;
     public bool isLowHealth = false;
 

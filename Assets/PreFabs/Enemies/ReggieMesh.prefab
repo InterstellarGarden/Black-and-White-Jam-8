@@ -122,7 +122,7 @@ MonoBehaviour:
   thisEnemyType: 0
   movementSpeed: 1
   movementDirection: 0
-  movementMagnitude: 1
+  movementMagnitude: 4
 --- !u!114 &-520220378861462614
 MonoBehaviour:
   m_ObjectHideFlags: 0

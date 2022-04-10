@@ -66,9 +66,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: f4fba309cc5308b4385a39739ccdfa09, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -88,7 +88,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3155fff5204493b42a1e327bd0b8e17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullets: []
+  bullets:
+  - {fileID: 21300000, guid: 8c90177332b6f0c43b60da094a062362, type: 3}
+  - {fileID: 21300000, guid: f7eb6ae9d59c74f4e98b3c78d1388583, type: 3}
+  - {fileID: 21300000, guid: 79fcf4b157482794f93c327e6c56f4af, type: 3}
+  - {fileID: 21300000, guid: 646a34f2bff41c94d89debf4a2a30796, type: 3}
+  emptyBullet: {fileID: 21300000, guid: 9121c4f35f8dc28428fd9e5ac77b6fe0, type: 3}
   testColors:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0.36320752, g: 0.38251138, b: 1, a: 0}
