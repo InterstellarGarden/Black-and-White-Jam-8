@@ -3260,12 +3260,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[0]
       value: 
-      objectReference: {fileID: 7437259176569710787, guid: 867c7859630e5d74dbb487aa9965a3a2, type: 3}
+      objectReference: {fileID: 7437259176569710787, guid: aceed1d2b8f6c504fa08106073eee063, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[1]
       value: 
@@ -3285,15 +3285,15 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 6199473001561857007, guid: 1a723d9bfb282484cbdea78074b0894e, type: 3}
+      objectReference: {fileID: 6860920860099094463, guid: 2c1a90de7cbd7d74c90f1ca7462c833d, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[6]
       value: 
-      objectReference: {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
+      objectReference: {fileID: 6199473001561857007, guid: 1a723d9bfb282484cbdea78074b0894e, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[7]
       value: 
-      objectReference: {fileID: 1446201657634112408, guid: 7bae076881f2af040a1ca4a9a33789dd, type: 3}
+      objectReference: {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
     - target: {fileID: 8365354634044803055, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: m_RootOrder
       value: 10
