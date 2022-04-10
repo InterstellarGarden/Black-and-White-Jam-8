@@ -2209,6 +2209,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38f75c6a8c09db94fae84d20e2627e87, type: 3}
+--- !u!1 &1703183294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3282293406475210744, guid: ccfe148d69ba04f40bcb4728542ccd23, type: 3}
+  m_PrefabInstance: {fileID: 3282293405524615817}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1703183296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703183294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35ab1b62ad1cf0647ab46fa6f0abb210, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ditherMat: {fileID: 2100000, guid: 8659a643c764b0141a8e00cc5f0adba9, type: 2}
+  thresholdMat: {fileID: 2100000, guid: 9970f85b3df1dc542b426f83fc5297c7, type: 2}
+  cam: {fileID: 1703183299}
+--- !u!20 &1703183299 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3282293406475210746, guid: ccfe148d69ba04f40bcb4728542ccd23, type: 3}
+  m_PrefabInstance: {fileID: 3282293405524615817}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1726117306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3235,7 +3260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[0]
@@ -3260,11 +3285,11 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
+      objectReference: {fileID: 6199473001561857007, guid: 1a723d9bfb282484cbdea78074b0894e, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[6]
       value: 
-      objectReference: {fileID: 1446201657634112408, guid: 7bae076881f2af040a1ca4a9a33789dd, type: 3}
+      objectReference: {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[7]
       value: 
