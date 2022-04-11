@@ -19,7 +19,8 @@ public class CombatManager : MonoBehaviour
     private List<Vector3> spawnPositions, chosenSpawnPositions;
 
     //Repeatable Enemy Spawners
-    public int maxEnemiesAtATime;
+    public int totalWavesPerCarriage = 0;
+    public int maxEnemiesAtATime, numberOfWavesLeft = 0;
     [HideInInspector] public bool isBossAlive = false;
 
     //Counting Enemies
@@ -48,6 +49,7 @@ public class CombatManager : MonoBehaviour
             return;
         inCombat = true;
         currentCarriage = _currentCarriage;
+        numberOfWavesLeft = totalWavesPerCarriage;
         SpawnEnemies();
 
         //MUSIC
@@ -117,7 +119,13 @@ public class CombatManager : MonoBehaviour
             activeEnemies.Remove(_enemyToRemove);
             if (activeEnemies.Count <= 0)
             {
-                //Algorithm can be added here to roll for additional enemy reinforcements
+                //Algorithm can be added here to roll for additional enemy reinforcements - ONLY WORKS OUTSIDE OF VAULT TO PREVENT INCONSISTENCIES
+                if (numberOfWavesLeft > 0 && currentCarriage._isSpecialCarriage != CarriageData.SpecialCarriageExceptions.Vault)
+                {
+                    numberOfWavesLeft--;
+                    SpawnEnemies();
+                    return false;
+                }
 
                 //Exception for Vault Room
                 //If currently in vault room; all filler enemies are dead; boss will spawn additional enemies (ie. combat is not over hence false)

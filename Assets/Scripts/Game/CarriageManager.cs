@@ -131,10 +131,6 @@ public class CarriageManager : MonoBehaviour
             //NEW BACK CARRIAGE
             spawnedCarriages.RemoveAt(0);
             prevSpawnPos = spawnedCarriages[0].gameObject.transform;
-
-
-            
-            //Debug.Log("attempt move");
         }
 
 
@@ -148,12 +144,9 @@ public class CarriageManager : MonoBehaviour
 
             Vector3 _offset =  _frontCarriage.transform.position - _frontCarriage.GetComponent<CarriageData>().exitPos.position;
             _frontCarriage.transform.position = prevSpawnPos.position + _offset  ;
-
-
+            
             //ROTATE
             Quaternion _rotation = prevSpawnPos.rotation;
-            
-
 
             //MOVE FRONT CARRIAGE TO 'BACK' OF LIST
             spawnedCarriages.Insert(0, _frontCarriage);
@@ -161,11 +154,6 @@ public class CarriageManager : MonoBehaviour
             spawnedCarriages.RemoveAt(spawnedCarriages.Count - 1);
             nextSpawnPos = spawnedCarriages[spawnedCarriages.Count - 1].GetComponent<CarriageData>().exitPos;            
             prevSpawnPos = _frontCarriage.gameObject.transform;
-
-
-            
-
-            //Debug.Log("attempt move back");
         }
         #endregion
 
@@ -179,6 +167,7 @@ public class CarriageManager : MonoBehaviour
     public void UpdateIncreaseLoop()
     {
         loopsCompleted++;
+        thisCombatManager.totalWavesPerCarriage = loopsCompleted;
     }
     private void OnDrawGizmos()
     {

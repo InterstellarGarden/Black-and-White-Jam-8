@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 395755183875757418, guid: 081950ae6f8a20048a96c757a5e9b7ff, type: 3}
   activeEnemies: []
   maxEnemiesAtATime: 0
+  numberOfWavesLeft: 0
   isBossAlive: 0
   numberOfEachActiveEnemyType: 00000000000000000000000000000000000000000000000000000000
   sfxMultiplier: 0.615
