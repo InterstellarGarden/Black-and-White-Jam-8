@@ -988,6 +988,7 @@ MonoBehaviour:
   musicSlider: {fileID: 1054873091}
   SFXSlider: {fileID: 789694310}
   mouseSensSlider: {fileID: 455611897}
+  parent: {fileID: 307431095}
 --- !u!1001 &349293580
 PrefabInstance:
   m_ObjectHideFlags: 0

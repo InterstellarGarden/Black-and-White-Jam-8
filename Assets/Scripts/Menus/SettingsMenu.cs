@@ -17,6 +17,8 @@ public class SettingsMenu : MonoBehaviour
 
     public Slider mouseSensSlider;
     public static float mouseSens;
+
+    public GameObject parent;
     private void Awake()
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", .5f); // Gets the float value of musicVolume, or uses .5f if it isn't found.
@@ -30,6 +32,9 @@ public class SettingsMenu : MonoBehaviour
         mouseSens = PlayerPrefs.GetFloat("mouseSens", .5f);
 
         //Disable self after initialising settings
+        if (parent != null)
+            transform.SetParent(parent.transform);
+
         gameObject.SetActive(false);
     }
  
@@ -59,6 +64,8 @@ public class SettingsMenu : MonoBehaviour
     public void SetMouseSens(float _sens)
     {
         PlayerPrefs.SetFloat("mouseSens", _sens);
+        mouseSens = _sens;
+
 
         PlayerPrefs.Save();
     }
