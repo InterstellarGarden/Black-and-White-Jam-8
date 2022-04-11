@@ -268,10 +268,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 649
   shootingSfxLocalMultiplier: 1
-  shootingNormal: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
-  shootingFire: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
-  shootingLightning: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
-  shootingSoap: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingNormal: {fileID: 8300000, guid: 552a0d980b14fee4698ef25a82e20ead, type: 3}
+  shootingFire: {fileID: 8300000, guid: b3ccc37829df8ab4988a47acaa722b0b, type: 3}
+  shootingLightning: {fileID: 8300000, guid: f3193805f04f1ee47bc844f397c7dfaa, type: 3}
+  shootingSoap: {fileID: 8300000, guid: a13195003f2ca9c47b09894197c21b77, type: 3}
   comboShotFired: {fileID: 8300000, guid: a46388e63c8318f4ba4366cfc547ec56, type: 3}
   pickUpAmmo: {fileID: 8300000, guid: 9be9906e5216a5747b905ef0db89dd03, type: 3}
 --- !u!114 &3282293406018627975

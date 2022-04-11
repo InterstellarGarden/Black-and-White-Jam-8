@@ -25,8 +25,11 @@ public class Breakable : MonoBehaviour
 
     void Start()
     {
-        not_broken.SetActive(true);
-        broken.SetActive(false);
+		if (not_broken != null)
+			not_broken.SetActive(true);
+
+		if (broken != null)
+			broken.SetActive(false);
 
 		if (breakSfx == null)
 		{
