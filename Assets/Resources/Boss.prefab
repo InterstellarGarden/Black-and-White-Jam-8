@@ -158,8 +158,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6db27c9d3f41fd24b93412cce0af0618, type: 3}
   - {fileID: 8300000, guid: d6e430b3382cc294892ea41559b358c3, type: 3}
   - {fileID: 8300000, guid: a631d5827b1432b4c952d411ead09af9, type: 3}
-  whistle: {fileID: 8300000, guid: 3b40611f47fd8194181fe035d228cfc9, type: 3}
-  winBanjo: {fileID: 8300000, guid: 7d5df9add82016e4e99dfa847225a00d, type: 3}
+  winBanjo: {fileID: 8300000, guid: 1ac50a7153416d44f8d9af4283efb7d4, type: 3}
 --- !u!114 &6750845573743135235
 MonoBehaviour:
   m_ObjectHideFlags: 0

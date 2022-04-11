@@ -195,8 +195,6 @@ MonoBehaviour:
   firstSpawn: {fileID: 0}
   nextSpawnPos: {fileID: 0}
   prevSpawnPos: {fileID: 0}
-  vaultBarriers: []
-  vaultCarriage: {fileID: 0}
   carriageToSpawnIn: 1
 --- !u!114 &8365354634044803053
 MonoBehaviour:
@@ -220,6 +218,13 @@ MonoBehaviour:
   maxEnemiesAtATime: 0
   isBossAlive: 0
   numberOfEachActiveEnemyType: 00000000000000000000000000000000000000000000000000000000
+  sfxMultiplier: 0.615
+  enemyYeehaw:
+  - {fileID: 8300000, guid: 0333f96a61afd60449c70ebc0f6e7441, type: 3}
+  - {fileID: 8300000, guid: fb76d78c1b9c7ae4583d3b6304e68ad0, type: 3}
+  - {fileID: 8300000, guid: c47646a912622b4448320872afc795a5, type: 3}
+  bossYeehaw: {fileID: 8300000, guid: 32ec4fbc071c55c43a3a0a365904114e, type: 3}
+  whistle: {fileID: 8300000, guid: 3b40611f47fd8194181fe035d228cfc9, type: 3}
   currentCarriage: {fileID: 0}
 --- !u!1 &8365354634322695219
 GameObject:

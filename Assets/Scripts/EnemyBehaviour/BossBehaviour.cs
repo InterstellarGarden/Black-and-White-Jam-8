@@ -10,7 +10,7 @@ public class BossBehaviour : EnemyBehaviour
 
     //SOUNDS
     [SerializeField] private List<AudioClip> shot;
-    [SerializeField] private AudioClip whistle, winBanjo;
+    [SerializeField] private AudioClip winBanjo;
     protected override void Start()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
@@ -72,7 +72,6 @@ public class BossBehaviour : EnemyBehaviour
         while (thisCombatManager.isBossAlive)
         {
             yield return new WaitForSeconds(intervalBetweenRespawnEnemies);
-            FindObjectOfType<SoundManager>().TriggerPlaySound(whistle, 1, true);
             thisCombatManager.BossSpawnEnemies();
         }
     }
