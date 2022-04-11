@@ -266,7 +266,7 @@ MonoBehaviour:
   poof: {fileID: 6824762047793663137, guid: 1b4ca468b9066c34e97f7fd4a0537f62, type: 3}
   targettableMask:
     serializedVersion: 2
-    m_Bits: 521
+    m_Bits: 649
   shootingSfxLocalMultiplier: 1
   shootingNormal: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
   shootingFire: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
