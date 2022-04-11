@@ -6811,6 +6811,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4995743689533807432}
   not_broken: {fileID: 5973366396011828804}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6783758900163152408
@@ -6860,6 +6861,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4995743689685911468}
   not_broken: {fileID: 5973366396164590240}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6783758900449178391
@@ -6909,6 +6911,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4995743690507206307}
   not_broken: {fileID: 5973366396985357231}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6783758901290399266
@@ -6958,6 +6961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4995743689271720854}
   not_broken: {fileID: 5973366395750397594}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6783758901667824058
@@ -7007,6 +7011,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 4995743689028422670}
   not_broken: {fileID: 5973366395507163394}
+  poof: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
 --- !u!1 &6851789796473220362
@@ -54910,6 +54915,7 @@ MonoBehaviour:
   exitPos: {fileID: 3718602256304748740}
   enemySpawners: []
   numberOfEnemiesToSpawn: 4
+  totalEnemiesPool: 0
   _isSpecialCarriage: 0
 --- !u!65 &2201035366200086803
 BoxCollider:

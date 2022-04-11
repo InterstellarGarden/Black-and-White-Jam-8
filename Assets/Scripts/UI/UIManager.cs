@@ -24,12 +24,14 @@ public class UIManager : MonoBehaviour
         //POINTER PROPERTIES
         uiCombo.maxValue = thisCombo.maxCombo;
         uiCombo.value = 0;
+        uiHealth.maxValue = thisPlayer.maxHealth;        
     }
 
     void Update()
     {
         uiCombo.value = thisCombo.currentCombo;
-        uiLoop.text = "Loop: " + CarriageManager.loopsCompleted;
+        uiHealth.value = thisPlayer.health;
+        uiLoop.text = "Loop: " + (CarriageManager.loopsCompleted + 1);
     }
     public void UpdateTntUi(bool _hasTnt)
     {

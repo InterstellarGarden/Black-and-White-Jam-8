@@ -12,7 +12,17 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
 
     private void Awake()
-    { Resume(); } // Makes sure that the level isn't started in a paused state.
+    {
+        Pause();
+
+        //Resume games immediately if already seen tutorial
+        if (TutorialBehaviour.isNotFirstTimePlaying)
+            Resume();
+
+        else TutorialBehaviour.isNotFirstTimePlaying = true;
+
+        
+    } 
 
     void Update()
     {
@@ -42,4 +52,6 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         pauseMenuUI.SetActive(true);
     }
+
+    
 }

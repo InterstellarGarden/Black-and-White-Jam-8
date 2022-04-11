@@ -5816,6 +5816,7 @@ MonoBehaviour:
   thisWeakness: 0
   maxHealth: 2
   health: 0
+  sfxMultiplier: 0
 --- !u!1 &3309581759025003273
 GameObject:
   m_ObjectHideFlags: 0

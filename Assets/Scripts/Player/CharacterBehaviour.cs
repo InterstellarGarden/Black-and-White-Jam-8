@@ -34,12 +34,16 @@ public class CharacterBehaviour : MonoBehaviour
 
     //DEATH
     public int maxHealth;
-    private int health;
+    [HideInInspector] public int health;
     [SerializeField] private int lowHealthThreshold = 2;
     public bool isLowHealth = false;
 
     //PRIVATE ESSENTIALS
     Camera playerCamera;
+
+    //SOUND
+    private SoundManager thisSoundManager;
+    [SerializeField] private AudioClip hurt, dead, pickUpHealth, pickUpTnt;
 
     private void Awake()
     {
@@ -58,6 +62,8 @@ public class CharacterBehaviour : MonoBehaviour
         //HEALTH
         health = maxHealth;
         isLowHealth = false;
+
+        thisSoundManager = FindObjectOfType<SoundManager>();
     }
     void Start()
     {      
@@ -121,20 +127,39 @@ public class CharacterBehaviour : MonoBehaviour
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
         // Player and Camera rotation
+        if (!PauseMenu.GameIsPaused)
+        {
+            //Vertical Rotation (look up and down)
+            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed * SettingsMenu.mouseSens;
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
-        rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-        transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+            //Horizontal Rotation (look left and right)
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed * SettingsMenu.mouseSens, 0);
+        }
     }
     public void TriggerTakeDamage(int _damage)
     {
         health -= _damage;
         if (health <= 0)
-            GameManager.instance.GameOver();
+        {
+            if (!GameManager.playerIsDead)
+            {
+                if (dead != null)
+                    thisSoundManager.TriggerPlaySound(dead, 1, true);
+
+                GameManager.instance.GameOver();
+            }
+            return;
+        }
 
         else if (health <= lowHealthThreshold)
+        {
             isLowHealth = true;
+        }
+
+        if (hurt != null)
+            thisSoundManager.TriggerPlaySound(hurt, 1, true);
     }
     void TriggerRecoverDamage(int _delta)
     {
@@ -153,11 +178,17 @@ public class CharacterBehaviour : MonoBehaviour
             case (int)TemporaryPickUp.types.tnt:
                 Debug.Log("obtained tnt");
                 FindObjectOfType<CarriageManager>().UpdateTnt(true);
+
+                if (pickUpTnt != null)
+                    thisSoundManager.TriggerPlaySound(pickUpTnt, 1, false);
                 break;
             
             case (int)TemporaryPickUp.types.health:
                 Debug.Log("obtained health");
-                TriggerRecoverDamage(2); 
+                TriggerRecoverDamage(2);
+
+                if (pickUpHealth != null)
+                    thisSoundManager.TriggerPlaySound(pickUpHealth, 1, false);
                 break;
         }
     }
