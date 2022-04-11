@@ -102,6 +102,7 @@ public class RevolverBehaviour : MonoBehaviour
 
             //UI
             thisRubiBehaviour.FiredBullet();
+            FindObjectOfType<gunUiBehaviour>().Fire();
 
             //SPAWN BULLET - VISUAL ONLY
             TriggerSpawnBullet();
