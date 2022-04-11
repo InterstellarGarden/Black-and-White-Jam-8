@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBullet: 2
+  poof: {fileID: 6310104541005001835, guid: 9606fb88a7e1bb8449fb5ab083c68c0c, type: 3}
   selfDestructTimeInSeconds: 1
 --- !u!54 &-5684607290652738690
 Rigidbody:
