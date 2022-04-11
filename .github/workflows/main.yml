@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.0
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-BWJamEight-WebGL
+#       - name: Cache
+#         uses: actions/cache@v2
+#         with:
+#           path: Library
+#           key: Library-BWJamEight-WebGL
       - name: Build
         id: build
         uses: game-ci/unity-builder@v2
@@ -36,11 +36,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.0
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-BWJamEight-Windows
+#       - name: Cache
+#         uses: actions/cache@v2
+#         with:
+#           path: Library
+#           key: Library-BWJamEight-Windows
       - name: Build
         id: build
         uses: game-ci/unity-builder@v2
@@ -71,11 +71,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.0
-      - name: Cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-BWJamEight-Mac
+#       - name: Cache
+#         uses: actions/cache@v2
+#         with:
+#           path: Library
+#           key: Library-BWJamEight-Mac
       - name: Build
         id: build
         uses: game-ci/unity-builder@v2
