@@ -32,6 +32,9 @@ public class EnemyBehaviour : EntityBehaviour
     }
     public override void Death()
     {
+        if (thisAnimator != null)
+            thisAnimator.SetBool("dead",true);
+
         //Tell combat manager to remove active count
         thisCombatManager.UpdateCountOfEachEnemyType(-1, (int)thisEnemyType);
         base.Death();
