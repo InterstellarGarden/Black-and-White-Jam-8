@@ -5426,6 +5426,7 @@ MonoBehaviour:
   breakSfx: {fileID: 9896707549723267}
   explosionForce: 100
   explosionUpwardsModifier: 2
+  sfxLocalMultipler: 0.5
 --- !u!82 &9896707549723267
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6265,3 +6266,4 @@ MonoBehaviour:
   thisWeakness: 0
   maxHealth: 2
   health: 0
+  sfxMultiplier: 0

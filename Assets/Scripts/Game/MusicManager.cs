@@ -9,7 +9,8 @@ public class MusicManager : MonoBehaviour
     public static float musicVolume = 1;
     public float timeToChangeMusicInSecs;
     public List<AudioSource> musicSources;
-
+    private AudioSource desired;
+    private Coroutine coroChangeingMusic;
     public enum music
     {
         calm = 0,
@@ -39,7 +40,20 @@ public class MusicManager : MonoBehaviour
     public void RequestHorizontalLayer(int _choice)
     {
         AudioSource _desired = musicSources[_choice];
-        StartCoroutine(HorizontalLayering(_desired));
+
+        if (coroChangeingMusic != null)
+        {
+            horizontalLayering = false;
+
+            foreach (AudioSource _source in musicSources)
+                if (_source != _desired)
+                    _source.volume = 0;
+            desired.volume = musicVolume;
+
+            StopCoroutine(coroChangeingMusic);
+        }
+
+        coroChangeingMusic = StartCoroutine(HorizontalLayering(_desired));
     }
 
     IEnumerator HorizontalLayering(AudioSource _desired)
@@ -50,8 +64,8 @@ public class MusicManager : MonoBehaviour
             horizontalLayering = true;
 
             float _delta;
-            float _deltaToZero = _delta = (musicVolume / (60 * timeToChangeMusicInSecs));                    
-
+            float _deltaToZero = _delta = (1 / (60 * timeToChangeMusicInSecs));
+            desired = _desired;
 
             for (int t = 0; t <= 60 * timeToChangeMusicInSecs; t++)
             {
@@ -64,7 +78,7 @@ public class MusicManager : MonoBehaviour
                     }
 
                 //RAISE VOLUME OF DESIRED
-                _desired.volume += _delta;
+                desired.volume += _delta;
 
                 yield return new WaitForFixedUpdate();
             }
@@ -73,7 +87,7 @@ public class MusicManager : MonoBehaviour
             foreach (AudioSource _source in musicSources)
                 if (_source != _desired)
                     _source.volume = 0;
-            _desired.volume = musicVolume;
+            desired.volume = musicVolume;
 
             horizontalLayering = false;         
         }

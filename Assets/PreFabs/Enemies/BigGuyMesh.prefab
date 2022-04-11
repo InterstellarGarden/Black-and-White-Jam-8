@@ -123,8 +123,11 @@ MonoBehaviour:
   thisWeakness: 2
   maxHealth: 5
   health: 0
+  sfxMultiplier: 1
   maxHealthIncreasePerLoop: 0
   thisEnemyType: 2
+  shooting: {fileID: 8300000, guid: 879fb62cab3ad3148a7390f338d3d584, type: 3}
+  dead: {fileID: 8300000, guid: aa584b8ab21bf8e419a4ab9be8048227, type: 3}
   movementSpeed: 1
   movementDirection: 90
   movementMagnitude: 1

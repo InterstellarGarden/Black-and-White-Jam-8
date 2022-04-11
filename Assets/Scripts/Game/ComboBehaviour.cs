@@ -12,7 +12,10 @@ public class ComboBehaviour : MonoBehaviour
     [SerializeField] float comboDecayRate;
     private Coroutine coroComboDecay;
     private bool isDecaying = false;
-    
+
+    //SOUND
+    [SerializeField] private AudioClip comboReady;
+    [Range(0, 1)] [SerializeField] private float comboReadySfxLocalMultiplier;
 
     private void Awake()
     {
@@ -65,6 +68,7 @@ public class ComboBehaviour : MonoBehaviour
     void TriggerStopDecay()
     {
         isDecaying = false;
+        FindObjectOfType<SoundManager>().TriggerPlaySound(comboReady, comboReadySfxLocalMultiplier);
         StopCoroutine(coroComboDecay);
     }
     IEnumerator ComboDecay()

@@ -7,6 +7,9 @@ public class EnemyBehaviour : EntityBehaviour
     public int maxHealthIncreasePerLoop = 2;
     [SerializeField] private enemyType thisEnemyType;
     protected Animator thisAnimator;
+
+    //SOUNDS
+    [SerializeField] private AudioClip shooting, dead;
     protected override void Awake()
     {
         thisAnimator = GetComponent<Animator>();
@@ -25,6 +28,9 @@ public class EnemyBehaviour : EntityBehaviour
     {
         if (thisAnimator != null)
             thisAnimator.Play("shooting");
+
+        if (shooting != null)
+            FindObjectOfType<SoundManager>().TriggerPlaySound(shooting, sfxMultiplier);
     }
     protected virtual void Start()
     {
@@ -32,8 +38,13 @@ public class EnemyBehaviour : EntityBehaviour
     }
     public override void Death()
     {
+        //VISUAL
         if (thisAnimator != null)
             thisAnimator.SetBool("dead",true);
+
+        //SOUND
+        if (dead != null)
+            FindObjectOfType<SoundManager>().TriggerPlaySound(dead, sfxMultiplier);
 
         //Tell combat manager to remove active count
         thisCombatManager.UpdateCountOfEachEnemyType(-1, (int)thisEnemyType);

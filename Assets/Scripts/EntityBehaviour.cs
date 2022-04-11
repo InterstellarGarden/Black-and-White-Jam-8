@@ -7,6 +7,7 @@ public class EntityBehaviour : MonoBehaviour
     public BulletBehaviour.bulletType thisWeakness;
     [SerializeField] protected int maxHealth;
     [SerializeField] private int health;
+    [Range(0, 1)] [SerializeField] protected float sfxMultiplier;
     public enum enemyType
     {
         reggie = 0,

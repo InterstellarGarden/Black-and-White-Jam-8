@@ -226,8 +226,11 @@ MonoBehaviour:
   crouchingYCenter: -0.4
   isCrouching: 0
   maxHealth: 5
+  health: 0
   lowHealthThreshold: 2
   isLowHealth: 0
+  hurt: {fileID: 8300000, guid: 91a6bc45be461204a9374d76a47399fd, type: 3}
+  dead: {fileID: 8300000, guid: 399feb0c4f41dd04c9695403627669ba, type: 3}
 --- !u!114 &3282293406018627972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +265,12 @@ MonoBehaviour:
   targettableMask:
     serializedVersion: 2
     m_Bits: 521
+  shootingSfxLocalMultiplier: 1
+  shootingNormal: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingFire: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingLightning: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingSoap: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  comboShotFired: {fileID: 0}
 --- !u!114 &3282293406018627975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +287,8 @@ MonoBehaviour:
   canInstantKill: 0
   currentCombo: 0
   comboDecayRate: 0.2
+  comboReady: {fileID: 0}
+  comboReadySfxLocalMultiplier: 1
 --- !u!136 &4461965152540962398
 CapsuleCollider:
   m_ObjectHideFlags: 0

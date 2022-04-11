@@ -7,6 +7,9 @@ public class BossBehaviour : EnemyBehaviour
     [SerializeField] private float intervalBetweenRespawnEnemies = 10;
     public float distanceFromPlayerToSpawnArsenal = 5;
     private static int numArsenalUnlocked = 0;
+
+    //SOUNDS
+    [SerializeField] private List<AudioClip> shot;
     protected override void Start()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
@@ -15,7 +18,13 @@ public class BossBehaviour : EnemyBehaviour
         StartCoroutine(CallEnemies());
         base.Start();
     }
+    public override void TriggerTakeDamage(int _bulletType)
+    {
+        AudioClip _chosenSound = shot[Random.Range(0, shot.Count)];
+        FindObjectOfType<SoundManager>().TriggerPlaySound(_chosenSound, sfxMultiplier);
 
+        base.TriggerTakeDamage(_bulletType);
+    }
     public override void Death()
     {
         if (!thisCombatManager.isBossAlive)

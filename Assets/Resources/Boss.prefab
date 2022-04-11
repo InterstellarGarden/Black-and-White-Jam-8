@@ -144,10 +144,19 @@ MonoBehaviour:
   thisWeakness: 7
   maxHealth: 50
   health: 0
+  sfxMultiplier: 1
   maxHealthIncreasePerLoop: 5
   thisEnemyType: 6
+  shooting: {fileID: 8300000, guid: c5808f39710186741a563100837e0fd9, type: 3}
+  dead: {fileID: 8300000, guid: 6fedb339fabf5ba4d9d35abdb6dbdaf9, type: 3}
   intervalBetweenRespawnEnemies: 10
   distanceFromPlayerToSpawnArsenal: 5
+  shot:
+  - {fileID: 8300000, guid: 3bd2f64a291baed4f84f967ca2974f4b, type: 3}
+  - {fileID: 8300000, guid: 94000b83b1ecfd645a99d178a7ce8b65, type: 3}
+  - {fileID: 8300000, guid: 6db27c9d3f41fd24b93412cce0af0618, type: 3}
+  - {fileID: 8300000, guid: d6e430b3382cc294892ea41559b358c3, type: 3}
+  - {fileID: 8300000, guid: a631d5827b1432b4c952d411ead09af9, type: 3}
 --- !u!114 &6750845573743135235
 MonoBehaviour:
   m_ObjectHideFlags: 0

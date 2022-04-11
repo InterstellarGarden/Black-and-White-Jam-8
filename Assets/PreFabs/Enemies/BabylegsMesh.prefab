@@ -209,8 +209,11 @@ MonoBehaviour:
   thisWeakness: 1
   maxHealth: 3
   health: 0
+  sfxMultiplier: 1
   maxHealthIncreasePerLoop: 0
   thisEnemyType: 1
+  shooting: {fileID: 8300000, guid: a7da643f3fea5ce4094e9645f7271e5e, type: 3}
+  dead: {fileID: 8300000, guid: f14e260284266914e8114f95a40fd901, type: 3}
   crate: {fileID: 5916491545515599491}
   inBoxCollider: {fileID: 1043884383204451357}
   standingCollider: {fileID: 8945927844644854411}

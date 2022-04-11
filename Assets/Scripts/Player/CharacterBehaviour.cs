@@ -41,6 +41,10 @@ public class CharacterBehaviour : MonoBehaviour
     //PRIVATE ESSENTIALS
     Camera playerCamera;
 
+    //SOUND
+    private SoundManager thisSoundManager;
+    [SerializeField] private AudioClip hurt, dead;
+
     private void Awake()
     {
         //MOVEMENT
@@ -58,6 +62,8 @@ public class CharacterBehaviour : MonoBehaviour
         //HEALTH
         health = maxHealth;
         isLowHealth = false;
+
+        thisSoundManager = FindObjectOfType<SoundManager>();
     }
     void Start()
     {      
@@ -131,10 +137,21 @@ public class CharacterBehaviour : MonoBehaviour
     {
         health -= _damage;
         if (health <= 0)
+        {
+            if (dead != null)
+                thisSoundManager.TriggerPlaySound(dead, 1);
+
             GameManager.instance.GameOver();
+            return;
+        }
 
         else if (health <= lowHealthThreshold)
+        {
             isLowHealth = true;
+        }
+
+        if (hurt != null)
+            thisSoundManager.TriggerPlaySound(hurt, 1);
     }
     void TriggerRecoverDamage(int _delta)
     {

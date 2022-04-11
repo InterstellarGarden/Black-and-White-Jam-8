@@ -21,11 +21,15 @@ public class RevolverBehaviour : MonoBehaviour
 
     //VISUAL
     public float bulletSpeed = 60;
-
     public GameObject poof;
 
     //TARGETABLE REFERS TO: WHAT WILL THE PLAYER'S BULLET COLLIDE WITH - WALLS, ENTITIES ETC.
     public LayerMask targettableMask;
+
+    //SOUNDS
+    private SoundManager thisSoundManager;
+    [Range (0,1)] [SerializeField] private float shootingSfxLocalMultiplier = 1;
+    [SerializeField] private AudioClip shootingNormal, shootingFire, shootingLightning, shootingSoap, comboShotFired;
 
     //UI ELEMENTS
     private uiRubiBehaviour thisRubiBehaviour;
@@ -34,6 +38,7 @@ public class RevolverBehaviour : MonoBehaviour
     {
         thisCombo = GetComponent<ComboBehaviour>();
         thisPlayer = GetComponent<CharacterBehaviour>();
+        thisSoundManager = FindObjectOfType<SoundManager>();
 
         numberOfTemporaryBullet = 0;
 
@@ -58,7 +63,7 @@ public class RevolverBehaviour : MonoBehaviour
         {
             timeLastFired = Time.time;
 
-            #region Firing and Combo
+            #region Firing
             //PREPARE DATA FROM BULLET ABOUT TO BE FIRED
             int _currentType = (int)desiredBullet.GetComponent<BulletBehaviour>().thisBullet;
 
@@ -92,13 +97,46 @@ public class RevolverBehaviour : MonoBehaviour
                 }
 
                 else Debug.Log("Error targetting entity");
+            }                       
+            #endregion
+
+            #region Sound
+            //SOUND ON FIRE
+            AudioClip _toPlay = null;
+            if (thisCombo.canInstantKill)
+            {
+                _toPlay = comboShotFired;
+            }
+            else
+            {
+                switch (_currentType)
+                {
+                    case (int)BulletBehaviour.bulletType.normal:
+                        _toPlay = shootingNormal;
+                        break;
+
+                    case (int)BulletBehaviour.bulletType.fire:
+                        _toPlay = shootingFire;
+                        break;
+
+                    case (int)BulletBehaviour.bulletType.electricity:
+                        _toPlay = shootingLightning;
+                        break;
+
+                    case (int)BulletBehaviour.bulletType.soap:
+                        _toPlay = shootingSoap;
+                        break;
+                }
             }
 
+            if (_toPlay != null)
+                thisSoundManager.TriggerPlaySound(_toPlay, shootingSfxLocalMultiplier);
+            #endregion
 
+            #region Update State
             //RESET COMBO REGARDLESS OF HITTING OR MISSING
             if (thisCombo.canInstantKill)
                 thisCombo.TriggerRestartDecay();
-            #endregion
 
             //UI
             thisRubiBehaviour.FiredBullet();
@@ -109,6 +147,7 @@ public class RevolverBehaviour : MonoBehaviour
 
             //NEXT BULLET ON CHAMBER
             TriggerNextBullet();
+            #endregion
         }
     }
 
