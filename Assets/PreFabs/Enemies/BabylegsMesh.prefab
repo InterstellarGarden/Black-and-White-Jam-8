@@ -207,7 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisWeakness: 1
-  maxHealth: 2
+  maxHealth: 3
   health: 0
   maxHealthIncreasePerLoop: 0
   thisEnemyType: 1
