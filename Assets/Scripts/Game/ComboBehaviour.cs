@@ -68,7 +68,7 @@ public class ComboBehaviour : MonoBehaviour
     void TriggerStopDecay()
     {
         isDecaying = false;
-        FindObjectOfType<SoundManager>().TriggerPlaySound(comboReady, comboReadySfxLocalMultiplier);
+        FindObjectOfType<SoundManager>().TriggerPlaySound(comboReady, comboReadySfxLocalMultiplier, false);
         StopCoroutine(coroComboDecay);
     }
     IEnumerator ComboDecay()

@@ -124,6 +124,7 @@ MonoBehaviour:
   maxHealth: 5
   health: 0
   sfxMultiplier: 1
+  soundOnCritical: {fileID: 8300000, guid: a46388e63c8318f4ba4366cfc547ec56, type: 3}
   maxHealthIncreasePerLoop: 0
   thisEnemyType: 2
   shooting: {fileID: 8300000, guid: 879fb62cab3ad3148a7390f338d3d584, type: 3}

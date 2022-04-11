@@ -29,7 +29,7 @@ public class RevolverBehaviour : MonoBehaviour
     //SOUNDS
     private SoundManager thisSoundManager;
     [Range (0,1)] [SerializeField] private float shootingSfxLocalMultiplier = 1;
-    [SerializeField] private AudioClip shootingNormal, shootingFire, shootingLightning, shootingSoap, comboShotFired;
+    [SerializeField] private AudioClip shootingNormal, shootingFire, shootingLightning, shootingSoap, comboShotFired, pickUpAmmo;
 
     //UI ELEMENTS
     private uiRubiBehaviour thisRubiBehaviour;
@@ -130,7 +130,7 @@ public class RevolverBehaviour : MonoBehaviour
             }
 
             if (_toPlay != null)
-                thisSoundManager.TriggerPlaySound(_toPlay, shootingSfxLocalMultiplier);
+                thisSoundManager.TriggerPlaySound(_toPlay, shootingSfxLocalMultiplier, true);
             #endregion
 
             #region Update State
@@ -230,6 +230,9 @@ public class RevolverBehaviour : MonoBehaviour
 
         thisRubiBehaviour.RotateBackward();
         thisRubiBehaviour.RotateBackward();
+
+        if (pickUpAmmo != null)
+            thisSoundManager.TriggerPlaySound(pickUpAmmo, 1, false);
     } 
     public void TriggerUnlockArsenal()
     {

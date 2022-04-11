@@ -12,9 +12,13 @@ public class SoundManager : MonoBehaviour
     {
         thisSoundSource = GetComponent<AudioSource>();
     }
-    public void TriggerPlaySound(AudioClip _sound, float _localMultiplier)
+    public void TriggerPlaySound(AudioClip _sound, float _localMultiplier, bool _randomise)
     {
-        thisSoundSource.pitch = Random.Range(0.75f, 1.25f);
+        if (_randomise)
+            thisSoundSource.pitch = Random.Range(0.75f, 1.25f);
+
+        else thisSoundSource.pitch = 1;
+
         thisSoundSource.PlayOneShot(_sound, _localMultiplier);
     }
 

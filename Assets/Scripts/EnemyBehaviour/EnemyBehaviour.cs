@@ -30,7 +30,7 @@ public class EnemyBehaviour : EntityBehaviour
             thisAnimator.Play("shooting");
 
         if (shooting != null)
-            FindObjectOfType<SoundManager>().TriggerPlaySound(shooting, sfxMultiplier);
+            FindObjectOfType<SoundManager>().TriggerPlaySound(shooting, sfxMultiplier, true);
     }
     protected virtual void Start()
     {
@@ -44,7 +44,7 @@ public class EnemyBehaviour : EntityBehaviour
 
         //SOUND
         if (dead != null)
-            FindObjectOfType<SoundManager>().TriggerPlaySound(dead, sfxMultiplier);
+            FindObjectOfType<SoundManager>().TriggerPlaySound(dead, sfxMultiplier, true);
 
         //Tell combat manager to remove active count
         thisCombatManager.UpdateCountOfEachEnemyType(-1, (int)thisEnemyType);

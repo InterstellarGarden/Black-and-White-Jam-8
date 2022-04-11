@@ -46,5 +46,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameOver");
         playerIsDead = true;
         FindObjectOfType<CharacterBehaviour>().GameOver();
+        FindObjectOfType<TransitionManager>().LoadScene(2);
     }
 }

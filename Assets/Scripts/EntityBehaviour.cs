@@ -8,6 +8,7 @@ public class EntityBehaviour : MonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] private int health;
     [Range(0, 1)] [SerializeField] protected float sfxMultiplier;
+    [SerializeField] private AudioClip soundOnCritical;
     public enum enemyType
     {
         reggie = 0,
@@ -30,6 +31,9 @@ public class EntityBehaviour : MonoBehaviour
         if (_bulletType == (int)thisWeakness)
         {
             Death();
+
+            if (soundOnCritical != null)
+                FindObjectOfType<SoundManager>().TriggerPlaySound(soundOnCritical, 1, false);
         }
 
         else

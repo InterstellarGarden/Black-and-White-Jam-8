@@ -10,6 +10,7 @@ public class BossBehaviour : EnemyBehaviour
 
     //SOUNDS
     [SerializeField] private List<AudioClip> shot;
+    [SerializeField] private AudioClip whistle, winBanjo;
     protected override void Start()
     {
         thisCombatManager = FindObjectOfType<CombatManager>();
@@ -21,7 +22,7 @@ public class BossBehaviour : EnemyBehaviour
     public override void TriggerTakeDamage(int _bulletType)
     {
         AudioClip _chosenSound = shot[Random.Range(0, shot.Count)];
-        FindObjectOfType<SoundManager>().TriggerPlaySound(_chosenSound, sfxMultiplier);
+        FindObjectOfType<SoundManager>().TriggerPlaySound(_chosenSound, sfxMultiplier, true);
 
         base.TriggerTakeDamage(_bulletType);
     }
@@ -30,6 +31,7 @@ public class BossBehaviour : EnemyBehaviour
         if (!thisCombatManager.isBossAlive)
             return;
 
+        //END COMBAT
         thisCombatManager.isBossAlive = false;
         StopAllCoroutines();
 
@@ -37,13 +39,20 @@ public class BossBehaviour : EnemyBehaviour
 
         //FOR OPENING VAULT BEYOND ARSENAL UNLOCKS
         if (FindObjectOfType<RevolverBehaviour>().unlockableBulletPrefabs.Count <= 0)
+        {
             thisCombatManager.ForceEndCombat();
+        }
 
+        //UPDATE GAME STATE
         FindObjectOfType<CarriageManager>().UpdateIncreaseLoop();
-
         SpawnArsenal(CarriageManager.loopsCompleted);
 
+        //OPEN VAULT
         FindObjectOfType<CarriageManager>().UpdateVaultOpened(false);
+
+        //SOUND
+        FindObjectOfType<SoundManager>().TriggerPlaySound(winBanjo, 1f, false);
+
         base.Death();   
     }
     public void SpawnArsenal(int _choice)
@@ -63,6 +72,7 @@ public class BossBehaviour : EnemyBehaviour
         while (thisCombatManager.isBossAlive)
         {
             yield return new WaitForSeconds(intervalBetweenRespawnEnemies);
+            FindObjectOfType<SoundManager>().TriggerPlaySound(whistle, 1, true);
             thisCombatManager.BossSpawnEnemies();
         }
     }
