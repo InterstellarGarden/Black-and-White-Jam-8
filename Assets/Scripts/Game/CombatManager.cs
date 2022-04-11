@@ -43,6 +43,9 @@ public class CombatManager : MonoBehaviour
         inCombat = true;
         currentCarriage = _currentCarriage;
         SpawnEnemies();
+
+        //MUSIC
+        FindObjectOfType<MusicManager>().RequestHorizontalLayer((int)MusicManager.music.combat);
     }
 
     private void SpawnEnemies()
@@ -137,6 +140,8 @@ public class CombatManager : MonoBehaviour
         chosenSpawnPositions.Clear();
 
         oldCarriage = currentCarriage;
+
+        FindObjectOfType<MusicManager>().RequestHorizontalLayer((int)MusicManager.music.calm);
     }
     public void ForceEndCombat()
     {

@@ -53,6 +53,8 @@ MonoBehaviour:
   firstSpawn: {fileID: 0}
   nextSpawnPos: {fileID: 0}
   prevSpawnPos: {fileID: 0}
+  vaultBarriers: []
+  vaultCarriage: {fileID: 0}
   carriageToSpawnIn: 1
 --- !u!114 &8365354634044803053
 MonoBehaviour:
@@ -117,15 +119,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8365354634322695219}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2952129f319dfcc4ba20e824f2e406e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeToChangeMusicInSecs: 2
   musicSources:
-  - {fileID: 8365354634322695216}
   - {fileID: 8365354634322695217}
+  - {fileID: 8365354634322695216}
 --- !u!82 &8365354634322695216
 AudioSource:
   m_ObjectHideFlags: 0
@@ -136,11 +138,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17c6e8cc17d27494292df23555657914, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a2c5332023e4c184f9c3a4ea9269709f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -232,11 +234,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 17c6e8cc17d27494292df23555657914, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2fdc708886b78e547b0f92441f1536b6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
