@@ -5856,7 +5856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c831a617fbe45540a1381f1657c27a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tntUsed: {fileID: 0}
+  tntUsed: {fileID: 8300000, guid: bde228f9d3d01d74dbc85ebd76f34d94, type: 3}
 --- !u!64 &2230948362154027606
 MeshCollider:
   m_ObjectHideFlags: 0
