@@ -195,6 +195,8 @@ MonoBehaviour:
   firstSpawn: {fileID: 0}
   nextSpawnPos: {fileID: 0}
   prevSpawnPos: {fileID: 0}
+  vaultBarriers: []
+  vaultCarriage: {fileID: 0}
   carriageToSpawnIn: 1
 --- !u!114 &8365354634044803053
 MonoBehaviour:
@@ -212,8 +214,8 @@ MonoBehaviour:
   - {fileID: 395755183875757418, guid: 8339062b3eda15d489fb338724e15a61, type: 3}
   - {fileID: 7004292105579056138, guid: a6dbb6520656b9840a9bc74bcbdd3b1b, type: 3}
   unlockableEnemyPrefabs:
-  - {fileID: 395755183875757418, guid: 7d7324806e6f4984eaf620ee45557548, type: 3}
-  - {fileID: 395755183875757418, guid: 967d1717ccc3fad43a69db2e8a189ecc, type: 3}
+  - {fileID: 395755183875757418, guid: 897a2bac63e8f3e4eb4ac8f2ca788a8d, type: 3}
+  - {fileID: 395755183875757418, guid: 081950ae6f8a20048a96c757a5e9b7ff, type: 3}
   activeEnemies: []
   maxEnemiesAtATime: 0
   isBossAlive: 0
