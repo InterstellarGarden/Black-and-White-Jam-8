@@ -129,10 +129,13 @@ public class CharacterBehaviour : MonoBehaviour
         // Player and Camera rotation
         if (!PauseMenu.GameIsPaused)
         {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+            //Vertical Rotation (look up and down)
+            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed * SettingsMenu.mouseSens;
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
             playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
+
+            //Horizontal Rotation (look left and right)
+            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed * SettingsMenu.mouseSens, 0);
         }
     }
     public void TriggerTakeDamage(int _damage)
