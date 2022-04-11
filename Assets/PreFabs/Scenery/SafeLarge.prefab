@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 8180014134344670990}
   - component: {fileID: 6279397654978708058}
   - component: {fileID: 821232282672732892}
+  - component: {fileID: 8660553763035699487}
   m_Layer: 0
   m_Name: SafeLarge_Chassis
   m_TagString: Untagged
@@ -113,6 +114,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8660553763035699487
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5096222673007427599}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.493303, y: 4.1493587, z: 3.0389392}
+  m_Center: {x: 0, y: -0.048879992, z: 1.5194696}
 --- !u!1 &5974917200936818088
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +138,7 @@ GameObject:
   - component: {fileID: 4707805223584391106}
   - component: {fileID: 1758250237578849922}
   - component: {fileID: 5492126633816895609}
+  - component: {fileID: 1709690250263472619}
   m_Layer: 0
   m_Name: SafeLarge_Door
   m_TagString: Untagged
@@ -194,3 +209,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &1709690250263472619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974917200936818088}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.6333205, y: 0.6588076, z: 2.3788743}
+  m_Center: {x: 0.75773066, y: -0.040658068, z: 0}

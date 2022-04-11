@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763708226744618809}
+  - component: {fileID: 8611293517863976967}
+  - component: {fileID: 2836363902234918880}
   m_Layer: 0
   m_Name: Piano
   m_TagString: Untagged
@@ -32,6 +34,120 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8611293517863976967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284912349651162499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c89a93b6349f0c4197648731f88ff1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  broken: {fileID: 0}
+  not_broken: {fileID: 9202509400503214632}
+  poof: {fileID: 0}
+  breakSfx: {fileID: 2836363902234918880}
+  explosionForce: 50
+  explosionUpwardsModifier: 1
+--- !u!82 &2836363902234918880
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5284912349651162499}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 3fadec99beb913448bda379f02e396d4, type: 2}
+  m_audioClip: {fileID: 8300000, guid: 2610cb9038f47fd49b5250184533e170, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 0
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: -1
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7356361912499720933
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,6 +159,7 @@ GameObject:
   - component: {fileID: 675598816461814711}
   - component: {fileID: 4538376408924961891}
   - component: {fileID: 7057634625836789529}
+  - component: {fileID: 2421589143398308903}
   m_Layer: 0
   m_Name: PianoBench_Final
   m_TagString: Untagged
@@ -113,6 +230,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2421589143398308903
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7356361912499720933}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8347772, y: 0.90226966, z: 0.25088274}
+  m_Center: {x: 0, y: 2.1357478e-15, z: 0.6502898}
 --- !u!1 &9202509400503214632
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +254,8 @@ GameObject:
   - component: {fileID: 2187099549298857329}
   - component: {fileID: 980324669079098019}
   - component: {fileID: 5268539183363998989}
+  - component: {fileID: 197673866151757020}
+  - component: {fileID: 3751490972621715287}
   m_Layer: 0
   m_Name: Piano_Final
   m_TagString: Untagged
@@ -194,3 +326,31 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &197673866151757020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202509400503214632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.2396584, y: 1.9982831, z: 2.6871974}
+  m_Center: {x: 0, y: -0.29764098, z: 1.3435987}
+--- !u!114 &3751490972621715287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202509400503214632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e05755813d0625142be9523dfcb2f2c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisWeakness: 0
+  maxHealth: 0
+  health: 0
