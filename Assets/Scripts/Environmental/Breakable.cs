@@ -23,6 +23,9 @@ public class Breakable : MonoBehaviour
     [SerializeField]
     float explosionUpwardsModifier = 1f;
 
+
+    //SOUND
+    [Range(0, 1)] [SerializeField] private float sfxLocalMultipler = 1;
     void Start()
     {
         not_broken.SetActive(true);
@@ -73,9 +76,7 @@ public class Breakable : MonoBehaviour
 		//Play sfx
 		if (breakSfx != null)
 		{
-			//Set a little variation in the break sound pitch
-			breakSfx.pitch = Random.Range(0.75f, 1.25f);
-			breakSfx.Play();
+            FindObjectOfType<SoundManager>().RequestPlaySound(breakSfx, sfxLocalMultipler);
 		}
     }
 }

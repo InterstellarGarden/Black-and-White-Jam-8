@@ -25,6 +25,12 @@ public class CombatManager : MonoBehaviour
     //Counting Enemies
     public List<int> numberOfEachActiveEnemyType;
 
+    //SOUND
+    [Range(0, 1)] [SerializeField] private float sfxMultiplier;
+    [SerializeField] private List<AudioClip> enemyYeehaw;
+    [SerializeField] private AudioClip bossYeehaw, whistle;
+
+
     //Data
     [HideInInspector] public CarriageData currentCarriage;
     private CarriageData oldCarriage;
@@ -43,6 +49,9 @@ public class CombatManager : MonoBehaviour
         inCombat = true;
         currentCarriage = _currentCarriage;
         SpawnEnemies();
+
+        //MUSIC
+        FindObjectOfType<MusicManager>().RequestHorizontalLayer((int)MusicManager.music.combat);
     }
 
     private void SpawnEnemies()
@@ -74,6 +83,12 @@ public class CombatManager : MonoBehaviour
 
             //ASSIGN TO ACTIVE ENEMIES
             activeEnemies.Add(_spawnedEnemy);
+
+            //PLAY SOUND 
+            if (currentCarriage._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Vault && isBossAlive)
+                FindObjectOfType<SoundManager>().TriggerPlaySound(whistle, sfxMultiplier/2, true);
+
+            FindObjectOfType<SoundManager>().TriggerPlaySound(enemyYeehaw[Random.Range(0, enemyYeehaw.Count)], sfxMultiplier, true);
         }
         #endregion
 
@@ -86,6 +101,8 @@ public class CombatManager : MonoBehaviour
             //SPAWN ENEMY
             GameObject _boss = Resources.Load<GameObject>("Boss");
             Instantiate(_boss, _bossSpawnPosition, Quaternion.identity);
+
+            FindObjectOfType<SoundManager>().TriggerPlaySound(bossYeehaw, sfxMultiplier, false);
         }
         #endregion
     }
@@ -137,6 +154,8 @@ public class CombatManager : MonoBehaviour
         chosenSpawnPositions.Clear();
 
         oldCarriage = currentCarriage;
+
+        FindObjectOfType<MusicManager>().RequestHorizontalLayer((int)MusicManager.music.calm);
     }
     public void ForceEndCombat()
     {

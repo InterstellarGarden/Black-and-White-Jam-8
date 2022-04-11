@@ -4912,8 +4912,10 @@ MonoBehaviour:
   broken: {fileID: 2909067611807894399}
   not_broken: {fileID: 4606846966777955955}
   poof: {fileID: 8267777650544376933}
+  breakSfx: {fileID: 0}
   explosionForce: 200
   explosionUpwardsModifier: 1
+  sfxLocalMultipler: 0.5
 --- !u!1001 &2343561401157734110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5197,6 +5199,7 @@ MonoBehaviour:
   thisWeakness: 1
   maxHealth: 2
   health: 0
+  sfxMultiplier: 0
 --- !u!1001 &4249281336181472155
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -148,8 +148,8 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282293406018627982}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -226,8 +226,13 @@ MonoBehaviour:
   crouchingYCenter: -0.4
   isCrouching: 0
   maxHealth: 5
+  health: 0
   lowHealthThreshold: 2
   isLowHealth: 0
+  hurt: {fileID: 8300000, guid: 91a6bc45be461204a9374d76a47399fd, type: 3}
+  dead: {fileID: 8300000, guid: 399feb0c4f41dd04c9695403627669ba, type: 3}
+  pickUpHealth: {fileID: 8300000, guid: a635ed8f2e76b7b4490d2a7a4d2c8dba, type: 3}
+  pickUpTnt: {fileID: 8300000, guid: e799ab0966d1b83489541f51319a946c, type: 3}
 --- !u!114 &3282293406018627972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +267,13 @@ MonoBehaviour:
   targettableMask:
     serializedVersion: 2
     m_Bits: 521
+  shootingSfxLocalMultiplier: 1
+  shootingNormal: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingFire: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingLightning: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  shootingSoap: {fileID: 8300000, guid: c34a41c991903f3449a0f3a2c0f9c2dc, type: 3}
+  comboShotFired: {fileID: 8300000, guid: a46388e63c8318f4ba4366cfc547ec56, type: 3}
+  pickUpAmmo: {fileID: 8300000, guid: 9be9906e5216a5747b905ef0db89dd03, type: 3}
 --- !u!114 &3282293406018627975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +290,8 @@ MonoBehaviour:
   canInstantKill: 0
   currentCombo: 0
   comboDecayRate: 0.2
+  comboReady: {fileID: 8300000, guid: d9b9ea92b2cd4574eb601c6d74f3703a, type: 3}
+  comboReadySfxLocalMultiplier: 1
 --- !u!136 &4461965152540962398
 CapsuleCollider:
   m_ObjectHideFlags: 0

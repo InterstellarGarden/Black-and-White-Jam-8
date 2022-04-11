@@ -47,8 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   broken: {fileID: 797240190187817963}
   not_broken: {fileID: 9112451544273713881}
+  poof: {fileID: 0}
+  breakSfx: {fileID: 0}
   explosionForce: 75
   explosionUpwardsModifier: 1
+  sfxLocalMultipler: 0.5
 --- !u!1001 &563289063717762746
 PrefabInstance:
   m_ObjectHideFlags: 0

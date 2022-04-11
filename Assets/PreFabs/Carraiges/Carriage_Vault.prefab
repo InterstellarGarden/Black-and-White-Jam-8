@@ -85,8 +85,8 @@ GameObject:
   - component: {fileID: 6380790492258353332}
   - component: {fileID: 8952183503516798555}
   - component: {fileID: 4076129075892836691}
-  - component: {fileID: 5673872470859928744}
   - component: {fileID: 3135205855879932113}
+  - component: {fileID: 9112649322061626511}
   m_Layer: 0
   m_Name: VaultBarrier
   m_TagString: Untagged
@@ -169,19 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c831a617fbe45540a1381f1657c27a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &5673872470859928744
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 717481670049018859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.000001, y: 2.2204466e-16, z: 10.000002}
-  m_Center: {x: 0, y: 0, z: 0}
+  tntUsed: {fileID: 8300000, guid: bde228f9d3d01d74dbc85ebd76f34d94, type: 3}
 --- !u!64 &3135205855879932113
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -196,6 +184,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &9112649322061626511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 717481670049018859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 4.1233635}
+  m_Center: {x: 0, y: 1.4332525e-17, z: 0.066372156}
 --- !u!1 &792197051440949667
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,7 +2235,6 @@ GameObject:
   - component: {fileID: 1002238380438907127}
   - component: {fileID: 1002238380438907120}
   - component: {fileID: 1002238380438907121}
-  - component: {fileID: 1002238380438907126}
   - component: {fileID: 2223589881617194011}
   m_Layer: 0
   m_Name: ExitDoor_temporarily disabledcolliders
@@ -2307,19 +2307,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1002238380438907126
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1002238380438907124}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 4.1233635}
-  m_Center: {x: 0, y: 1.4332525e-17, z: 0.066372156}
 --- !u!65 &2223589881617194011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5785,8 +5772,8 @@ GameObject:
   - component: {fileID: 6882496875420293081}
   - component: {fileID: 1427688984741393808}
   - component: {fileID: 3517360458417012687}
-  - component: {fileID: 204302691569685180}
   - component: {fileID: 2230948362154027606}
+  - component: {fileID: 1518432770635133460}
   m_Layer: 0
   m_Name: VaultBarrier
   m_TagString: Untagged
@@ -5869,19 +5856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c831a617fbe45540a1381f1657c27a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &204302691569685180
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1684531380337557592}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 3.9909787}
-  m_Center: {x: 0, y: 1.7225251e-15, z: -1.4822543}
+  tntUsed: {fileID: 8300000, guid: bde228f9d3d01d74dbc85ebd76f34d94, type: 3}
 --- !u!64 &2230948362154027606
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5896,6 +5871,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1518432770635133460
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684531380337557592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 4.1233635}
+  m_Center: {x: 0, y: 1.4332525e-17, z: 0.066372156}
 --- !u!1 &2006067774021786304
 GameObject:
   m_ObjectHideFlags: 0

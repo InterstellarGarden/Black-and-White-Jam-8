@@ -240,6 +240,7 @@ MonoBehaviour:
   thisWeakness: 0
   maxHealth: 1
   health: 0
+  sfxMultiplier: 0
 --- !u!1 &5143302856345281516
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,6 +518,7 @@ MonoBehaviour:
   breakSfx: {fileID: 5143302856825423418}
   explosionForce: 300
   explosionUpwardsModifier: 3
+  sfxLocalMultipler: 0.5
 --- !u!82 &5143302856825423418
 AudioSource:
   m_ObjectHideFlags: 0
