@@ -31,7 +31,7 @@ public class UIManager : MonoBehaviour
     {
         uiCombo.value = thisCombo.currentCombo;
         uiHealth.value = thisPlayer.health;
-        uiLoop.text = "Loop: " + CarriageManager.loopsCompleted;
+        uiLoop.text = "Loop: " + (CarriageManager.loopsCompleted + 1);
     }
     public void UpdateTntUi(bool _hasTnt)
     {

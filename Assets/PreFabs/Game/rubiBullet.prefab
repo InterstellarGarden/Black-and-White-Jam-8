@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75686276, g: 0.7019608, b: 0.5686275, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -89,11 +89,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullets:
-  - {fileID: 21300000, guid: 8c90177332b6f0c43b60da094a062362, type: 3}
-  - {fileID: 21300000, guid: f7eb6ae9d59c74f4e98b3c78d1388583, type: 3}
-  - {fileID: 21300000, guid: 79fcf4b157482794f93c327e6c56f4af, type: 3}
-  - {fileID: 21300000, guid: 646a34f2bff41c94d89debf4a2a30796, type: 3}
-  emptyBullet: {fileID: 21300000, guid: 9121c4f35f8dc28428fd9e5ac77b6fe0, type: 3}
+  - {fileID: 21300000, guid: 95f64bfb9a8bfde46b98a4247f47d8f9, type: 3}
+  - {fileID: 21300000, guid: 41983c66b7a0c2e4eb088e4926628849, type: 3}
+  - {fileID: 21300000, guid: cbf7b0f143b84d4418d1ecc7b76e9fa3, type: 3}
+  - {fileID: 21300000, guid: 4a1310c00d6234241adf20602d6cbb25, type: 3}
+  emptyBullet: {fileID: 21300000, guid: 59cd83ed47321f94e8c86a65cbf526d6, type: 3}
   testColors:
   - {r: 1, g: 0, b: 0, a: 0}
   - {r: 0.36320752, g: 0.38251138, b: 1, a: 0}
