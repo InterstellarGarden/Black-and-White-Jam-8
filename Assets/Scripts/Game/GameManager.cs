@@ -31,8 +31,11 @@ public class GameManager : MonoBehaviour
             foreach (EntityBehaviour _entity in FindObjectsOfType<EntityBehaviour>())
             {
                 Vector3 _pos = _entity.transform.position;
-                if (_pos.y <= FindObjectOfType<CarriageManager>().firstSpawn.transform.position.y)
+                if (_pos.y <= FindObjectOfType<CarriageManager>().firstSpawn.transform.position.y -5)
+                {
+                    Debug.Log(_entity.name);
                     _entity.Death();
+                }
             }
             yield return new WaitForSeconds(1f);
         }
