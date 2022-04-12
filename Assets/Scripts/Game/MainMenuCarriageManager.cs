@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarriageManager : MonoBehaviour
+public class MainMenuCarriageManager : MonoBehaviour
 {
     public bool debugInitialiseCarriages;
 
@@ -13,14 +13,11 @@ public class CarriageManager : MonoBehaviour
     [SerializeField] private List<GameObject> spawnedCarriages;
     [SerializeField] public CarriageData currentCarriage, oldCarriage;
     [SerializeField] public Transform firstSpawn;
-    [SerializeField] private Transform nextSpawnPos,prevSpawnPos;
+    [SerializeField] private Transform nextSpawnPos, prevSpawnPos;
 
     //VAULT
     public List<GameObject> vaultBarriers;
     public CarriageData vaultCarriage;
-
-    //COMBAT
-    CombatManager thisCombatManager;
 
     //TNT
     public static bool playerHasTnt = false;
@@ -33,8 +30,6 @@ public class CarriageManager : MonoBehaviour
     public int carriageToSpawnIn = 1;
     private void Awake()
     {
-        thisCombatManager = FindObjectOfType<CombatManager>();
-        UpdateTnt(false);
         loopsCompleted = 0;
 
         thisPlayer = FindObjectOfType<CharacterBehaviour>();
@@ -63,7 +58,7 @@ public class CarriageManager : MonoBehaviour
         //SPAWN SUBSEQUENT CARRIAGES
         foreach (GameObject _carriage in carriagesToSpawn)
         {
-            
+
             GameObject _spawned = Instantiate(_carriage, nextSpawnPos.position, nextSpawnPos.rotation);
             _spawned.GetComponent<CarriageData>().UpdateCarriageState(false);
 
@@ -75,7 +70,6 @@ public class CarriageManager : MonoBehaviour
                 {
                     vaultBarriers.Add(_barrier.gameObject);
                 }
-                UpdateVaultOpened(false);
             }
 
             //NAMING
@@ -87,7 +81,7 @@ public class CarriageManager : MonoBehaviour
 
             //UPDATE NEXT SPAWN
             nextSpawnPos = _spawned.GetComponent<CarriageData>().exitPos;
-            
+
         }
 
         //INITIALISE CURRENT/OLD CARRIAGE SETTINGS
@@ -101,6 +95,7 @@ public class CarriageManager : MonoBehaviour
             if (spawnedCarriages[i].GetComponent<CarriageData>()._isSpecialCarriage == CarriageData.SpecialCarriageExceptions.Conductor)
             {
                 thisPlayer.transform.position = spawnedCarriages[i].transform.Find("PlayerSpawn").transform.position;
+                thisPlayer.transform.position = new Vector3(thisPlayer.transform.position.x, thisPlayer.transform.position.y + 2, thisPlayer.transform.position.z);
                 break;
             }
         }
@@ -118,16 +113,16 @@ public class CarriageManager : MonoBehaviour
         //Whether new carriage is infront of old carriage, or new carriage is the highest value of the carriageID list possible.
         if ((currentCarriage.carriageId > oldCarriage.carriageId) && currentCarriage.carriageId != oldCarriage.carriageId)
         {
-           
+
             GameObject _backCarriage = spawnedCarriages[0];
 
             _backCarriage.transform.position = nextSpawnPos.position;
             _backCarriage.transform.rotation = nextSpawnPos.rotation;
-            
+
             spawnedCarriages.Add(_backCarriage.gameObject);
-            _backCarriage.GetComponent<CarriageData>().carriageId+=spawnedCarriages.Count;
+            _backCarriage.GetComponent<CarriageData>().carriageId += spawnedCarriages.Count;
             nextSpawnPos = spawnedCarriages[spawnedCarriages.Count - 1].GetComponent<CarriageData>().exitPos;
-            
+
             //NEW BACK CARRIAGE
             spawnedCarriages.RemoveAt(0);
             prevSpawnPos = spawnedCarriages[0].gameObject.transform;
@@ -142,9 +137,9 @@ public class CarriageManager : MonoBehaviour
             //GET WORLD VECTOR OFFSET FROM EXIT POSITION TO START POSITION
             _frontCarriage.transform.rotation = prevSpawnPos.rotation;
 
-            Vector3 _offset =  _frontCarriage.transform.position - _frontCarriage.GetComponent<CarriageData>().exitPos.position;
-            _frontCarriage.transform.position = prevSpawnPos.position + _offset  ;
-            
+            Vector3 _offset = _frontCarriage.transform.position - _frontCarriage.GetComponent<CarriageData>().exitPos.position;
+            _frontCarriage.transform.position = prevSpawnPos.position + _offset;
+
             //ROTATE
             Quaternion _rotation = prevSpawnPos.rotation;
 
@@ -152,48 +147,13 @@ public class CarriageManager : MonoBehaviour
             spawnedCarriages.Insert(0, _frontCarriage);
             _frontCarriage.GetComponent<CarriageData>().carriageId -= spawnedCarriages.Count;
             spawnedCarriages.RemoveAt(spawnedCarriages.Count - 1);
-            nextSpawnPos = spawnedCarriages[spawnedCarriages.Count - 1].GetComponent<CarriageData>().exitPos;            
+            nextSpawnPos = spawnedCarriages[spawnedCarriages.Count - 1].GetComponent<CarriageData>().exitPos;
             prevSpawnPos = _frontCarriage.gameObject.transform;
         }
         #endregion
 
-        //INITIATING COMBAT
-        thisCombatManager.InitialiseCombat(_current);
-        _current.UpdateCarriageState(true);
-
         //SET TO OLD CARRIAGE FOR COMPARISON WHEN ENTERING NEW CARRIAGE
         oldCarriage = currentCarriage;
     }
-    public void UpdateIncreaseLoop()
-    {
-        loopsCompleted++;
-        thisCombatManager.totalWavesPerCarriage = loopsCompleted;
-        ScoreManager.LoopsReached++;
-    }
-    private void OnDrawGizmos()
-    {
-        if (nextSpawnPos != null)
-        {
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(nextSpawnPos.position, 4);
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(prevSpawnPos.position, 4);
-        }
-    }
-    public void UpdateTnt(bool _hasTnt)
-    {
-        playerHasTnt = _hasTnt;
-        FindObjectOfType<UIManager>().UpdateTntUi(_hasTnt);
-    }
-
-    public void UpdateVaultOpened(bool _state)
-    {
-        VaultDoorBehaviour.isOpened = _state;
-        foreach (GameObject _barrier in vaultBarriers)
-        {
-            _barrier.SetActive(!_state);
-        }
-    }
+    
 }

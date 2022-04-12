@@ -16,7 +16,7 @@ public class TutorialBehaviour : MonoBehaviour
 
         else
         {
-            transform.parent = pauseMenuParent;
+            transform.SetParent(pauseMenuParent);
             gameObject.SetActive(false);
         }
     }

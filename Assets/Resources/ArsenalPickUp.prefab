@@ -26,9 +26,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7277163615154920534}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.6503, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,5 +79,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletToUnlock: 0
   unlockableBulletPrefabs:
-  - {fileID: 6591710382188923012, guid: 48906204316ba6940880e9055bd73666, type: 3}
-  - {fileID: 6571814293869816298, guid: 333e2e0df3a39c944be1c9281432e680, type: 3}
+  - {fileID: 919132149155446097, guid: 88292b70ffa8bd84bbd92a2a006f62f6, type: 3}
+  - {fileID: 919132149155446097, guid: 976cd4848d64d6f428b6e553ccd70f1d, type: 3}

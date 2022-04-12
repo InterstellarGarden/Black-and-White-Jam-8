@@ -22,10 +22,11 @@ public class SettingsMenu : MonoBehaviour
     private void Awake()
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume", .5f); // Gets the float value of musicVolume, or uses .5f if it isn't found.
-        musicMixer.SetFloat("musicVolume", musicSlider.value);
+        musicMixer.SetFloat("musicVolume", PlayerPrefs.GetFloat("musicVolume", .5f));
+        Debug.Log(PlayerPrefs.GetFloat("musicVolume", .5f));
 
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", .5f); // Gets the float value of SFXVolume, or uses .5f if it isn't found.
-        SFXMixer.SetFloat("SFXVolume", SFXSlider.value);
+        SFXMixer.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFXVolume", .5f));
 
         //Set mouse settings
         mouseSensSlider.value = PlayerPrefs.GetFloat("mouseSens", .5f);
@@ -37,15 +38,16 @@ public class SettingsMenu : MonoBehaviour
 
         gameObject.SetActive(false);
     }
- 
+
+    
 
     public void SetMusicVolume(float musicVol)
     {        
         PlayerPrefs.SetFloat("musicVolume", musicVol); // Sets the value of SliderVolume to the music volume value.
-        musicMixer.SetFloat("musicVolume", Mathf.Log10(musicVol) * 20);
-
         if (musicVol <= 0)
             musicMixer.SetFloat("musicVolume", 0); //Avoid mathematical errors with Mathf.Log10(0);
+
+        else musicMixer.SetFloat("musicVolume", Mathf.Log10(musicVol) * 20);
 
         PlayerPrefs.Save();
     }
@@ -53,10 +55,11 @@ public class SettingsMenu : MonoBehaviour
     public void SetSFXVolume(float sfxVol)
     {
         PlayerPrefs.SetFloat("SFXVolume", sfxVol); // Sets the value of SliderVolume to the sound effect volume value.
-        SFXMixer.SetFloat("SFXVolume", Mathf.Log10(sfxVol) * 20);
-
         if (sfxVol <= 0)
             SFXMixer.SetFloat("SFXVolume", 0);
+
+        else SFXMixer.SetFloat("SFXVolume", Mathf.Log10(sfxVol) * 20);
+
 
         PlayerPrefs.Save();
     }

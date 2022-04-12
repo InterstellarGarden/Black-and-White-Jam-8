@@ -43,7 +43,7 @@ Animator:
   m_GameObject: {fileID: 4387187306841395386}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d841e354061c92d47bf691b4b248500a, type: 2}
+  m_Controller: {fileID: 9100000, guid: df72f0e60e48e6c4c900d4d586935fbd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerUpPrefabs:
-  - {fileID: 3198606683429172333, guid: 7dd778df622c4064da808f322a194488, type: 3}
-  - {fileID: 691547414424984095, guid: 696d7e5df90d39640b243ee9079c12a0, type: 3}
+  - {fileID: 372455064254374800, guid: 8c3ca92dba4b055408555bba25e343fe, type: 3}
+  - {fileID: 919132149155446097, guid: e1f051cfd3271b542b9acace5b8debbf, type: 3}
   _currentPickUp: 0
   isTnt: 0

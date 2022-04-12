@@ -38,6 +38,8 @@ public class EnemyBehaviour : EntityBehaviour
     }
     public override void Death()
     {
+        ScoreManager.enemiesKilled++;
+
         //VISUAL
         if (thisAnimator != null)
             thisAnimator.SetBool("dead",true);

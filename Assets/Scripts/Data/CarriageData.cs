@@ -64,8 +64,12 @@ public class CarriageData : MonoBehaviour
             else if (_isSpecialCarriage == SpecialCarriageExceptions.Vault && CarriageManager.loopsCompleted < 1)
                 FindObjectOfType<CombatManager>().TriggerNewEnemyType(CarriageManager.loopsCompleted + 1);
 
+            //FOR MAIN MENU ONLY
+            if (FindObjectOfType<MainMenuCarriageManager>() != null)
+                FindObjectOfType<MainMenuCarriageManager>().UpdateCurrentCarriage(this);
+
             //COMBAT
-            thisManager.UpdateCurrentCarriage(this);
+            else thisManager.UpdateCurrentCarriage(this);
         }
     }
 
