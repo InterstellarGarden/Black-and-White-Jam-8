@@ -22,24 +22,24 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ScoreManager.instance.Reset();
-        StartCoroutine(CoroKillfloor());
+        //StartCoroutine(CoroKillfloor());
     }
-    IEnumerator CoroKillfloor()
-    {
-        while (killfloorCheck)
-        {
-            foreach (EntityBehaviour _entity in FindObjectsOfType<EntityBehaviour>())
-            {
-                Vector3 _pos = _entity.transform.position;
-                if (_pos.y <= FindObjectOfType<CarriageManager>().firstSpawn.transform.position.y -5)
-                {
-                    Debug.Log(_entity.name);
-                    _entity.Death();
-                }
-            }
-            yield return new WaitForSeconds(1f);
-        }
-    }
+    //IEnumerator CoroKillfloor()
+    //{
+    //    while (killfloorCheck)
+    //    {
+    //        foreach (EntityBehaviour _entity in FindObjectsOfType<EntityBehaviour>())
+    //        {
+    //            Vector3 _pos = _entity.transform.position;
+    //            if (_pos.y <= FindObjectOfType<CarriageManager>().firstSpawn.transform.position.y -5)
+    //            {
+    //                Debug.Log(_entity.name);
+    //                _entity.Death();
+    //            }
+    //        }
+    //        yield return new WaitForSeconds(1f);
+    //    }
+    //}
     public void StartGame()
     {
 
