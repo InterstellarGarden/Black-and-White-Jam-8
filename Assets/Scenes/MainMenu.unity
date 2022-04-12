@@ -2165,13 +2165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInitialiseCarriages: 1
   carriagePrefabs:
-  - {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
+  - {fileID: 834967924882984040, guid: c009200d5a9e73646bee76e6ada49db9, type: 3}
   - {fileID: 3179977156943958145, guid: e0fa8bb9e07178344857cd2cbd320a01, type: 3}
   - {fileID: 7857488318420434671, guid: 3fb52ebb5bdf42a4aa93ab58f0dbdd26, type: 3}
   - {fileID: 7012945149067214911, guid: 8054b1c3d41b2e34e9861b57d6a17641, type: 3}
   - {fileID: 4420814813850678828, guid: b586249aa1a81e04d862700af5262496, type: 3}
   - {fileID: 3305936880225172215, guid: 404fe55c9358b2845b98a8111530e802, type: 3}
-  - {fileID: 8225657583567834054, guid: e2bea2debac003b4b9ef948ed6cf9599, type: 3}
+  - {fileID: 3098628184132051787, guid: 2ab5d48063e604346a18d9cd0a54334d, type: 3}
   - {fileID: 8804390534524991386, guid: 02c03971adaeb744f99327ab9f34fd18, type: 3}
   spawnedCarriages: []
   currentCarriage: {fileID: 0}
