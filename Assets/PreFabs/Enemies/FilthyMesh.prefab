@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 482d41fa4dd78bb4d8a7f953df246510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 0
+  thisWeakness: 3
   maxHealth: 2
   health: 0
   sfxMultiplier: 1

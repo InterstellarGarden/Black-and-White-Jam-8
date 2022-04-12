@@ -270,7 +270,7 @@ MonoBehaviour:
   targettableMask:
     serializedVersion: 2
     m_Bits: 649
-  shootingSfxLocalMultiplier: 1
+  shootingSfxLocalMultiplier: 0.4
   shootingNormal: {fileID: 8300000, guid: 552a0d980b14fee4698ef25a82e20ead, type: 3}
   shootingFire: {fileID: 8300000, guid: b3ccc37829df8ab4988a47acaa722b0b, type: 3}
   shootingLightning: {fileID: 8300000, guid: f3193805f04f1ee47bc844f397c7dfaa, type: 3}
