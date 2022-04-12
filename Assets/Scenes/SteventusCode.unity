@@ -6574,15 +6574,15 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[3]
       value: 
-      objectReference: {fileID: 7012945149067214911, guid: 8054b1c3d41b2e34e9861b57d6a17641, type: 3}
+      objectReference: {fileID: 7012945149067214911, guid: f28ebdba4a1a27444aac6909a3539d7d, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[4]
       value: 
-      objectReference: {fileID: 4420814813850678828, guid: b586249aa1a81e04d862700af5262496, type: 3}
+      objectReference: {fileID: 4420814813850678828, guid: 279ae5c2253d50b4d87f4edb8e3ce179, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[5]
       value: 
-      objectReference: {fileID: 3305936880225172215, guid: 404fe55c9358b2845b98a8111530e802, type: 3}
+      objectReference: {fileID: 3305936880225172215, guid: b32c5bf17e3cd3a4ba2161b1ebb84b4e, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[6]
       value: 
