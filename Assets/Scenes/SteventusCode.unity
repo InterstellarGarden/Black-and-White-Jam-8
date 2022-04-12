@@ -6586,7 +6586,7 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[6]
       value: 
-      objectReference: {fileID: 3098628184132051787, guid: 2ab5d48063e604346a18d9cd0a54334d, type: 3}
+      objectReference: {fileID: 1718952030475184912, guid: d4ed8cef13275764d8dfa27c27df9174, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[7]
       value: 
