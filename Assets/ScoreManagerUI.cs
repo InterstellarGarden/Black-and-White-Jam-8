@@ -11,7 +11,7 @@ public class ScoreManagerUI : MonoBehaviour
     {
         accuracy.text = Mathf.FloorToInt(ScoreManager.accuracy) + "%";
         enemiesKilled.text = ""+ScoreManager.enemiesKilled;
-        loopsReached.text = ""+ScoreManager.LoopsReached +1;
+        loopsReached.text = ""+(ScoreManager.LoopsReached +1);
     }
 
 }
