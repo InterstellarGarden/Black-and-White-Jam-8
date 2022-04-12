@@ -30,7 +30,7 @@ public class TransitionManager : MonoBehaviour
 
         //To upgrade: If async scene is fully loaded, set it as active scene
         TriggerLoadScene(_buildIndex);
-    }
+    }    
     public void GameOver()
     {
         //Run animation here for GameOver

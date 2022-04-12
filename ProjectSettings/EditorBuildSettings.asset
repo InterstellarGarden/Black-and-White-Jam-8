@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SteventusCode.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/LoseGAme.unity
+    path: Assets/Scenes/LoseGame.unity
     guid: 13048910afe246a4b8bb10a654c18055
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: e976a793f158c674f9ede98f1e8e5d14
   m_configObjects: {}

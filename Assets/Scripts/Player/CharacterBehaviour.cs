@@ -40,6 +40,7 @@ public class CharacterBehaviour : MonoBehaviour
 
     //PRIVATE ESSENTIALS
     Camera playerCamera;
+    [SerializeField] private float cameraShakeAmplitude = 20, cameraShakeFrequency = 5, cameraShakeDuration = 0.3f;
 
     //SOUND
     private SoundManager thisSoundManager;
@@ -141,6 +142,7 @@ public class CharacterBehaviour : MonoBehaviour
     public void TriggerTakeDamage(int _damage)
     {
         health -= _damage;
+        playerCamera.gameObject.GetComponent<CameraBehaviour>().TriggerCameraShake(cameraShakeAmplitude, cameraShakeFrequency, cameraShakeDuration);
         if (health <= 0)
         {
             if (!GameManager.playerIsDead)
