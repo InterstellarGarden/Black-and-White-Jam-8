@@ -6,6 +6,7 @@ public class ArsenalPickUp : PickUP
 {
     public int bulletToUnlock;
     public List<GameObject> unlockableBulletPrefabs;
+    public AudioClip pickUpSound;
     private void Start()
     {
         InitialiseBullet();
@@ -26,6 +27,9 @@ public class ArsenalPickUp : PickUP
 
         if (!FindObjectOfType<CombatManager>().isBossAlive)
             FindObjectOfType<CombatManager>().ForceEndCombat();
+
+        FindObjectOfType<SoundManager>().TriggerPlaySound(pickUpSound, 1, false);
+
         base.OnPickUp();    
     }
 }
