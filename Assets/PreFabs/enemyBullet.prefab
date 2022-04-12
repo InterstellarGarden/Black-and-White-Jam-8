@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisBullet: 6
+  poof: {fileID: 0}
   selfDestructTimeInSeconds: 10
 --- !u!136 &3356811554193959413
 CapsuleCollider:
