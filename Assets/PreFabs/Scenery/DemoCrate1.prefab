@@ -5813,10 +5813,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05755813d0625142be9523dfcb2f2c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisWeakness: 0
+  thisWeakness: 1
   maxHealth: 2
   health: 0
   sfxMultiplier: 0
+  soundOnCritical: {fileID: 0}
 --- !u!1 &3309581759025003273
 GameObject:
   m_ObjectHideFlags: 0
