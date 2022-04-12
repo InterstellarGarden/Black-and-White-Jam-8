@@ -27,7 +27,6 @@ public class ScoreManager : MonoBehaviour
     public void ShotHit()
     {
         shotsHit++;
-        CalculateAccuracy();
     }
     private void CalculateAccuracy()
     {

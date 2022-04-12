@@ -4500,7 +4500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cf7c9586183002499f6ffd3ef9d1ef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accuracy: 0
 --- !u!4 &1382092943
 Transform:
   m_ObjectHideFlags: 0
@@ -7003,7 +7002,7 @@ PrefabInstance:
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[1]
       value: 
-      objectReference: {fileID: 7437259176569710787, guid: aceed1d2b8f6c504fa08106073eee063, type: 3}
+      objectReference: {fileID: 3179977156943958145, guid: e0fa8bb9e07178344857cd2cbd320a01, type: 3}
     - target: {fileID: 8365354634044803054, guid: 447460f8007404247860ca1dafda5e43, type: 3}
       propertyPath: carriagePrefabs.Array.data[2]
       value: 
