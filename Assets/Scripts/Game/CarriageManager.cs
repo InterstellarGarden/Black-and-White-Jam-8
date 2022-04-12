@@ -168,6 +168,7 @@ public class CarriageManager : MonoBehaviour
     {
         loopsCompleted++;
         thisCombatManager.totalWavesPerCarriage = loopsCompleted;
+        ScoreManager.LoopsReached++;
     }
     private void OnDrawGizmos()
     {

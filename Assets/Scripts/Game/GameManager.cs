@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        ScoreManager.instance.Reset();
         StartCoroutine(CoroKillfloor());
     }
     IEnumerator CoroKillfloor()

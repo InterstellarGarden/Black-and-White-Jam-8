@@ -34,6 +34,7 @@ public class RevolverBehaviour : MonoBehaviour
     //UI ELEMENTS
     private uiRubiBehaviour thisRubiBehaviour;
 
+
     void Awake()
     {
         thisCombo = GetComponent<ComboBehaviour>();
@@ -85,6 +86,8 @@ public class RevolverBehaviour : MonoBehaviour
                         _enemy.TriggerInstantKill();
                     else
                         _enemy.TriggerTakeDamage(_currentType);
+
+                    ScoreManager.instance.ShotHit();
                 }
 
                 else if (_hitInfo.collider.TryGetComponent(out DestructibleBehaviour _destructible))
@@ -94,10 +97,14 @@ public class RevolverBehaviour : MonoBehaviour
                         _destructible.TriggerInstantKill();
                     else
                         _destructible.TriggerTakeDamage(_currentType);
+
+                    ScoreManager.instance.ShotHit();
                 }
 
                 else Debug.Log("Error targetting entity");
-            }                       
+            }
+
+            ScoreManager.instance.ShotFired();
             #endregion
 
             #region Sound
