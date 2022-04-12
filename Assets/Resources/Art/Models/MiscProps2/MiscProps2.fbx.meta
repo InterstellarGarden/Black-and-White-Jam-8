@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Bullet1
+    second: {fileID: 2100000, guid: e6988f8504b163240830a4b56845107e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Coal
     second: {fileID: 2100000, guid: af9700fba639d504a90a5b04d9e27e77, type: 2}
   - first:
