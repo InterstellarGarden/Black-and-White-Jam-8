@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7277163615154920534}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.6503, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefabs:
-  - {fileID: 8563779283964280796, guid: 3c650fef1a27c794ebc2c5dab7e3167b, type: 3}
-  - {fileID: 3784005861480905426, guid: 1b31089029b7237498e7087d5feca2ac, type: 3}
-  - {fileID: 3784005861480905426, guid: d266f18fcc5b63b4c8560f5e6c270cc9, type: 3}
-  - {fileID: 3784005861480905426, guid: 364441c4c9d70bf4183c25a172eef672, type: 3}
+  - {fileID: 919132149155446097, guid: 15d168d71a96f074198e379eca180dd5, type: 3}
+  - {fileID: 919132149155446097, guid: 8acb1d2c181b1804e97231d553541559, type: 3}
+  - {fileID: 919132149155446097, guid: 792a3296117511b4aad6854e1a80c13d, type: 3}
+  - {fileID: 919132149155446097, guid: 1fed43ed22532344fb60e19ac0d70438, type: 3}
   bulletType: 0
 --- !u!65 &7277163615154920535
 BoxCollider:

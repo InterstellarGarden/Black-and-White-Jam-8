@@ -5,25 +5,11 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class TransitionManager : MonoBehaviour
 {
-    private Animator transitionAnimator;
-    public Keystroke buttonToReset;
-    public enum Keystroke
-    {
-        R = KeyCode.R
-    }
+    public Animator transitionAnimator;    
     private void Awake()
     {
         transitionAnimator = GetComponent<Animator>();
-    }
-    void Update()
-    {
-        if (Input.GetKeyDown((KeyCode)buttonToReset))
-            TriggerResetScene();
-    }
-    void TriggerResetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }        
     void TriggerLoadScene(int _buildIndex)
     {
         SceneManager.LoadScene(_buildIndex);
