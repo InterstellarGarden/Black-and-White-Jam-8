@@ -699,7 +699,7 @@ MonoBehaviour:
   exitDoor: {fileID: 834967924406128398}
   exitPos: {fileID: 834967923922241866}
   enemySpawners: []
-  numberOfEnemiesToSpawn: 5
+  numberOfEnemiesToSpawn: 3
   totalEnemiesPool: 0
   _isSpecialCarriage: 2
 --- !u!65 &834967924882984023
@@ -52656,9 +52656,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 834967925392693462}
     m_Modifications:
+    - target: {fileID: 7894012970578267146, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_Name
       value: WhiskeyBottle1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089996, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_RootOrder
@@ -53634,6 +53642,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeerBottle1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6970529365100238240, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_RootOrder
       value: 145
@@ -53678,6 +53690,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6970529365678548021, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
 --- !u!4 &7742360502695135661 stripped
@@ -53695,6 +53711,10 @@ PrefabInstance:
     - target: {fileID: 6970529365100238240, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_Name
       value: BeerBottle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970529365100238240, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_RootOrder
@@ -53739,6 +53759,10 @@ PrefabInstance:
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970529365678548021, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
@@ -54296,6 +54320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeerBottle1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6970529365100238240, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_RootOrder
       value: 143
@@ -54339,6 +54367,10 @@ PrefabInstance:
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970529365678548021, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
@@ -55008,9 +55040,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 834967925392693462}
     m_Modifications:
+    - target: {fileID: 7894012970578267146, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_Name
       value: WhiskeyBottle1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089996, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_RootOrder
@@ -55686,9 +55726,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 834967925392693462}
     m_Modifications:
+    - target: {fileID: 7894012970578267146, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_Name
       value: WhiskeyBottle1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089996, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_RootOrder
@@ -57180,9 +57228,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 834967925392693462}
     m_Modifications:
+    - target: {fileID: 7894012970578267146, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_Name
       value: WhiskeyBottle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001637780674089995, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8001637780674089996, guid: 1c972c384ac7e544b9efb59f46557af4, type: 3}
       propertyPath: m_RootOrder
@@ -58744,6 +58800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BeerBottle1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6970529365100238240, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_RootOrder
       value: 144
@@ -58787,6 +58847,10 @@ PrefabInstance:
     - target: {fileID: 6970529365100238247, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6970529365678548021, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a627e74cf5a66194682d06905cbf34a1, type: 3}
