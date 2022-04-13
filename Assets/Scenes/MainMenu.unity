@@ -491,7 +491,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1144050894}
         m_TargetAssemblyTypeName: OpenLinks, Assembly-CSharp
-        m_MethodName: ShlofCredit
+        m_MethodName: BoncCredit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1065,8 +1065,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.7838, y: 417.4799}
-  m_SizeDelta: {x: 558.7743, y: 171.4014}
+  m_AnchoredPosition: {x: -11.6492, y: 417.4799}
+  m_SizeDelta: {x: 915.3607, y: 171.4014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &391237321
 MonoBehaviour:
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wildest West
+  m_text: INFINITY HEIST
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 959a9122d30030145a355c60f7f235fb, type: 2}
   m_sharedMaterial: {fileID: -6700309043078129133, guid: 959a9122d30030145a355c60f7f235fb, type: 2}
@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2165,13 +2165,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInitialiseCarriages: 1
   carriagePrefabs:
-  - {fileID: 1002238379833600914, guid: c0106bf7077defc49968443bb7ee4dec, type: 3}
+  - {fileID: 834967924882984040, guid: c009200d5a9e73646bee76e6ada49db9, type: 3}
   - {fileID: 3179977156943958145, guid: e0fa8bb9e07178344857cd2cbd320a01, type: 3}
   - {fileID: 7857488318420434671, guid: 3fb52ebb5bdf42a4aa93ab58f0dbdd26, type: 3}
-  - {fileID: 7012945149067214911, guid: 8054b1c3d41b2e34e9861b57d6a17641, type: 3}
-  - {fileID: 4420814813850678828, guid: b586249aa1a81e04d862700af5262496, type: 3}
-  - {fileID: 3305936880225172215, guid: 404fe55c9358b2845b98a8111530e802, type: 3}
-  - {fileID: 8225657583567834054, guid: e2bea2debac003b4b9ef948ed6cf9599, type: 3}
+  - {fileID: 7012945149067214911, guid: f28ebdba4a1a27444aac6909a3539d7d, type: 3}
+  - {fileID: 4420814813850678828, guid: 279ae5c2253d50b4d87f4edb8e3ce179, type: 3}
+  - {fileID: 3305936880225172215, guid: b32c5bf17e3cd3a4ba2161b1ebb84b4e, type: 3}
+  - {fileID: 1718952030475184912, guid: d4ed8cef13275764d8dfa27c27df9174, type: 3}
   - {fileID: 8804390534524991386, guid: 02c03971adaeb744f99327ab9f34fd18, type: 3}
   spawnedCarriages: []
   currentCarriage: {fileID: 0}
@@ -7301,7 +7301,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e3ea297d1ee63a74b94295a3244edaa4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f950de918fd950749a761834ff1d4efa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

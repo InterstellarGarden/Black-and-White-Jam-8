@@ -11,7 +11,7 @@ public class TestBreak : MonoBehaviour
             Breakable[] objs = GameObject.FindObjectsOfType<Breakable>();
             foreach(Breakable obj in objs)
             {
-                obj.Break();
+                //obj.Break();
             }
         }
     }

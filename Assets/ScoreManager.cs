@@ -30,7 +30,7 @@ public class ScoreManager : MonoBehaviour
     }
     private void CalculateAccuracy()
     {
-        accuracy = shotsHit / shotsFired;
+        accuracy = ((float)shotsHit / (float)shotsFired)*100;
     }
     public void Reset()
     {
